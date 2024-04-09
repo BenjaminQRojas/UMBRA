@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbxffiqjc6xws"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_210dm"]
+[ext_resource type="Texture2D" uid="uid://dlhighltsqlqu" path="res://assets/126294.png" id="2_7b6yb"]
+[ext_resource type="Texture2D" uid="uid://jt8a5ynd0ha2" path="res://assets/—Pngtree—light effect_178754.png" id="3_cmlrn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvo2t"]
+size = Vector2(64, 96)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_210dm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7b6yb")
+region_enabled = true
+region_rect = Rect2(15, 330, 51, 84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kvo2t")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-40, 0)
+build_mode = 1
+polygon = PackedVector2Array(16, 0, 368, -208, 368, 240)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(186.703, 3.09854e-05)
+rotation = 1.5708
+scale = Vector2(0.167161, 0.21049)
+texture = ExtResource("3_cmlrn")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(968, 88, 1032, 1888)
