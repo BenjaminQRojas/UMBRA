@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgjmtsrhs1p42"]
+
+[ext_resource type="Texture2D" uid="uid://dl45hjbe3llkf" path="res://Main character/Resourses/images/Characters/Civilian1(black)_Move.png" id="1_fwxyn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2khv"]
+size = Vector2(11, 17)
+
+[node name="Main character" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(67.5, 53.5)
+shape = SubResource("RectangleShape2D_h2khv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(67, 54)
+texture = ExtResource("1_fwxyn")
+hframes = 4
+vframes = 8
