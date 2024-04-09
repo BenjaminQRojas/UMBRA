@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: int = 250
+@export var speed: int = 35
 @onready var animations = $AnimationPlayer
 
 func handleInput():
@@ -8,12 +8,17 @@ func handleInput():
 	velocity = moveDirection*speed
 
 func updateAnimation():
-	var direction = "down"
-	if velocity.x < 0: direction = "left"
-	elif velocity.x > 0: direction = "right"
-	elif velocity.y < 0: direction = "up"
-	
-	animations.play("Walk_" + direction)
+	if velocity.length() == 0:
+		animations.stop()
+	else:
+		var direction = ""
+		
+		if velocity.x < 0: direction = "left"
+		elif velocity.x > 0: direction = "right"
+		elif velocity.y < 0: direction = "up"
+		elif velocity.y > 0: direction = "down"
+		
+		animations.play("Walk_" + direction)
 
 func _physics_process(delta):
 	handleInput()
