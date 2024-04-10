@@ -1,10 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://d0oholqt08ib2"]
+[gd_scene load_steps=45 format=3 uid="uid://d0oholqt08ib2"]
 
 [ext_resource type="Script" path="res://Laboratorio/laboratorio.gd" id="1_04mok"]
 [ext_resource type="Texture2D" uid="uid://dcn1yijpqumq2" path="res://Laboratorio/mainlevbuild.png" id="1_x1gju"]
 [ext_resource type="Texture2D" uid="uid://b553dpdftcshe" path="res://Laboratorio/decorative_props.png" id="2_pkupe"]
 [ext_resource type="Texture2D" uid="uid://53nbtlavkigd" path="res://Laboratorio/other_props.png" id="3_6pvse"]
-[ext_resource type="PackedScene" uid="uid://c1woldoyr7wun" path="res://Player/player.tscn" id="4_u4re8"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Main character/Scenes/main_character.tscn" id="6_y8qyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mapli"]
@@ -1969,10 +1968,9 @@ anchors_preset = 0
 offset_right = 1011.0
 offset_bottom = 416.0
 
-[node name="Player" parent="." instance=ExtResource("4_u4re8")]
-visible = false
-z_index = 2
-position = Vector2(73, 259)
+[node name="Main character" parent="." instance=ExtResource("6_y8qyl")]
+z_index = 3
+position = Vector2(141, 267)
 
 [node name="TileMap" type="TileMap" parent="."]
 light_mask = 3
@@ -2149,9 +2147,6 @@ z_index = 3
 occluder = SubResource("OccluderPolygon2D_j1umg")
 occluder_light_mask = 7
 
-[node name="Main character" parent="." instance=ExtResource("6_y8qyl")]
-position = Vector2(122, 259)
-
 [node name="Settings" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Settings"]
@@ -2159,6 +2154,7 @@ visible = false
 color = Color(0.0862745, 0.0862745, 0.0862745, 1)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 4
 offset_right = 146.0
 offset_bottom = 69.0

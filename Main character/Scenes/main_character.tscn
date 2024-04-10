@@ -2,28 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dl45hjbe3llkf" path="res://Main character/Resourses/images/Characters/Civilian1(black)_Move.png" id="1_fwxyn"]
 [ext_resource type="Script" path="res://Main character/Scripts/main_character.gd" id="1_tgsgf"]
+[ext_resource type="Texture2D" uid="uid://depr4ryekb4am" path="res://Player/light.png" id="3_f5uqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2khv"]
-size = Vector2(24, 37.25)
-
-[sub_resource type="Animation" id="Animation_ixeib"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
+size = Vector2(15, 24.8125)
 
 [sub_resource type="Animation" id="Animation_24xnl"]
 resource_name = "Walk_down"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -32,7 +18,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -74,7 +60,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hdvev"]
 resource_name = "Walk_left"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -83,7 +69,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [24, 25, 26, 27]
@@ -91,7 +77,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yv8nm"]
 resource_name = "Walk_right"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -100,7 +86,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [8, 9, 10, 11]
@@ -108,7 +94,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_r2dl8"]
 resource_name = "Walk_up"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -117,7 +103,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [16, 17, 18, 19]
@@ -159,7 +145,6 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cayj7"]
 _data = {
-"RESET": SubResource("Animation_ixeib"),
 "Walk_down": SubResource("Animation_24xnl"),
 "Walk_down_left": SubResource("Animation_otb6o"),
 "Walk_down_right": SubResource("Animation_tjlw8"),
@@ -171,21 +156,21 @@ _data = {
 }
 
 [node name="Main character" type="CharacterBody2D"]
-position = Vector2(-8, -4)
+position = Vector2(-8, -5)
 script = ExtResource("1_tgsgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 4.40625)
+shape = SubResource("RectangleShape2D_h2khv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(8, 4)
-scale = Vector2(2.15084, 2.10577)
+scale = Vector2(1.38386, 1.43029)
 texture = ExtResource("1_fwxyn")
 hframes = 4
 vframes = 8
-frame = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, 3.625)
-shape = SubResource("RectangleShape2D_h2khv")
+frame = 19
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -193,5 +178,27 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(5.5, 15.5)
+z_index = 3
 zoom = Vector2(5, 5)
+
+[node name="luces" type="PointLight2D" parent="."]
+show_behind_parent = true
+position = Vector2(9, 5)
+scale = Vector2(0.168605, 0.205426)
+color = Color(0.482353, 0.482353, 0.482353, 1)
+energy = 0.83
+range_z_min = -1028
+range_item_cull_mask = 15
+shadow_enabled = true
+texture = ExtResource("3_f5uqa")
+texture_scale = 1.93
+
+[node name="sombras" type="PointLight2D" parent="."]
+blend_mode = 1
+range_item_cull_mask = 2
+shadow_enabled = true
+texture = ExtResource("3_f5uqa")
+texture_scale = 10.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
