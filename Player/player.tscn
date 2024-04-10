@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1woldoyr7wun"]
+[gd_scene load_steps=12 format=3 uid="uid://c1woldoyr7wun"]
 
 [ext_resource type="Texture2D" uid="uid://cnfrfqxg4b8xy" path="res://Player/Mask Dude.png" id="1_f7bje"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xl60n"]
 [ext_resource type="Texture2D" uid="uid://depr4ryekb4am" path="res://Player/light.png" id="3_omfy2"]
+[ext_resource type="PackedScene" uid="uid://c6og8p2bmx4tl" path="res://Objetos extras/Linterna/linterna.tscn" id="4_oe7x7"]
+[ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/linterna.png" id="5_ax4ah"]
+[ext_resource type="Texture2D" uid="uid://1nso4ptupjac" path="res://Objetos extras/klipartz.com.png" id="6_vwkei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1eb2"]
 size = Vector2(18, 23)
@@ -92,6 +95,7 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="luces" type="PointLight2D" parent="."]
+visible = false
 show_behind_parent = true
 position = Vector2(0, -4.76837e-07)
 scale = Vector2(0.168605, 0.205426)
@@ -112,5 +116,32 @@ texture_scale = 10.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Node2D" parent="." instance=ExtResource("4_oe7x7")]
+visible = false
+position = Vector2(6, 6)
+
+[node name="Pivote" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivote"]
+z_index = -1
+position = Vector2(1, 7)
+rotation = 3.14159
+scale = Vector2(0.00989582, 0.00826821)
+texture = ExtResource("5_ax4ah")
+flip_v = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Pivote/Sprite2D"]
+visible = false
+energy = 0.1
+max_distance = 3.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Pivote/Sprite2D"]
+z_index = -1
+position = Vector2(-2324.21, 483.781)
+rotation = 1.5708
+scale = Vector2(8, 8)
+energy = 0.7
+texture = ExtResource("6_vwkei")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

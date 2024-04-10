@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6og8p2bmx4tl"]
+
+[ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/linterna.png" id="1_c2xxn"]
+[ext_resource type="Texture2D" uid="uid://1nso4ptupjac" path="res://Objetos extras/klipartz.com.png" id="2_i2sem"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0046875, 0.00416667)
+texture = ExtResource("1_c2xxn")
+centered = false
+flip_h = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Sprite2D"]
+visible = false
+energy = 0.05
+max_distance = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(7253.33, 720)
+rotation = -1.61443
+scale = Vector2(10.3736, 16.2601)
+energy = 1.82
+texture = ExtResource("2_i2sem")
