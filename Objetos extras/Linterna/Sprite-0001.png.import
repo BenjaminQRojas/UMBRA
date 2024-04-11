@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1nso4ptupjac"
-path="res://.godot/imported/klipartz.com.png-a2357da0ee287bdcabc3757993204e5e.ctex"
+uid="uid://eqf3tqpn6sww"
+path="res://.godot/imported/Sprite-0001.png-86303d3c659d192d228a1c6d4a300141.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objetos extras/klipartz.com.png"
-dest_files=["res://.godot/imported/klipartz.com.png-a2357da0ee287bdcabc3757993204e5e.ctex"]
+source_file="res://Objetos extras/Linterna/Sprite-0001.png"
+dest_files=["res://.godot/imported/Sprite-0001.png-86303d3c659d192d228a1c6d4a300141.ctex"]
 
 [params]
 
