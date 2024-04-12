@@ -66,6 +66,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+visible = false
 script = ExtResource("1_xl60n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,11 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgjmtsrhs1p42"]
+[gd_scene load_steps=17 format=3 uid="uid://bgjmtsrhs1p42"]
 
 [ext_resource type="Texture2D" uid="uid://dl45hjbe3llkf" path="res://Main character/Resourses/images/Characters/Civilian1(black)_Move.png" id="1_fwxyn"]
 [ext_resource type="Script" path="res://Main character/Scripts/main_character.gd" id="1_tgsgf"]
 [ext_resource type="Texture2D" uid="uid://depr4ryekb4am" path="res://Player/light.png" id="3_f5uqa"]
+[ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/Linterna/linterna.png" id="4_twy4t"]
+[ext_resource type="Texture2D" uid="uid://eqf3tqpn6sww" path="res://Objetos extras/Linterna/Sprite-0001.png" id="5_8qs5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2khv"]
 size = Vector2(15, 24.8125)
+
+[sub_resource type="Animation" id="Animation_6scro"]
+resource_name = "Action"
 
 [sub_resource type="Animation" id="Animation_24xnl"]
 resource_name = "Walk_down"
@@ -143,9 +148,6 @@ tracks/0/keys = {
 "values": [12, 13, 14, 15]
 }
 
-[sub_resource type="Animation" id="Animation_6scro"]
-resource_name = "Action"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cayj7"]
 _data = {
 "Action": SubResource("Animation_6scro"),
@@ -206,3 +208,24 @@ texture_scale = 10.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Pivote" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivote"]
+visible = false
+z_index = 2
+position = Vector2(1, 7)
+rotation = 3.14159
+scale = Vector2(0.00989582, 0.00826821)
+texture = ExtResource("4_twy4t")
+flip_v = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Pivote"]
+z_index = 3
+position = Vector2(91, -8)
+rotation = -0.139626
+scale = Vector2(0.0791666, 0.0661457)
+energy = 1.5
+shadow_enabled = true
+texture = ExtResource("5_8qs5q")
+texture_scale = 10.0
