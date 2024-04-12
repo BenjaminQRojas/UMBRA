@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1woldoyr7wun"]
+[gd_scene load_steps=11 format=3 uid="uid://c1woldoyr7wun"]
 
 [ext_resource type="Texture2D" uid="uid://cnfrfqxg4b8xy" path="res://Player/Mask Dude.png" id="1_f7bje"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xl60n"]
 [ext_resource type="Texture2D" uid="uid://depr4ryekb4am" path="res://Player/light.png" id="3_omfy2"]
+[ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/Linterna/linterna.png" id="5_ax4ah"]
+[ext_resource type="Texture2D" uid="uid://eqf3tqpn6sww" path="res://Objetos extras/Linterna/Sprite-0001.png" id="6_4vpss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1eb2"]
 size = Vector2(18, 23)
@@ -92,6 +94,7 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="luces" type="PointLight2D" parent="."]
+visible = false
 show_behind_parent = true
 position = Vector2(0, -4.76837e-07)
 scale = Vector2(0.168605, 0.205426)
@@ -104,6 +107,7 @@ texture = ExtResource("3_omfy2")
 texture_scale = 1.93
 
 [node name="sombras" type="PointLight2D" parent="."]
+visible = false
 blend_mode = 1
 range_item_cull_mask = 2
 shadow_enabled = true
@@ -112,5 +116,26 @@ texture_scale = 10.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Pivote" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivote"]
+visible = false
+z_index = 2
+position = Vector2(1, 7)
+rotation = 3.14159
+scale = Vector2(0.00989582, 0.00826821)
+texture = ExtResource("5_ax4ah")
+flip_v = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Pivote"]
+z_index = 3
+position = Vector2(81, -8)
+rotation = -0.139626
+scale = Vector2(0.0791666, 0.0661457)
+energy = 1.25
+shadow_enabled = true
+texture = ExtResource("6_4vpss")
+texture_scale = 10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
