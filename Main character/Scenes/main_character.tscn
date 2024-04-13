@@ -185,7 +185,8 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 3
-zoom = Vector2(5, 5)
+position = Vector2(8, 5)
+zoom = Vector2(5.3, 5.3)
 
 [node name="luces" type="PointLight2D" parent="."]
 show_behind_parent = true
@@ -200,6 +201,7 @@ texture = ExtResource("3_f5uqa")
 texture_scale = 1.93
 
 [node name="sombras" type="PointLight2D" parent="."]
+visible = false
 blend_mode = 1
 range_item_cull_mask = 2
 shadow_enabled = true
@@ -210,6 +212,7 @@ texture_scale = 10.0
 autostart = true
 
 [node name="Pivote" type="Node2D" parent="."]
+position = Vector2(8, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivote"]
 visible = false
@@ -221,11 +224,11 @@ texture = ExtResource("4_twy4t")
 flip_v = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Pivote"]
-z_index = 3
-position = Vector2(91, -8)
+position = Vector2(91, -11)
 rotation = -0.139626
 scale = Vector2(0.0791666, 0.0661457)
 energy = 1.5
 shadow_enabled = true
+shadow_item_cull_mask = 9
 texture = ExtResource("5_8qs5q")
 texture_scale = 10.0
