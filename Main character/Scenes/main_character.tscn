@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Main character/Scenes/linterna.gd" id="6_qpgwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2khv"]
-size = Vector2(15, 24.8125)
+size = Vector2(15, 11.8125)
 
 [sub_resource type="Animation" id="Animation_6scro"]
 resource_name = "Action"
@@ -167,10 +167,11 @@ position = Vector2(-8, -5)
 script = ExtResource("1_tgsgf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.5, 4.40625)
+position = Vector2(8.5, 10.9063)
 shape = SubResource("RectangleShape2D_h2khv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 texture_filter = 1
 position = Vector2(8, 4)
 scale = Vector2(1.38386, 1.43029)
@@ -230,7 +231,7 @@ rotation = -0.139626
 scale = Vector2(0.0791666, 0.0661457)
 energy = 1.5
 shadow_enabled = true
-shadow_item_cull_mask = 9
+shadow_item_cull_mask = 15
 texture = ExtResource("5_8qs5q")
 texture_scale = 10.0
 script = ExtResource("6_qpgwl")
