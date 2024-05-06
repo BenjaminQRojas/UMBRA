@@ -23,3 +23,11 @@ func _physics_process(delta):
 	#sprite.flip_v = direcciony < 0 if direcciony != 0 else sprite.flip_v
 	
 	move_and_slide()
+	look_at_mouse()
+
+func look_at_mouse():
+	var mouse_pos = get_global_mouse_position()
+	get_node("Pivote").look_at(mouse_pos)
+	
+	
+	
