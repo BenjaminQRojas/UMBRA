@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://b32ocqfv45ems"]
+
+[ext_resource type="Script" path="res://inventario/inventory_item.gd" id="1_2gaac"]
+[ext_resource type="Texture2D" uid="uid://bwmdtrj5npxm2" path="res://inventario/2D Pixel Dungeon Asset Pack/items and trap_animation/flag/flag_4.png" id="2_xu2d4"]
+
+[resource]
+script = ExtResource("1_2gaac")
+name = "nota"
+texture = ExtResource("2_xu2d4")

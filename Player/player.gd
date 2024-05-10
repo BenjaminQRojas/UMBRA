@@ -5,6 +5,8 @@ var speed := 100
 var direccionx := 2
 var direcciony := 2
 
+@export var inv: Inv
+
 @onready var anim := $AnimationPlayer
 @onready var sprite := $Sprite2D
 func _physics_process(delta):

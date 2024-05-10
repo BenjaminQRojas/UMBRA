@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1woldoyr7wun"]
+[gd_scene load_steps=13 format=3 uid="uid://c1woldoyr7wun"]
 
 [ext_resource type="Texture2D" uid="uid://cnfrfqxg4b8xy" path="res://Player/Mask Dude.png" id="1_f7bje"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xl60n"]
+[ext_resource type="Resource" uid="uid://c0e5cr65coo14" path="res://inventario/player_inventory.tres" id="2_rhwmv"]
 [ext_resource type="Texture2D" uid="uid://depr4ryekb4am" path="res://Player/light.png" id="3_omfy2"]
 [ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/Linterna/linterna.png" id="5_ax4ah"]
 [ext_resource type="Texture2D" uid="uid://eqf3tqpn6sww" path="res://Objetos extras/Linterna/Sprite-0001.png" id="6_4vpss"]
+[ext_resource type="PackedScene" uid="uid://niorf5ep68ss" path="res://inventario/inv_ui.tscn" id="7_uu8wc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1eb2"]
 size = Vector2(18, 23)
@@ -68,6 +70,7 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 visible = false
 script = ExtResource("1_xl60n")
+inv = ExtResource("2_rhwmv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_f7bje")
@@ -138,5 +141,7 @@ energy = 1.25
 shadow_enabled = true
 texture = ExtResource("6_4vpss")
 texture_scale = 10.0
+
+[node name="Inv_UI" parent="." instance=ExtResource("7_uu8wc")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

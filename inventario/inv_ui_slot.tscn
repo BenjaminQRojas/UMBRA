@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkt40omtxe315"]
+
+[ext_resource type="Texture2D" uid="uid://0lao1y1alpfk" path="res://inventario/Retro Inventory/Scaled 2x/Inventory_Slot_1.png" id="1_eohii"]
+
+[node name="inv_UI_slot" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.446925, 0.4549)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.621434, 0.637169)
+texture = ExtResource("1_eohii")
+centered = false
