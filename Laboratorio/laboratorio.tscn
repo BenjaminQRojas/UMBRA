@@ -2204,6 +2204,7 @@ autostart = true
 position = Vector2(1112, 222)
 
 [node name="Area2D" type="Area2D" parent="."]
+z_index = 2
 script = ExtResource("8_in1lx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
