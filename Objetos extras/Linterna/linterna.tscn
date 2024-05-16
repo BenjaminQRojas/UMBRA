@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://eyfd8mfmrssf"]
+[gd_scene load_steps=2 format=3 uid="uid://eyfd8mfmrssf"]
 
 [ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/Linterna/linterna.png" id="1_ij1mu"]
-[ext_resource type="Texture2D" uid="uid://1nso4ptupjac" path="res://Objetos extras/Linterna/klipartz.com.png" id="2_m60p8"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,4 +20,3 @@ position = Vector2(7253.33, 720)
 rotation = -1.61443
 scale = Vector2(10.3736, 16.2601)
 energy = 1.82
-texture = ExtResource("2_m60p8")

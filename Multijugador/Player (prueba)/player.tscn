@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1woldoyr7wun"]
+[gd_scene load_steps=12 format=3 uid="uid://c1woldoyr7wun"]
 
-[ext_resource type="Texture2D" uid="uid://cnfrfqxg4b8xy" path="res://Player/Mask Dude.png" id="1_f7bje"]
-[ext_resource type="Script" path="res://Player/player.gd" id="1_xl60n"]
-[ext_resource type="Texture2D" uid="uid://depr4ryekb4am" path="res://Player/light.png" id="3_omfy2"]
+[ext_resource type="Texture2D" uid="uid://cnfrfqxg4b8xy" path="res://Multijugador/Player (prueba)/Mask Dude.png" id="1_f7bje"]
+[ext_resource type="Script" path="res://Multijugador/Player (prueba)/player.gd" id="1_xl60n"]
+[ext_resource type="Texture2D" uid="uid://depr4ryekb4am" path="res://Multijugador/Player (prueba)/light.png" id="3_omfy2"]
 [ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/Linterna/linterna.png" id="5_ax4ah"]
 [ext_resource type="Texture2D" uid="uid://eqf3tqpn6sww" path="res://Objetos extras/Linterna/Sprite-0001.png" id="6_4vpss"]
 
@@ -65,8 +65,10 @@ _data = {
 "walk": SubResource("Animation_7k1ts")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w5ki"]
+size = Vector2(210, 72)
+
 [node name="Player" type="CharacterBody2D"]
-visible = false
 script = ExtResource("1_xl60n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -138,5 +140,11 @@ energy = 1.25
 shadow_enabled = true
 texture = ExtResource("6_4vpss")
 texture_scale = 10.0
+
+[node name="AreaLinterna" type="Area2D" parent="Pivote"]
+
+[node name="ColisionLinterna" type="CollisionShape2D" parent="Pivote/AreaLinterna"]
+position = Vector2(95, -12)
+shape = SubResource("RectangleShape2D_8w5ki")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

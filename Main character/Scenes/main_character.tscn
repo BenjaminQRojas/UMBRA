@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dl45hjbe3llkf" path="res://Main character/Resourses/images/Characters/Civilian1(black)_Move.png" id="1_fwxyn"]
 [ext_resource type="Script" path="res://Main character/Scripts/main_character.gd" id="1_tgsgf"]
-[ext_resource type="Texture2D" uid="uid://depr4ryekb4am" path="res://Player/light.png" id="3_f5uqa"]
+[ext_resource type="Texture2D" uid="uid://depr4ryekb4am" path="res://Multijugador/Player (prueba)/light.png" id="3_f5uqa"]
 [ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/Linterna/linterna.png" id="4_twy4t"]
 [ext_resource type="Texture2D" uid="uid://eqf3tqpn6sww" path="res://Objetos extras/Linterna/Sprite-0001.png" id="5_8qs5q"]
 [ext_resource type="Script" path="res://Main character/Scenes/linterna.gd" id="6_qpgwl"]
@@ -235,3 +235,11 @@ shadow_item_cull_mask = 15
 texture = ExtResource("5_8qs5q")
 texture_scale = 10.0
 script = ExtResource("6_qpgwl")
+
+[node name="Area2D" type="Area2D" parent="Pivote"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivote/Area2D"]
+position = Vector2(-24, -5)
+polygon = PackedVector2Array(24, -11, 216, -51, 224, 13, 32, 29)
+
+[connection signal="body_entered" from="Pivote/Area2D" to="." method="_on_area_2d_body_entered"]

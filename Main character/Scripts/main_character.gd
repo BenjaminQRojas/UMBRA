@@ -58,3 +58,7 @@ func look_at_mouse():
 	var mouse_pos = get_global_mouse_position()
 	get_node("Pivote").look_at(mouse_pos)
 	
+
+
+func _on_area_2d_body_entered(body):
+	pass # Replace with function body.

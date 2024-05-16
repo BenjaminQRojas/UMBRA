@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://depr4ryekb4am"
-path="res://.godot/imported/light.png-cc03b8ccd3927eec01257d86d0d69440.ctex"
+uid="uid://cnfrfqxg4b8xy"
+path="res://.godot/imported/Mask Dude.png-2b9da2bad7b48962da4d1e8e979d5535.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/light.png"
-dest_files=["res://.godot/imported/light.png-cc03b8ccd3927eec01257d86d0d69440.ctex"]
+source_file="res://Multijugador/Player (prueba)/Mask Dude.png"
+dest_files=["res://.godot/imported/Mask Dude.png-2b9da2bad7b48962da4d1e8e979d5535.ctex"]
 
 [params]
 
