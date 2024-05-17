@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://xde6wq6iecpj"]
+[gd_scene load_steps=37 format=3 uid="uid://xde6wq6iecpj"]
 
 [ext_resource type="Texture2D" uid="uid://8isq5evrjw51" path="res://Celdas-Catacumbas/assets/mainlevbuild.png" id="1_vithb"]
 [ext_resource type="Texture2D" uid="uid://bs6iv2rply4fw" path="res://Celdas-Catacumbas/assets/decoraciones/decorative.png" id="2_lgupl"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://c85a5t3b6qu53" path="res://Celdas-Catacumbas/assets/decoraciones/torch_4.png" id="3_xlf6s"]
 [ext_resource type="PackedScene" uid="uid://b6b7sdt51d51x" path="res://Celdas-Catacumbas/portal_zona_1.tscn" id="4_pw4pr"]
 [ext_resource type="Texture2D" uid="uid://bfv8b2xys8coi" path="res://Celdas-Catacumbas/assets/decoraciones/torch_1.png" id="4_tkws5"]
-[ext_resource type="Texture2D" uid="uid://c5mv6sg20qvol" path="res://Celdas-Catacumbas/assets/decoraciones/torch_2.png" id="5_0tl42"]
+[ext_resource type="Texture2D" uid="uid://cm8ffphd3ocjo" path="res://Celdas-Catacumbas/assets/antorcha sprite sheet.png" id="6_2t5u7"]
 [ext_resource type="Texture2D" uid="uid://dhoympp3pml6f" path="res://Objetos extras/Linterna/light2.png" id="7_u06mc"]
-[ext_resource type="Texture2D" uid="uid://bhherw7roeskv" path="res://Celdas-Catacumbas/assets/decoraciones/candleA_02.png" id="9_87b7l"]
+[ext_resource type="Script" path="res://Celdas-Catacumbas/antorcha.gd" id="8_jwml2"]
+[ext_resource type="Texture2D" uid="uid://gao2uevyh3or" path="res://Celdas-Catacumbas/assets/vela 1 sprite sheet.png" id="8_rt8yp"]
+[ext_resource type="Script" path="res://Celdas-Catacumbas/vela1.gd" id="9_k7mnh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbmf1"]
 texture = ExtResource("1_vithb")
@@ -3681,6 +3683,91 @@ polygon = PackedVector2Array(673, 334, 673, 319, 703, 317, 704, 335)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y12ka"]
 polygon = PackedVector2Array(432, 334, 432, 325, 462, 324, 462, 335)
 
+[sub_resource type="GDScript" id="GDScript_4dku3"]
+script/source = "extends Sprite2D
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func _process(_delta):
+	animation_player.play(\"antorcha\")
+"
+
+[sub_resource type="Animation" id="Animation_1obvp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gnlav"]
+resource_name = "antorcha"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dj440"]
+_data = {
+"RESET": SubResource("Animation_1obvp"),
+"antorcha": SubResource("Animation_gnlav")
+}
+
+[sub_resource type="Animation" id="Animation_vjyq7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0bxvy"]
+resource_name = "vela"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wuxxu"]
+_data = {
+"RESET": SubResource("Animation_vjyq7"),
+"vela": SubResource("Animation_0bxvy")
+}
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n0w54"]
 polygon = PackedVector2Array(-1, 10, 0, 71, 313, 72, 314, 191, 333, 190, 333, 183, 355, 183, 356, 191, 369, 191, 370, 186, 382, 187, 382, 183, 395, 185, 394, 271, 412, 270, 414, 263, 418, 263, 422, 257, 428, 255, 429, 264, 447, 264, 447, 271, 465, 271, 464, 257, 528, 257, 528, 265, 543, 264, 545, 238, 540, 238, 542, 193, 529, 192, 529, 251, 470, 251, 472, 202, 519, 203, 520, 207, 528, 207, 528, 192, 517, 193, 517, 197, 448, 193, 446, 1, -1, 1)
 
@@ -3744,8 +3831,10 @@ occluder = SubResource("OccluderPolygon2D_y12ka")
 
 [node name="Sprite2D3" type="Sprite2D" parent="TileMap"]
 position = Vector2(303, 34)
-texture = ExtResource("3_xlf6s")
+texture = ExtResource("6_2t5u7")
 centered = false
+hframes = 4
+script = SubResource("GDScript_4dku3")
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Sprite2D3"]
 texture_filter = 1
@@ -3757,10 +3846,17 @@ shadow_enabled = true
 texture = ExtResource("7_u06mc")
 texture_scale = 3.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Sprite2D3"]
+libraries = {
+"": SubResource("AnimationLibrary_dj440")
+}
+
 [node name="Sprite2D2" type="Sprite2D" parent="TileMap"]
 position = Vector2(224, 33)
-texture = ExtResource("4_tkws5")
+texture = ExtResource("6_2t5u7")
 centered = false
+hframes = 4
+script = ExtResource("8_jwml2")
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Sprite2D2"]
 texture_filter = 1
@@ -3772,10 +3868,17 @@ shadow_enabled = true
 texture = ExtResource("7_u06mc")
 texture_scale = 3.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Sprite2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_dj440")
+}
+
 [node name="Sprite2D" type="Sprite2D" parent="TileMap"]
 position = Vector2(176, 33)
-texture = ExtResource("4_tkws5")
+texture = ExtResource("6_2t5u7")
 centered = false
+hframes = 4
+script = ExtResource("8_jwml2")
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Sprite2D"]
 texture_filter = 1
@@ -3786,10 +3889,17 @@ shadow_enabled = true
 texture = ExtResource("7_u06mc")
 texture_scale = 3.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_dj440")
+}
+
 [node name="Sprite2D4" type="Sprite2D" parent="TileMap"]
 position = Vector2(653, 14)
-texture = ExtResource("3_xlf6s")
+texture = ExtResource("6_2t5u7")
 centered = false
+hframes = 4
+script = ExtResource("8_jwml2")
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Sprite2D4"]
 texture_filter = 1
@@ -3800,11 +3910,18 @@ shadow_enabled = true
 texture = ExtResource("7_u06mc")
 texture_scale = 3.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Sprite2D4"]
+libraries = {
+"": SubResource("AnimationLibrary_dj440")
+}
+
 [node name="Sprite2D5" type="Sprite2D" parent="TileMap"]
 z_index = 3
 position = Vector2(112, 178)
-texture = ExtResource("5_0tl42")
+texture = ExtResource("6_2t5u7")
 centered = false
+hframes = 4
+script = ExtResource("8_jwml2")
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Sprite2D5"]
 texture_filter = 1
@@ -3816,23 +3933,42 @@ shadow_enabled = true
 texture = ExtResource("7_u06mc")
 texture_scale = 3.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Sprite2D5"]
+libraries = {
+"": SubResource("AnimationLibrary_dj440")
+}
+
 [node name="Sprite2D6" type="Sprite2D" parent="TileMap"]
 position = Vector2(411, 339)
-texture = ExtResource("3_g64ws")
+texture = ExtResource("8_rt8yp")
+hframes = 4
+script = ExtResource("9_k7mnh")
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Sprite2D6"]
 color = Color(1, 1, 0.368627, 1)
 texture = ExtResource("7_u06mc")
 texture_scale = 0.3
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Sprite2D6"]
+libraries = {
+"": SubResource("AnimationLibrary_wuxxu")
+}
+
 [node name="Sprite2D7" type="Sprite2D" parent="TileMap"]
 position = Vector2(209, 409)
-texture = ExtResource("9_87b7l")
+texture = ExtResource("8_rt8yp")
+hframes = 4
+script = ExtResource("9_k7mnh")
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Sprite2D7"]
 color = Color(1, 1, 0.368627, 1)
 texture = ExtResource("7_u06mc")
 texture_scale = 0.3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Sprite2D7"]
+libraries = {
+"": SubResource("AnimationLibrary_wuxxu")
+}
 
 [node name="LightOccluder2D8" type="LightOccluder2D" parent="TileMap"]
 visible = false

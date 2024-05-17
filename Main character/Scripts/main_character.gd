@@ -15,16 +15,12 @@ func handleInput():
 		moveDirection.y += 1
 	velocity = moveDirection.normalized() * speed
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		animations.play()
-
 func updateAnimation():
+	var direction = ""
 	if velocity.length() == 0:
 		animations.stop()
+
 	else:
-		var direction = ""
-		
 		if velocity.x < 0:
 			if velocity.y < 0:
 				direction = "up_left"
@@ -44,15 +40,14 @@ func updateAnimation():
 				direction = "up"
 			elif velocity.y > 0:
 				direction = "down"
-		
+			
 		animations.play("Walk_" + direction)
-		
+
 func _physics_process(delta):
 	handleInput()
 	move_and_slide()
 	updateAnimation()
 	look_at_mouse()
-	
 
 func look_at_mouse():
 	var mouse_pos = get_global_mouse_position()
