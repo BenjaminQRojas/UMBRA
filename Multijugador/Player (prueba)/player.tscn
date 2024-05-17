@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1woldoyr7wun"]
+[gd_scene load_steps=11 format=3 uid="uid://c1woldoyr7wun"]
 
 [ext_resource type="Texture2D" uid="uid://cnfrfqxg4b8xy" path="res://Multijugador/Player (prueba)/Mask Dude.png" id="1_f7bje"]
 [ext_resource type="Script" path="res://Multijugador/Player (prueba)/player.gd" id="1_xl60n"]
@@ -64,9 +64,6 @@ _data = {
 "idle": SubResource("Animation_x8r7e"),
 "walk": SubResource("Animation_7k1ts")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w5ki"]
-size = Vector2(210, 72)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xl60n")
@@ -141,10 +138,10 @@ shadow_enabled = true
 texture = ExtResource("6_4vpss")
 texture_scale = 10.0
 
-[node name="AreaLinterna" type="Area2D" parent="Pivote"]
+[node name="AreaLuz" type="Area2D" parent="Pivote/PointLight2D"]
 
-[node name="ColisionLinterna" type="CollisionShape2D" parent="Pivote/AreaLinterna"]
-position = Vector2(95, -12)
-shape = SubResource("RectangleShape2D_8w5ki")
+[node name="ColisionLuz" type="CollisionPolygon2D" parent="Pivote/PointLight2D/AreaLuz"]
+scale = Vector2(-0.42258, 3.36202)
+polygon = PackedVector2Array(2424.86, 107.666, -3642.81, 204.163, -3683.77, -162.786, 2334.78, -85.6897)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

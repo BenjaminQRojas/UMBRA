@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqcbdfum6ccdk"]
+
+[ext_resource type="PackedScene" uid="uid://dskc14lmskm3a" path="res://Multijugador/Enemigo Multijugador/Scenes/Enemigo_Multiplayer.tscn" id="1_wtrkl"]
+[ext_resource type="PackedScene" uid="uid://c1woldoyr7wun" path="res://Multijugador/Player (prueba)/player.tscn" id="2_thyvt"]
+
+[node name="PruebaMuerteEnemigo" type="Node2D"]
+
+[node name="EnemigoMultiplayer" parent="." instance=ExtResource("1_wtrkl")]
+position = Vector2(175, 63)
+
+[node name="Player" parent="." instance=ExtResource("2_thyvt")]
+position = Vector2(26, 67)
