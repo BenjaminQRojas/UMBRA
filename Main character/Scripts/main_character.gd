@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 100
 @onready var animations = $AnimationPlayer
+var Door = false
 
 func handleInput():
 	var moveDirection = Vector2.ZERO
@@ -52,7 +53,13 @@ func _physics_process(delta):
 	move_and_slide()
 	updateAnimation()
 	look_at_mouse()
+	open_Door()
 	
+
+func open_Door():
+	if Door == true:
+		set_physics_process(false)
+		Door = false
 
 func look_at_mouse():
 	var mouse_pos = get_global_mouse_position()
