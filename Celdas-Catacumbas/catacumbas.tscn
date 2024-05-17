@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://8isq5evrjw51" path="res://Celdas-Catacumbas/assets/mainlevbuild.png" id="1_vithb"]
 [ext_resource type="Texture2D" uid="uid://bs6iv2rply4fw" path="res://Celdas-Catacumbas/assets/decoraciones/decorative.png" id="2_lgupl"]
 [ext_resource type="Texture2D" uid="uid://ow7n4ujiwjlp" path="res://Celdas-Catacumbas/assets/decoraciones/candleA_01.png" id="3_g64ws"]
-[ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Main character/Scenes/main_character.tscn" id="3_p1ylc"]
+[ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="3_p1ylc"]
 [ext_resource type="Texture2D" uid="uid://c85a5t3b6qu53" path="res://Celdas-Catacumbas/assets/decoraciones/torch_4.png" id="3_xlf6s"]
 [ext_resource type="PackedScene" uid="uid://b6b7sdt51d51x" path="res://Celdas-Catacumbas/portal_zona_1.tscn" id="4_pw4pr"]
 [ext_resource type="Texture2D" uid="uid://bfv8b2xys8coi" path="res://Celdas-Catacumbas/assets/decoraciones/torch_1.png" id="4_tkws5"]
