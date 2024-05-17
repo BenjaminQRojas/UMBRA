@@ -31,3 +31,7 @@ func look_at_mouse():
 	
 	
 	
+
+
+func _on_area_luz_body_entered(body):
+	body.queue_free()
