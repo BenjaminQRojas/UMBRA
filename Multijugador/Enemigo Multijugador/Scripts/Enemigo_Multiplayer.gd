@@ -10,7 +10,8 @@ func _physics_process(_delta):
 		position += (player.position - position)/speed
 	
 	move_and_slide()
-
+func dead():
+	queue_free()
 
 func _on_area_2d_body_entered(body):
 	player = body

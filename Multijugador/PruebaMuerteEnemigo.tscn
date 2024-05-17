@@ -5,7 +5,7 @@
 
 [node name="PruebaMuerteEnemigo" type="Node2D"]
 
-[node name="EnemigoMultiplayer" parent="." instance=ExtResource("1_wtrkl")]
+[node name="EnemigoMultiplayer" parent="." groups=["enemigos"] instance=ExtResource("1_wtrkl")]
 position = Vector2(381, 65)
 
 [node name="Player" parent="." instance=ExtResource("2_thyvt")]

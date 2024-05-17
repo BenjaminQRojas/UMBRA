@@ -34,4 +34,5 @@ func look_at_mouse():
 
 
 func _on_area_luz_body_entered(body):
-	body.queue_free()
+	if(body.is_in_group("enemigos")):
+		body.dead()
