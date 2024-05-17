@@ -1,0 +1,56 @@
+[gd_scene load_steps=13 format=3 uid="uid://b0yq5c6hwoqmj"]
+
+[ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Main character/Scenes/main_character.tscn" id="1_8o1ha"]
+[ext_resource type="Texture2D" uid="uid://o5mvkihkvbhf" path="res://Mapa Competitivo/Assets/32x32_DEMO.png" id="1_mme6q"]
+[ext_resource type="Texture2D" uid="uid://c1vts8lbfd14" path="res://Mapa Competitivo/Assets/Water Tileset.png" id="2_3hfpl"]
+[ext_resource type="Texture2D" uid="uid://dbo7vwvnl36o4" path="res://Mapa Competitivo/Assets/Forest Cliff.png" id="3_3xwm0"]
+[ext_resource type="Texture2D" uid="uid://bup7qk6rtafji" path="res://Mapa Competitivo/Assets/Forest Props.png" id="4_sqc3v"]
+[ext_resource type="Texture2D" uid="uid://bu37o30n2g0c3" path="res://Mapa Competitivo/Assets/Ground Tileset.png" id="5_eofbh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nw5xy"]
+texture = ExtResource("1_mme6q")
+texture_region_size = Vector2i(32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2qxr"]
+texture = ExtResource("2_3hfpl")
+texture_region_size = Vector2i(32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i4kil"]
+texture = ExtResource("3_3xwm0")
+0:6/0 = 0
+0:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wdkiv"]
+texture = ExtResource("4_sqc3v")
+texture_region_size = Vector2i(32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rb3t"]
+texture = ExtResource("5_eofbh")
+texture_region_size = Vector2i(32, 32)
+
+[sub_resource type="TileSet" id="TileSet_iws4s"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_nw5xy")
+sources/1 = SubResource("TileSetAtlasSource_t2qxr")
+sources/2 = SubResource("TileSetAtlasSource_i4kil")
+sources/3 = SubResource("TileSetAtlasSource_wdkiv")
+sources/4 = SubResource("TileSetAtlasSource_3rb3t")
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_iws4s")
+format = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="Main character" parent="." instance=ExtResource("1_8o1ha")]
+visible = false
