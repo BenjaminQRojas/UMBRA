@@ -40,8 +40,9 @@ func updateAnimation():
 				direction = "up"
 			elif velocity.y > 0:
 				direction = "down"
-			
+					
 		animations.play("Walk_" + direction)
+		animations.play("walk_" + direction)
 
 func _physics_process(delta):
 	handleInput()
