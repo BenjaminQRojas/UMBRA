@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 const speed = 50.0
 var player = null
 var player_chase = false
@@ -10,7 +11,10 @@ func _physics_process(_delta):
 		position += (player.position - position)/speed
 	
 	move_and_slide()
+
 func dead():
+	$AnimatedSprite2D.play("muerte")
+	await($AnimatedSprite2D.animation_finished)
 	queue_free()
 
 func _on_area_2d_body_entered(body):
