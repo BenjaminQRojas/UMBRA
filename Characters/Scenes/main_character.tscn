@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Characters/Scenes/linterna.gd" id="6_qpgwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2khv"]
-size = Vector2(16, 26)
+size = Vector2(15, 11.8125)
 
 [sub_resource type="Animation" id="Animation_6scro"]
 resource_name = "Action"
@@ -326,7 +326,7 @@ position = Vector2(-8, -5)
 script = ExtResource("1_tgsgf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, 4)
+position = Vector2(8.5, 10.9063)
 shape = SubResource("RectangleShape2D_h2khv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
