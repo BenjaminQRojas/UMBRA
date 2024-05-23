@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c8bbmkdt3ymdo" path="res://Enemigos/enemigo.tscn" id="3_epic8"]
 [ext_resource type="PackedScene" uid="uid://by4o37may4lfi" path="res://Laboratorio/portal_zona_2.tscn" id="6_32gd2"]
 [ext_resource type="Texture2D" uid="uid://dhoympp3pml6f" path="res://Objetos extras/Linterna/light2.png" id="6_ptdu1"]
+[ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="6_y8qyl"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Main character/Scenes/main_character.tscn" id="6_y8qyl"]
-
+[ext_resource type="Script" path="res://Laboratorio/entrada_bosque.gd" id="8_in1lx"]
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mapli"]
 texture = ExtResource("1_x1gju")
 texture_region_size = Vector2i(32, 32)
@@ -1951,9 +1952,6 @@ size = Vector2(12, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mslx1"]
 size = Vector2(23, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv2sv"]
-size = Vector2(31, 54)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfu52"]
 size = Vector2(28, 42.5)
 
@@ -1965,6 +1963,10 @@ size = Vector2(127, 68)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2mnng"]
 height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5poi"]
+radius = 13.0
+height = 46.0
 
 [node name="Laboratorio" type="Node"]
 script = ExtResource("1_04mok")
@@ -2168,10 +2170,6 @@ color = Color(0.286275, 0.8, 1, 1)
 texture = ExtResource("6_ptdu1")
 texture_scale = 0.2
 
-[node name="puerta" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
-position = Vector2(799.5, 100)
-shape = SubResource("RectangleShape2D_qv2sv")
-
 [node name="CollisionShape2D35" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 position = Vector2(167, 74.25)
 shape = SubResource("RectangleShape2D_gfu52")
@@ -2196,9 +2194,11 @@ texture_scale = 0.2
 [node name="Settings" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Settings"]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 4
 offset_right = 146.0
 offset_bottom = 69.0
@@ -2208,3 +2208,14 @@ autostart = true
 
 [node name="zona2" parent="." instance=ExtResource("6_32gd2")]
 position = Vector2(1112, 222)
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 2
+script = ExtResource("8_in1lx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(799, 107)
+shape = SubResource("CapsuleShape2D_r5poi")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
