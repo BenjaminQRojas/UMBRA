@@ -4,9 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcn1yijpqumq2" path="res://Laboratorio/mainlevbuild.png" id="1_x1gju"]
 [ext_resource type="Texture2D" uid="uid://b553dpdftcshe" path="res://Laboratorio/decorative_props.png" id="2_pkupe"]
 [ext_resource type="Texture2D" uid="uid://53nbtlavkigd" path="res://Laboratorio/other_props.png" id="3_6pvse"]
-
 [ext_resource type="PackedScene" uid="uid://c8bbmkdt3ymdo" path="res://Enemigos/enemigo.tscn" id="3_epic8"]
-[ext_resource type="PackedScene" uid="uid://c1woldoyr7wun" path="res://Player/player.tscn" id="4_u4re8"]
 [ext_resource type="PackedScene" uid="uid://by4o37may4lfi" path="res://Laboratorio/portal_zona_2.tscn" id="6_32gd2"]
 [ext_resource type="Texture2D" uid="uid://dhoympp3pml6f" path="res://Objetos extras/Linterna/light2.png" id="6_ptdu1"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="6_y8qyl"]
