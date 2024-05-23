@@ -11,6 +11,8 @@ script/source = "extends CharacterBody2D
 
 @export var speed = 100
 @onready var animations = $AnimationPlayer
+@onready var maxHealth = 30
+@onready var currentHealth : int = maxHealth
 
 func handleInput():
 	var moveDirection = Vector2.ZERO
