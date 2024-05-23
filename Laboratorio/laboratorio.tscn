@@ -9,10 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c1woldoyr7wun" path="res://Player/player.tscn" id="4_u4re8"]
 [ext_resource type="PackedScene" uid="uid://by4o37may4lfi" path="res://Laboratorio/portal_zona_2.tscn" id="6_32gd2"]
 [ext_resource type="Texture2D" uid="uid://dhoympp3pml6f" path="res://Objetos extras/Linterna/light2.png" id="6_ptdu1"]
+[ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="6_y8qyl"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Main character/Scenes/main_character.tscn" id="6_y8qyl"]
 [ext_resource type="Script" path="res://Laboratorio/entrada_bosque.gd" id="8_in1lx"]
-
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mapli"]
 texture = ExtResource("1_x1gju")
 texture_region_size = Vector2i(32, 32)
@@ -2201,6 +2200,7 @@ visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 4
 offset_right = 146.0
 offset_bottom = 69.0
