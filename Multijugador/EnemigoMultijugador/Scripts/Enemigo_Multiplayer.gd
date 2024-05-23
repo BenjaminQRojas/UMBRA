@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+@export var player1: PackedScene
 
-const speed = 50.0
+const speed = 30.0
 var player = null
 var player_chase = false
 
@@ -13,6 +14,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func dead():
+	
 	$AnimatedSprite2D.play("muerte")
 	await($AnimatedSprite2D.animation_finished)
 	queue_free()

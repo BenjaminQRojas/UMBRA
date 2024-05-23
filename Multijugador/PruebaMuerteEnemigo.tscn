@@ -1,12 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqcbdfum6ccdk"]
+[gd_scene load_steps=5 format=3 uid="uid://cqcbdfum6ccdk"]
 
-[ext_resource type="PackedScene" uid="uid://dskc14lmskm3a" path="res://Multijugador/Enemigo Multijugador/Scenes/Enemigo_Multiplayer.tscn" id="1_wtrkl"]
+[ext_resource type="Script" path="res://Multijugador/PruebaMuerteEnemigo.gd" id="1_glkf5"]
+[ext_resource type="PackedScene" uid="uid://dskc14lmskm3a" path="res://Multijugador/EnemigoMultijugador/Scenes/Enemigo_Multiplayer.tscn" id="2_nnsnb"]
 [ext_resource type="PackedScene" uid="uid://c1woldoyr7wun" path="res://Multijugador/Player (prueba)/player.tscn" id="2_thyvt"]
 
-[node name="PruebaMuerteEnemigo" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_m26cg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 728, 0, 0, 0, 0, 0, 728, 480, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
 
-[node name="EnemigoMultiplayer" parent="." groups=["enemigos"] instance=ExtResource("1_wtrkl")]
-position = Vector2(381, 65)
+[node name="PruebaMuerteEnemigo" type="Node2D"]
+script = ExtResource("1_glkf5")
+EnemigoMultiplayer = ExtResource("2_nnsnb")
 
 [node name="Player" parent="." instance=ExtResource("2_thyvt")]
-position = Vector2(45, 79)
+z_index = 2
+position = Vector2(360, 224)
+
+[node name="TimerEnemigo" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="EnemigoPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_m26cg")
+
+[node name="SpawnEnemigo" type="PathFollow2D" parent="EnemigoPath"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 726.0
+offset_bottom = 481.0
+color = Color(1, 0.470588, 1, 1)
+
+[connection signal="timeout" from="TimerEnemigo" to="." method="_on_timer_enemigo_timeout"]

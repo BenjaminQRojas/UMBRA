@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xo6b28gfiy0h"
-path="res://.godot/imported/enemigo_sprite_prueba.png-ed2d1d2a5d26a4666cb8aa409576a895.ctex"
+uid="uid://bp8vaha2vqboi"
+path="res://.godot/imported/explosion chica.png-55a046f3728abd15d132ca3eee416ae5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Multijugador/Enemigo Multijugador/Resources/Sprite/enemigo_sprite_prueba.png"
-dest_files=["res://.godot/imported/enemigo_sprite_prueba.png-ed2d1d2a5d26a4666cb8aa409576a895.ctex"]
+source_file="res://Multijugador/EnemigoMultijugador/Resources/Sprite/explosion chica.png"
+dest_files=["res://.godot/imported/explosion chica.png-55a046f3728abd15d132ca3eee416ae5.ctex"]
 
 [params]
 

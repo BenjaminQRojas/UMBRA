@@ -35,4 +35,5 @@ func look_at_mouse():
 
 func _on_area_luz_body_entered(body):
 	if(body.is_in_group("enemigos")):
+		print("mato")
 		body.dead()

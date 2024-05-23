@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csvrk2wxv37ae"
-path="res://.godot/imported/explosion.png-bea96eddf34cf7c019f6d6d66108ee46.ctex"
+uid="uid://cibo1clhrsh68"
+path="res://.godot/imported/background.png-d6245bfc9c6f7b685845b4dc1c5313a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Multijugador/Enemigo Multijugador/Resources/Sprite/explosion.png"
-dest_files=["res://.godot/imported/explosion.png-bea96eddf34cf7c019f6d6d66108ee46.ctex"]
+source_file="res://Multijugador/background.png"
+dest_files=["res://.godot/imported/background.png-d6245bfc9c6f7b685845b4dc1c5313a6.ctex"]
 
 [params]
 
