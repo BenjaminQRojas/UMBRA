@@ -1,8 +1,17 @@
 extends CharacterBody2D
 
-@export var speed = 100
+@export var speed = 80
+
 @onready var animations = $AnimationPlayer
+@onready var tomar =  $Tomar
+
 var Door = false
+var currentDirection = ""
+var isTaking = false
+
+func _ready():
+	animations.play("RESET")
+	tomar.connect("animation_finished", Callable(self, "_on_TakeAnimation_finished"))
 
 func handleInput():
 	var moveDirection = Vector2.ZERO
@@ -17,6 +26,8 @@ func handleInput():
 	velocity = moveDirection.normalized() * speed
 
 func updateAnimation():
+	if isTaking:
+		return
 	var direction = ""
 	if velocity.length() == 0:
 		animations.stop()
@@ -43,14 +54,17 @@ func updateAnimation():
 				direction = "down"
 					
 		animations.play("Walk_" + direction)
-		animations.play("walk_" + direction)
+		currentDirection = direction
 
 func _physics_process(delta):
-	handleInput()
-	move_and_slide()
+	if not isTaking:
+		handleInput()
+		move_and_slide()
 	updateAnimation()
 	look_at_mouse()
 	open_Door()
+	if Input.is_action_just_pressed("ui_accept"):
+		playTakeAnimation()
 
 func open_Door():
 	if Door == true:
@@ -61,3 +75,13 @@ func look_at_mouse():
 	var mouse_pos = get_global_mouse_position()
 	get_node("Pivote").look_at(mouse_pos)
 	
+func playTakeAnimation():
+	if currentDirection != "" and not isTaking:
+		isTaking = true
+		tomar.play("Take_" + currentDirection)
+		animations.stop()
+
+func _on_TakeAnimation_finished(anim_name):
+	if anim_name.begins_with("Take_"):
+		isTaking = false
+		updateAnimation()  
