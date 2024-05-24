@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cli0ty5usi7b5"]
+
+[ext_resource type="Script" path="res://Mapa Competitivo/Vida/heartsContainer.gd" id="1_sguuj"]
+
+[node name="heartsContainer" type="HBoxContainer"]
+theme_override_constants/separation = 31
+script = ExtResource("1_sguuj")
