@@ -1,17 +1,21 @@
 extends CharacterBody2D
 
+class_name OnlineCharacter
+
+signal healthChanged
+
 @export var speed = 80
+@onready var animations = $Movimiento
+@onready var effects = $Efectos
+@onready var hurtTimer = $hurtTimer
 
-@onready var animations = $AnimationPlayer
-@onready var tomar =  $Tomar
+@export var maxHealth = 5
+@onready var currentHealth : int = maxHealth
 
-var Door = false
-var currentDirection = ""
-var isTaking = false
+@export var knockbackPower:int = 500
 
 func _ready():
-	animations.play("RESET")
-	tomar.connect("animation_finished", Callable(self, "_on_TakeAnimation_finished"))
+	effects.play("RESET")
 
 func handleInput():
 	var moveDirection = Vector2.ZERO
@@ -26,8 +30,6 @@ func handleInput():
 	velocity = moveDirection.normalized() * speed
 
 func updateAnimation():
-	if isTaking:
-		return
 	var direction = ""
 	if velocity.length() == 0:
 		animations.stop()
@@ -52,36 +54,42 @@ func updateAnimation():
 				direction = "up"
 			elif velocity.y > 0:
 				direction = "down"
-					
-		animations.play("Walk_" + direction)
-		currentDirection = direction
+			
+		animations.play("walk_" + direction)
+
+func handleCollision():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
 
 func _physics_process(delta):
-	if not isTaking:
-		handleInput()
-		move_and_slide()
+	handleInput()
+	move_and_slide()
+	handleCollision()
 	updateAnimation()
 	look_at_mouse()
-	open_Door()
-	if Input.is_action_just_pressed("ui_accept"):
-		playTakeAnimation()
-
-func open_Door():
-	if Door == true:
-		set_physics_process(false)
-		Door = false
 
 func look_at_mouse():
 	var mouse_pos = get_global_mouse_position()
 	get_node("Pivote").look_at(mouse_pos)
 	
-func playTakeAnimation():
-	if currentDirection != "" and not isTaking:
-		isTaking = true
-		tomar.play("Take_" + currentDirection)
-		animations.stop()
+func _on_hurt_box_area_entered(area):
+	if area.name == "hitBox":
+		currentHealth -= 1
+		if currentHealth < 0:
+			currentHealth = maxHealth
+		healthChanged.emit(currentHealth)
+		knockback(area.get_parent().velocity)
+		effects.play("hurtBlink")
+		hurtTimer.start()
+		await hurtTimer.timeout
+		effects.play("RESET")
 
-func _on_TakeAnimation_finished(anim_name):
-	if anim_name.begins_with("Take_"):
-		isTaking = false
-		updateAnimation()  
+func knockback(enemyVelocity: Vector2):
+	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
+	velocity = knockbackDirection
+	print_debug(velocity)
+	print_debug(position)
+	move_and_slide()
+	print_debug(position)
+	print_debug(" ")
