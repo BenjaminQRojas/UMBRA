@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cjehmgoocxie" path="res://Cueva/Assets/MainLev2.0.png" id="1_xutrw"]
 [ext_resource type="Texture2D" uid="uid://dav0j5djwttwu" path="res://Cueva/Assets/decorative.png" id="2_whnm0"]
-[ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Main character/Scenes/main_character.tscn" id="3_gsajp"]
+[ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="3_gsajp"]
 [ext_resource type="Script" path="res://Cueva/entrada_bosque.gd" id="4_ldh2r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xgax"]

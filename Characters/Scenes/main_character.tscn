@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Characters/Scenes/linterna.gd" id="6_qpgwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2khv"]
-size = Vector2(15, 11.8125)
+size = Vector2(15, 28.8125)
 
 [sub_resource type="Animation" id="Animation_6scro"]
 resource_name = "Action"
@@ -321,6 +321,21 @@ _data = {
 "take_up_right": SubResource("Animation_t0i8w")
 }
 
+[sub_resource type="Animation" id="Animation_b3bjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_h13g1"]
 resource_name = "Take_down"
 length = 0.4
@@ -337,8 +352,9 @@ tracks/0/keys = {
 "values": [32, 33, 34, 35]
 }
 
-[sub_resource type="Animation" id="Animation_b3bjf"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ukdko"]
+resource_name = "Take_down_left"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -346,10 +362,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [60, 61, 62, 63]
 }
 
 [sub_resource type="Animation" id="Animation_kvxpk"]
@@ -368,6 +384,22 @@ tracks/0/keys = {
 "values": [36, 37, 38, 39]
 }
 
+[sub_resource type="Animation" id="Animation_st307"]
+resource_name = "Take_left"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [56, 57, 58, 59]
+}
+
 [sub_resource type="Animation" id="Animation_luj0c"]
 resource_name = "Take_right"
 length = 0.4
@@ -382,22 +414,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [40, 41, 42, 43]
-}
-
-[sub_resource type="Animation" id="Animation_b6h45"]
-resource_name = "Take_up_right"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [44, 45, 46, 47]
 }
 
 [sub_resource type="Animation" id="Animation_6eh0t"]
@@ -432,8 +448,8 @@ tracks/0/keys = {
 "values": [52, 53, 54, 55]
 }
 
-[sub_resource type="Animation" id="Animation_st307"]
-resource_name = "Take_left"
+[sub_resource type="Animation" id="Animation_b6h45"]
+resource_name = "Take_up_right"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -445,23 +461,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [56, 57, 58, 59]
-}
-
-[sub_resource type="Animation" id="Animation_ukdko"]
-resource_name = "Take_down_left"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [60, 61, 62, 63]
+"values": [44, 45, 46, 47]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_856iw"]
@@ -482,7 +482,7 @@ position = Vector2(-8, -5)
 script = ExtResource("1_tgsgf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.5, 10.9063)
+position = Vector2(8.5, 2.40627)
 shape = SubResource("RectangleShape2D_h2khv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -536,18 +536,18 @@ autostart = true
 position = Vector2(8, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivote"]
-visible = false
 z_index = 2
-position = Vector2(1, 7)
+position = Vector2(1, 2)
 rotation = 3.14159
-scale = Vector2(0.00989582, 0.00826821)
+scale = Vector2(0.00393431, 0.00358414)
 texture = ExtResource("4_twy4t")
 flip_v = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Pivote"]
-position = Vector2(91, -11)
+z_index = 1
+position = Vector2(42, -3)
 rotation = -0.139626
-scale = Vector2(0.0791666, 0.0661457)
+scale = Vector2(0.0405728, 0.0436167)
 energy = 1.5
 shadow_enabled = true
 shadow_item_cull_mask = 15

@@ -12,7 +12,7 @@ func _on_body_exited(body):
 
 func _process(delta):
 	if entro == true:
-		if Input.is_action_just_pressed("ui_text_completion_accept"):
+		if Input.is_action_just_pressed("Entrar a zona"):
 			get_tree().change_scene_to_file("res://Bosque/bosque.tscn")
 	pass
 

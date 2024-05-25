@@ -5,7 +5,7 @@ func _ready():
 	self.enabled = true
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_text_backspace"):
+	if Input.is_action_just_pressed("Flashlight"):
 		if self.enabled == false:
 			self.enabled = true
 		else: 
