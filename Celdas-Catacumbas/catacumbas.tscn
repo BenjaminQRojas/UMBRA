@@ -1,11 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://xde6wq6iecpj"]
+[gd_scene load_steps=38 format=3 uid="uid://xde6wq6iecpj"]
 
 [ext_resource type="Texture2D" uid="uid://8isq5evrjw51" path="res://Celdas-Catacumbas/assets/mainlevbuild.png" id="1_vithb"]
+[ext_resource type="Script" path="res://Celdas-Catacumbas/catacumbas.gd" id="1_ysgyx"]
 [ext_resource type="Texture2D" uid="uid://bs6iv2rply4fw" path="res://Celdas-Catacumbas/assets/decoraciones/decorative.png" id="2_lgupl"]
 [ext_resource type="Texture2D" uid="uid://ow7n4ujiwjlp" path="res://Celdas-Catacumbas/assets/decoraciones/candleA_01.png" id="3_g64ws"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="3_p1ylc"]
 [ext_resource type="Texture2D" uid="uid://c85a5t3b6qu53" path="res://Celdas-Catacumbas/assets/decoraciones/torch_4.png" id="3_xlf6s"]
-[ext_resource type="PackedScene" uid="uid://b6b7sdt51d51x" path="res://Celdas-Catacumbas/portal_zona_1.tscn" id="4_pw4pr"]
 [ext_resource type="Texture2D" uid="uid://bfv8b2xys8coi" path="res://Celdas-Catacumbas/assets/decoraciones/torch_1.png" id="4_tkws5"]
 [ext_resource type="Texture2D" uid="uid://cm8ffphd3ocjo" path="res://Celdas-Catacumbas/assets/antorcha sprite sheet.png" id="6_2t5u7"]
 [ext_resource type="Texture2D" uid="uid://dhoympp3pml6f" path="res://Objetos extras/Linterna/light2.png" id="7_u06mc"]
@@ -3780,7 +3780,11 @@ polygon = PackedVector2Array(-8, 59, -7, -7, 328, 3, 328, 115, 411, 114, 409, 19
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_11h2m"]
 polygon = PackedVector2Array(532, 341, 534, 264, 545, 265, 544, 240, 542, 240, 541, 257, 527, 256, 528, 336, 464, 336, 464, 257, 463, 272, 459, 272, 460, 288, 464, 291, 464, 336, 460, 336, 460, 341)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb8tg"]
+size = Vector2(21, 67)
+
 [node name="Node" type="Node"]
+script = ExtResource("1_ysgyx")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -3996,5 +4000,11 @@ position = Vector2(6, 94)
 visible = false
 color = Color(0, 0, 0, 1)
 
-[node name="portal" parent="." instance=ExtResource("4_pw4pr")]
-position = Vector2(-7, 96)
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-7.5, 95.5)
+shape = SubResource("RectangleShape2D_jb8tg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
