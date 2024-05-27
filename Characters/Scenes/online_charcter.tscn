@@ -287,10 +287,23 @@ texture = ExtResource("4_bkaqv")
 flip_v = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Pivote"]
-position = Vector2(67, -15)
-rotation = -0.139626
-scale = Vector2(0.0791666, 0.0661457)
+visible = false
+position = Vector2(34, -14)
+rotation = -0.195245
+scale = Vector2(0.0456573, 0.0357008)
 energy = 1.5
+shadow_enabled = true
+shadow_item_cull_mask = 15
+texture = ExtResource("5_tivm1")
+texture_scale = 10.0
+script = ExtResource("6_sgmhl")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Pivote"]
+z_index = 1
+position = Vector2(34, -8)
+rotation = -0.139626
+scale = Vector2(0.041, 0.044)
+energy = 0.72
 shadow_enabled = true
 shadow_item_cull_mask = 15
 texture = ExtResource("5_tivm1")
