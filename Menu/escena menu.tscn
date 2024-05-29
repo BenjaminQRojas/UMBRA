@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6l0827vdcfje"]
 
-[ext_resource type="Texture2D" uid="uid://cj4jwi2diwpwu" path="res://Menu/199286254-interior-de-farmacia-r.png" id="1_pf4bo"]
+[ext_resource type="Texture2D" uid="uid://dd6df8vjsu3yx" path="res://Menu/Imagenes/_abda9aee-b05d-4feb-93cd-e4e424583fc3.jpg" id="1_vc1mt"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -8,8 +8,6 @@
 position = Vector2(641, 357)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(40.6849, 27.875)
-scale = Vector2(1.06455, 1.06701)
-texture = ExtResource("1_pf4bo")
-region_enabled = true
-region_rect = Rect2(0, 0, 1280, 720)
+position = Vector2(318, 186)
+scale = Vector2(1.87109, 1.05664)
+texture = ExtResource("1_vc1mt")

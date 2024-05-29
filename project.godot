@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://global.gd"
 Persistence="*res://Persistence.gd"
+AudioPrincipal="*res://Menu/Escenas/audio_principal.tscn"
 
 [display]
 
