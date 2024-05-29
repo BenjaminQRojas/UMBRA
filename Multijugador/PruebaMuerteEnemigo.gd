@@ -12,6 +12,7 @@ func _ready():
 func _on_timer_enemigo_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = EnemigoMultiplayer.instantiate()
+	print("nace mob: "+mob.name)
 
 	# Choose a random location on Path2D.
 	var mob_spawn_location = $EnemigoPath/SpawnEnemigo
@@ -19,8 +20,9 @@ func _on_timer_enemigo_timeout():
 
 	# Set the mob's position to a random location.
 	mob.position = mob_spawn_location.position
-
+	
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+
 
 

@@ -7,7 +7,9 @@ var direcciony := 2
 
 @onready var anim := $AnimationPlayer
 @onready var sprite := $Sprite2D
-func _physics_process(delta):
+
+var enemy = "EnemigoMultiplayer"
+func _physics_process(_delta):
 	direccionx = Input.get_axis("ui_left", "ui_right")
 	velocity.x = direccionx * speed
 	
@@ -34,6 +36,6 @@ func look_at_mouse():
 
 
 func _on_area_luz_body_entered(body):
-	if(body.is_in_group("enemigos")):
+	if(body.name == enemy): #cambiar en caso de cambio de nombre de la escena enemigo
 		print("mato")
 		body.dead()
