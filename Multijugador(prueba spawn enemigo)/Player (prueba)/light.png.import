@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csvrk2wxv37ae"
-path="res://.godot/imported/explosion.png-882559f1d444aee212494a08058e0965.ctex"
+uid="uid://depr4ryekb4am"
+path="res://.godot/imported/light.png-890e90d78b2a8a17e4d16648b23b4df2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Multijugador/EnemigoMultijugador/Resources/Sprite/explosion.png"
-dest_files=["res://.godot/imported/explosion.png-882559f1d444aee212494a08058e0965.ctex"]
+source_file="res://Multijugador(prueba spawn enemigo)/Player (prueba)/light.png"
+dest_files=["res://.godot/imported/light.png-890e90d78b2a8a17e4d16648b23b4df2.ctex"]
 
 [params]
 

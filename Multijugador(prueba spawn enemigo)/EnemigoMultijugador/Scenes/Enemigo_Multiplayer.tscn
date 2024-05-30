@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://dskc14lmskm3a"]
 
-[ext_resource type="Texture2D" uid="uid://xo6b28gfiy0h" path="res://Multijugador/EnemigoMultijugador/Resources/Sprite/enemigo_sprite_prueba.png" id="1_ayxqa"]
-[ext_resource type="Script" path="res://Multijugador/EnemigoMultijugador/Scripts/Enemigo_Multiplayer.gd" id="1_dj8ej"]
-[ext_resource type="Texture2D" uid="uid://bp8vaha2vqboi" path="res://Multijugador/EnemigoMultijugador/Resources/Sprite/explosion chica.png" id="3_8yjch"]
+[ext_resource type="Texture2D" uid="uid://xo6b28gfiy0h" path="res://Multijugador(prueba spawn enemigo)/EnemigoMultijugador/Resources/Sprite/enemigo_sprite_prueba.png" id="1_ayxqa"]
+[ext_resource type="Script" path="res://Multijugador(prueba spawn enemigo)/EnemigoMultijugador/Scripts/Enemigo_Multiplayer.gd" id="1_dj8ej"]
+[ext_resource type="Texture2D" uid="uid://bp8vaha2vqboi" path="res://Multijugador(prueba spawn enemigo)/EnemigoMultijugador/Resources/Sprite/explosion chica.png" id="3_8yjch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_priej"]
 atlas = ExtResource("3_8yjch")

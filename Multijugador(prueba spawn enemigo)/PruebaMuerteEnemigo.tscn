@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqcbdfum6ccdk"]
 
-[ext_resource type="Script" path="res://Multijugador/PruebaMuerteEnemigo.gd" id="1_glkf5"]
-[ext_resource type="PackedScene" uid="uid://dskc14lmskm3a" path="res://Multijugador/EnemigoMultijugador/Scenes/Enemigo_Multiplayer.tscn" id="2_nnsnb"]
-[ext_resource type="PackedScene" uid="uid://c1woldoyr7wun" path="res://Multijugador/Player (prueba)/player.tscn" id="2_thyvt"]
+[ext_resource type="Script" path="res://Multijugador(prueba spawn enemigo)/PruebaMuerteEnemigo.gd" id="1_glkf5"]
+[ext_resource type="PackedScene" uid="uid://dskc14lmskm3a" path="res://Multijugador(prueba spawn enemigo)/EnemigoMultijugador/Scenes/Enemigo_Multiplayer.tscn" id="2_nnsnb"]
+[ext_resource type="PackedScene" uid="uid://c1woldoyr7wun" path="res://Multijugador(prueba spawn enemigo)/Player (prueba)/player.tscn" id="2_thyvt"]
 
 [sub_resource type="Curve2D" id="Curve2D_m26cg"]
 _data = {

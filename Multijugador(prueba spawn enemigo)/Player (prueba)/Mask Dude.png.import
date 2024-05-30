@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp8vaha2vqboi"
-path="res://.godot/imported/explosion chica.png-55a046f3728abd15d132ca3eee416ae5.ctex"
+uid="uid://cnfrfqxg4b8xy"
+path="res://.godot/imported/Mask Dude.png-39aa87261e6256058e4031eeb90784d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Multijugador/EnemigoMultijugador/Resources/Sprite/explosion chica.png"
-dest_files=["res://.godot/imported/explosion chica.png-55a046f3728abd15d132ca3eee416ae5.ctex"]
+source_file="res://Multijugador(prueba spawn enemigo)/Player (prueba)/Mask Dude.png"
+dest_files=["res://.godot/imported/Mask Dude.png-39aa87261e6256058e4031eeb90784d3.ctex"]
 
 [params]
 

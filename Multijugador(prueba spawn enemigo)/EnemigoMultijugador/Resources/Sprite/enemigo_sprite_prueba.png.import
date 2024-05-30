@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cibo1clhrsh68"
-path="res://.godot/imported/background.png-d6245bfc9c6f7b685845b4dc1c5313a6.ctex"
+uid="uid://xo6b28gfiy0h"
+path="res://.godot/imported/enemigo_sprite_prueba.png-c617de30e6645c733538c2d0062dccb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Multijugador/background.png"
-dest_files=["res://.godot/imported/background.png-d6245bfc9c6f7b685845b4dc1c5313a6.ctex"]
+source_file="res://Multijugador(prueba spawn enemigo)/EnemigoMultijugador/Resources/Sprite/enemigo_sprite_prueba.png"
+dest_files=["res://.godot/imported/enemigo_sprite_prueba.png-c617de30e6645c733538c2d0062dccb0.ctex"]
 
 [params]
 
