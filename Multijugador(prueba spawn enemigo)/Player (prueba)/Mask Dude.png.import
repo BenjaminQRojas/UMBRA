@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cchisbjybaoom"
-path="res://.godot/imported/enemigo.png-d4e88c2970245db7eb60f1c584a4d959.ctex"
+uid="uid://cnfrfqxg4b8xy"
+path="res://.godot/imported/Mask Dude.png-39aa87261e6256058e4031eeb90784d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemigos/enemigo.png"
-dest_files=["res://.godot/imported/enemigo.png-d4e88c2970245db7eb60f1c584a4d959.ctex"]
+source_file="res://Multijugador(prueba spawn enemigo)/Player (prueba)/Mask Dude.png"
+dest_files=["res://.godot/imported/Mask Dude.png-39aa87261e6256058e4031eeb90784d3.ctex"]
 
 [params]
 

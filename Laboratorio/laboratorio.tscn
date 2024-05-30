@@ -1982,7 +1982,7 @@ z_index = 3
 position = Vector2(55, 67)
 
 [node name="Enemigo" parent="." instance=ExtResource("3_epic8")]
-z_index = 2
+z_index = 3
 position = Vector2(904, 243)
 
 [node name="TileMap" type="TileMap" parent="."]
