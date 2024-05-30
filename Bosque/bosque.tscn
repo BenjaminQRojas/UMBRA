@@ -1,5 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://dend78tkmh2r5"]
+[gd_scene load_steps=36 format=3 uid="uid://dend78tkmh2r5"]
 
+[ext_resource type="Script" path="res://Bosque/bosque.gd" id="1_hoye0"]
 [ext_resource type="Texture2D" uid="uid://cgerdaep8x8lf" path="res://Bosque/Assets/Suelo/Cliff.png" id="1_j2dtg"]
 [ext_resource type="Texture2D" uid="uid://yfjcbfdhhvpq" path="res://Bosque/Assets/Suelo/Forest Tilesett.png" id="2_kdkgv"]
 [ext_resource type="Texture2D" uid="uid://d3u2io4pp3uq8" path="res://Bosque/Assets/Suelo/GrassNDirt.png" id="3_206uo"]
@@ -10,14 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://c6j2yl5osnqjy" path="res://Bosque/Assets/Suelo/Forest Cliff.png" id="5_76v58"]
 [ext_resource type="Texture2D" uid="uid://cgabjjt23c0hm" path="res://Bosque/Assets/Forest Props.png" id="6_cgt86"]
 [ext_resource type="Texture2D" uid="uid://cuenmcmj2xleb" path="res://Bosque/Assets/Estructuras/tf_darkdimension_sheet.png" id="6_iyo26"]
-[ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Main character/Scenes/main_character.tscn" id="7_kr7cl"]
+[ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="7_kr7cl"]
 [ext_resource type="Texture2D" uid="uid://qrn7dde037it" path="res://Bosque/Assets/Estructuras/Forest Structures.png" id="9_7ovkv"]
 [ext_resource type="Texture2D" uid="uid://c0i8ryf7ofkyh" path="res://Bosque/Assets/Estructuras/Settlement.png" id="10_yws6j"]
 [ext_resource type="Texture2D" uid="uid://clssm2bp37rbo" path="res://Bosque/Assets/Estructuras/Stairs Bridge.png" id="11_qedr2"]
 [ext_resource type="Texture2D" uid="uid://5v7w3mmks1b1" path="res://Bosque/Assets/Estructuras/Stone Path Tileset.png" id="12_yqs3m"]
-[ext_resource type="Script" path="res://Bosque/entrada_cueva.gd" id="16_j5rd5"]
 [ext_resource type="Script" path="res://Bosque/entrada_castillo.gd" id="17_5ehp4"]
-[ext_resource type="Script" path="res://Bosque/entrada_laboratorio.gd" id="18_4d6fe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jkqg"]
 texture = ExtResource("1_j2dtg")
@@ -16579,13 +16578,13 @@ sources/13 = SubResource("TileSetAtlasSource_57iyo")
 radius = 12.0416
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_od8nj"]
-radius = 17.0
-height = 44.0
+radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs8k3"]
 size = Vector2(61, 27)
 
 [node name="Node" type="Node"]
+script = ExtResource("1_hoye0")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -16623,7 +16622,6 @@ color = Color(0.223529, 0.223529, 0.223529, 1)
 position = Vector2(128, 331)
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("16_j5rd5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 3
@@ -16639,15 +16637,14 @@ position = Vector2(520, 11)
 shape = SubResource("CapsuleShape2D_od8nj")
 
 [node name="Area2D3" type="Area2D" parent="."]
-script = ExtResource("18_4d6fe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 position = Vector2(137.5, 386.5)
 shape = SubResource("RectangleShape2D_xs8k3")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]
-[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D3" to="Area2D3" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D3" to="." method="_on_area_2d_3_body_entered"]
+[connection signal="body_exited" from="Area2D3" to="." method="_on_area_2d_3_body_exited"]

@@ -56,10 +56,17 @@ text = "Salir
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_left = -679.0
-offset_top = -379.0
-offset_right = 683.0
-offset_bottom = -240.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -951.0
+offset_top = -526.0
+offset_right = 966.0
+offset_bottom = -387.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 880
 
 [node name="Label" type="Label" parent="HBoxContainer"]
@@ -71,6 +78,7 @@ text = "Guayacan Studios"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("4_jf4fa")
 
 [connection signal="pressed" from="VBox botones/Jugar" to="." method="_on_jugar_pressed"]

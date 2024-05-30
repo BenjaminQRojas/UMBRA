@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="UMBRA"
-run/main_scene="res://Menu/menu.tscn"
+run/main_scene="res://Menu/Escenas/Test.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://global.gd"
+Persistence="*res://Persistence.gd"
+AudioPrincipal="*res://Menu/Escenas/audio_principal.tscn"
 
 [display]
 

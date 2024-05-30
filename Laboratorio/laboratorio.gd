@@ -1,23 +1,54 @@
 extends Node
 
 func _ready():
-	Reset_Timer()
+	if Global.lab_first_loading == true:
+		$Main_character.position.x = Global.player_start_posx
+		$Main_character.position.y = Global.player_start_posy
+	else:
+		if Global.escena_anterior == "bosque":
+			$Main_character.position.x = Global.player_exit_lab_posx
+			$Main_character.position.y = Global.player_exit_lab_posy
+		elif Global.escena_anterior == "catacumbas":
+			$Main_character.position.x = Global.player_ent_cat_posx
+			$Main_character.position.y = Global.player_ent_cat_posy
+
+
+func _on_area_2d_body_entered(body):
+	if body.has_method("player"):
+		Global.transtion_scene = true
+		change_scene("bosque")
+
+
+func _on_area_2d_body_exited(body):
+	if body.has_method("player"):
+		Global.transtion_scene = false
+		
+
+
+func _process(delta):
 	pass
 
-var segundos = 0
-var minutos = 0
-var dsegundos = 30
-var dminutos = 1
+func change_scene(lugar):
+	if Global.transtion_scene == true:
+		if Global.current_scene == "laboratorio":
+			if lugar == "catacumbas":
+				Global.finish_changescenes(lugar)
+				Global.lab_first_loading = false
+				print(Global.lab_first_loading)
+				get_tree().change_scene_to_file("res://Celdas-Catacumbas/catacumbas.tscn")
+			elif lugar == "bosque":
+				Global.finish_changescenes(lugar)
+				Global.lab_first_loading = false
+				get_tree().change_scene_to_file("res://Bosque/bosque.tscn")
+			
 
-func _on_Timer_timeout():
-	if segundos == 0:
-		if minutos > 0:
-			minutos -= 1
-			segundos = 60
-	segundos -= 1
+
+func _on_area_2d_2_body_entered(body):
+	if body.has_method("player"):
+		Global.transtion_scene = true
+		change_scene("catacumbas")
 	
-	%Label.text = String(minutos) + ":" + String(segundos)
-	
-func Reset_Timer():
-	segundos = dsegundos
-	minutos = dminutos
+
+func _on_area_2d_2_body_exited(body):
+	if body.has_method("player"):
+		Global.transtion_scene = false

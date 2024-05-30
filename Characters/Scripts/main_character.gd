@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 80
+@export var speed = 120
 
 @onready var animations = $AnimationPlayer
 @onready var tomar =  $Tomar
@@ -85,3 +85,6 @@ func _on_TakeAnimation_finished(anim_name):
 	if anim_name.begins_with("Take_"):
 		isTaking = false
 		updateAnimation()  
+
+func player():
+	pass

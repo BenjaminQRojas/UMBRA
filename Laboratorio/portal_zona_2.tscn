@@ -1,12 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://by4o37may4lfi"]
 
-[ext_resource type="Script" path="res://Laboratorio/portal_zona_2.gd" id="1_5r8o7"]
+[sub_resource type="GDScript" id="GDScript_hbtpy"]
+script/source = "extends Area2D
+
+
+func _on_body_entered(body):
+	if body.name == \"Main character\" and Input.is_action_just_pressed(\"Entrar a zona\"):
+		get_tree().change_scene_to_file(\"res://Celdas-Catacumbas/catacumbas.tscn\")
+	pass # Replace with function body.
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pna6r"]
 size = Vector2(20, 79)
 
 [node name="zona2" type="Area2D"]
-script = ExtResource("1_5r8o7")
+script = SubResource("GDScript_hbtpy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pna6r")
