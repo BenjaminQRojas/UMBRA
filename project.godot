@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 Global="*res://global.gd"
 Persistence="*res://Persistence.gd"
 AudioPrincipal="*res://Menu/Escenas/audio_principal.tscn"
+Puzzle1="*res://Laboratorio/Puzzle/puzzle.tscn"
+Puzzle_1="res://Laboratorio/Puzzle/Main.gd"
+Globals="res://Laboratorio/Puzzle/Tetris/Globals.gd"
 
 [display]
 

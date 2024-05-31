@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3luts41mu64o"]
+
+[ext_resource type="Script" path="res://Laboratorio/Puzzle/Tetris/Block.gd" id="1_t577x"]
+[ext_resource type="Texture2D" uid="uid://bwuyep3h6dqpb" path="res://Laboratorio/Puzzle/Tetris/Tetris/block.png" id="2_t01pl"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_t577x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t01pl")
+centered = false

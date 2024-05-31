@@ -1,0 +1,100 @@
+[gd_scene load_steps=19 format=3 uid="uid://ccplowgwlhg1i"]
+
+[ext_resource type="Script" path="res://Laboratorio/Puzzle/Main.gd" id="1_36vcj"]
+[ext_resource type="Texture2D" uid="uid://dp5so8rfephah" path="res://Laboratorio/Puzzle/Imagenes/tile1.png" id="1_oxpbx"]
+[ext_resource type="Texture2D" uid="uid://cksnv4xy43wsb" path="res://Laboratorio/Puzzle/Imagenes/tile2.png" id="2_xmgbq"]
+[ext_resource type="Texture2D" uid="uid://dix02iqxwfbn3" path="res://Laboratorio/Puzzle/Imagenes/tile3.png" id="3_xyqrc"]
+[ext_resource type="Texture2D" uid="uid://csmf4qnyhtayb" path="res://Laboratorio/Puzzle/Imagenes/tile4.png" id="4_8vd3p"]
+[ext_resource type="Texture2D" uid="uid://r4xra8qt6l5t" path="res://Laboratorio/Puzzle/Imagenes/tile5.png" id="5_ovkbe"]
+[ext_resource type="Texture2D" uid="uid://btii2gpbqcx11" path="res://Laboratorio/Puzzle/Imagenes/tile6.png" id="6_3hnhu"]
+[ext_resource type="Texture2D" uid="uid://fdna7tp1e7gy" path="res://Laboratorio/Puzzle/Imagenes/tile7.png" id="7_qe8kb"]
+[ext_resource type="Texture2D" uid="uid://dpeq0ega61tbt" path="res://Laboratorio/Puzzle/Imagenes/tile8.png" id="8_hnn88"]
+[ext_resource type="Texture2D" uid="uid://btmske6snpf8g" path="res://Laboratorio/Puzzle/Imagenes/empty.png" id="9_31qbg"]
+[ext_resource type="Texture2D" uid="uid://dlx0ks8cgdcbe" path="res://Laboratorio/Puzzle/Imagenes/tile9.png" id="10_77t6y"]
+[ext_resource type="Texture2D" uid="uid://beyqkvtiuql0w" path="res://Laboratorio/Puzzle/Imagenes/tile10.png" id="11_egv7v"]
+[ext_resource type="Texture2D" uid="uid://bqao3riuiau3x" path="res://Laboratorio/Puzzle/Imagenes/tile11.png" id="12_1gtc6"]
+[ext_resource type="Texture2D" uid="uid://ccoiur2rerqlv" path="res://Laboratorio/Puzzle/Imagenes/tile12.png" id="13_cxo0i"]
+[ext_resource type="Texture2D" uid="uid://dp1vkjeacot1f" path="res://Laboratorio/Puzzle/Imagenes/tile13.png" id="14_ty8bh"]
+[ext_resource type="Texture2D" uid="uid://bhf4vl7x2ikj5" path="res://Laboratorio/Puzzle/Imagenes/tile14.png" id="15_lsttw"]
+[ext_resource type="Texture2D" uid="uid://drubmj6lbh1x2" path="res://Laboratorio/Puzzle/Imagenes/tile15.png" id="16_a37wp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiykq"]
+size = Vector2(1000, 1000)
+
+[node name="Control" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 14.0
+offset_bottom = 24.0
+
+[node name="Main" type="Area2D" parent="."]
+script = ExtResource("1_36vcj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main"]
+position = Vector2(500, 500)
+shape = SubResource("RectangleShape2D_yiykq")
+
+[node name="Tile1" type="Sprite2D" parent="Main"]
+position = Vector2(125, 125)
+texture = ExtResource("1_oxpbx")
+
+[node name="Tile2" type="Sprite2D" parent="Main"]
+position = Vector2(375, 125)
+texture = ExtResource("2_xmgbq")
+
+[node name="Tile3" type="Sprite2D" parent="Main"]
+position = Vector2(625, 125)
+texture = ExtResource("3_xyqrc")
+
+[node name="Tile4" type="Sprite2D" parent="Main"]
+position = Vector2(875, 125)
+texture = ExtResource("4_8vd3p")
+
+[node name="Tile5" type="Sprite2D" parent="Main"]
+position = Vector2(125, 375)
+texture = ExtResource("5_ovkbe")
+
+[node name="Tile6" type="Sprite2D" parent="Main"]
+position = Vector2(375, 375)
+texture = ExtResource("6_3hnhu")
+
+[node name="Tile7" type="Sprite2D" parent="Main"]
+position = Vector2(625, 375)
+texture = ExtResource("7_qe8kb")
+
+[node name="Tile8" type="Sprite2D" parent="Main"]
+position = Vector2(875, 375)
+texture = ExtResource("8_hnn88")
+
+[node name="Tile9" type="Sprite2D" parent="Main"]
+position = Vector2(125, 625)
+texture = ExtResource("10_77t6y")
+
+[node name="Tile10" type="Sprite2D" parent="Main"]
+position = Vector2(375, 625)
+texture = ExtResource("11_egv7v")
+
+[node name="Tile11" type="Sprite2D" parent="Main"]
+position = Vector2(625, 625)
+texture = ExtResource("12_1gtc6")
+
+[node name="Tile12" type="Sprite2D" parent="Main"]
+position = Vector2(875, 625)
+texture = ExtResource("13_cxo0i")
+
+[node name="Tile13" type="Sprite2D" parent="Main"]
+position = Vector2(125, 875)
+texture = ExtResource("14_ty8bh")
+
+[node name="Tile14" type="Sprite2D" parent="Main"]
+position = Vector2(375, 875)
+texture = ExtResource("15_lsttw")
+
+[node name="Tile15" type="Sprite2D" parent="Main"]
+position = Vector2(625, 875)
+texture = ExtResource("16_a37wp")
+
+[node name="Tile16" type="Sprite2D" parent="Main"]
+position = Vector2(875, 875)
+texture = ExtResource("9_31qbg")
