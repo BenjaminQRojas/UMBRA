@@ -12,7 +12,7 @@ Guayacan Studios
 
 
 **Guía de carácteres**
-![Guía de simbolos.](https://imgur.com/ylueUQi)
+![117803197_169144941377374_889870](https://github.com/BenjaminQRojas/UMBRA/assets/107888507/f7cece24-d891-47d9-811f-f8fa5ebf03d7)
 
 
 
