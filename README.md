@@ -18,4 +18,4 @@ Guayacan Studios
 
 > [!IMPORTANT]
 > Este proyecto está en desarrollo, por lo que puede tener bugs.
-> Ante cualquier duda, no dude en comunicarse con @github/elfaldia , @github/BenajminQRojas y @github/Charmandiox9
+> Ante cualquier duda, no dude en comunicarse con @elfaldia , @BenajminQRojas y @Charmandiox9
