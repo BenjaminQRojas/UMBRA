@@ -34,3 +34,14 @@ func _on_vsync_item_selected(index):
 	Persistence.config.set_value("Video", "vsync", index)
 	Persistence.save_data()
 
+
+
+func _on_window_size_item_selected(index):
+	if index == 0:
+		get_viewport().size = Vector2(1920, 1080)
+	elif index == 1:
+		get_viewport().size = Vector2(1280, 720)
+	elif index == 2:
+		get_viewport().size = Vector2(854, 480)
+	elif index == 3:
+		get_viewport().size = DisplayServer.screen_get_size()

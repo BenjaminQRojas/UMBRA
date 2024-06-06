@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d0oholqt08ib2"]
+[gd_scene load_steps=54 format=3 uid="uid://d0oholqt08ib2"]
 
 [ext_resource type="Script" path="res://Laboratorio/laboratorio.gd" id="1_04mok"]
 [ext_resource type="Texture2D" uid="uid://dcn1yijpqumq2" path="res://Laboratorio/mainlevbuild.png" id="1_x1gju"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="6_y8qyl"]
 [ext_resource type="Script" path="res://Laboratorio/Puzzle.gd" id="8_tbm8w"]
 [ext_resource type="PackedScene" uid="uid://ccplowgwlhg1i" path="res://Laboratorio/Puzzle/puzzle.tscn" id="9_6en6s"]
+[ext_resource type="PackedScene" uid="uid://dcsvaiescnhf5" path="res://Pausa/Pausa_Menu.tscn" id="10_jfb4o"]
+[ext_resource type="PackedScene" uid="uid://c5kja5yad58s5" path="res://Laboratorio/Puzzle/Enimga_lab.tscn" id="11_en4ph"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mapli"]
 texture = ExtResource("1_x1gju")
@@ -2234,7 +2236,6 @@ position = Vector2(831.25, 127)
 shape = SubResource("RectangleShape2D_pg4ta")
 
 [node name="Control" parent="Puzzle/CollisionShape2D" instance=ExtResource("9_6en6s")]
-visible = false
 offset_right = 686.0
 offset_bottom = 603.0
 
@@ -2243,6 +2244,15 @@ offset_left = 822.0
 offset_top = 119.0
 offset_right = 843.0
 offset_bottom = 138.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("10_jfb4o")]
+process_mode = 3
+visible = false
+
+[node name="Control2" parent="CanvasLayer" instance=ExtResource("11_en4ph")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5kja5yad58s5"]
+
+[ext_resource type="Script" path="res://Puzzle_lab1.gd" id="1_c3kon"]
+[ext_resource type="Texture2D" uid="uid://b2qh6ixbgxlvg" path="res://Imagenes/pixil-frame-0.png" id="2_2hn04"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c3kon")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0666667, 0.00784314, 0.701961)
+
+[node name="UI" type="CanvasLayer" parent="ColorRect"]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -485.5
+offset_top = -225.0
+offset_right = 485.5
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/UI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect/UI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/UI/VBoxContainer/HBoxContainer/Label"]
+position = Vector2(488.5, 241.5)
+scale = Vector2(1.71656, 1.27374)
+texture = ExtResource("2_2hn04")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/UI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="ColorRect/UI/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Hombre es culpado por asesinar a su ****"
+
+[node name="Button2" type="Button" parent="ColorRect/UI/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Huellas eternas, criaturas perdidas, acechan, aguardando ****"
+
+[node name="Button3" type="Button" parent="ColorRect/UI/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Hoy, espectros caminan, perpetuando antiguas agonías ****"
+
+[node name="Button4" type="Button" parent="ColorRect/UI/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Hay ecos, criaturas perdidas, acechando, anhelando ****"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="ColorRect/UI/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/UI/VBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/UI/VBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="ColorRect/UI/VBoxContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
