@@ -12,10 +12,12 @@ Guayacan Studios
 
 
 **Guía de carácteres**
-![Guía de simbolos](https://imgur.com/ylueUQi)
+![Guía de simbolos.](https://imgur.com/ylueUQi)
 
 
 
 > [!IMPORTANT]
 > Este proyecto está en desarrollo, por lo que puede tener bugs.
-> Ante cualquier duda, no dude en comunicarse con @elfaldia , @BenajminQRojas y @Charmandiox9
+
+
+Ante cualquier duda, no dude en comunicarse con @elfaldia , @BenajminQRojas y @Charmandiox9
