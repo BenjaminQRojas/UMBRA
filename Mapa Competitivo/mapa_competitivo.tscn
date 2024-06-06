@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c43xsvkkaadhr" path="res://Mapa Competitivo/Assets/Trees.png" id="6_elpdf"]
 [ext_resource type="Texture2D" uid="uid://c8h0m1b1qn1nb" path="res://Mapa Competitivo/Assets/Forest Structures.png" id="7_gyysg"]
 [ext_resource type="PackedScene" uid="uid://cgkxabyxtg8ti" path="res://Characters/Scenes/online_charcter.tscn" id="8_e1wkf"]
-[ext_resource type="PackedScene" uid="uid://cc4d7joxg5hec" path="res://Mapa Competitivo/Enemigo_prueba.tscn" id="10_bxl67"]
+[ext_resource type="PackedScene" path="res://Mapa Competitivo/Enemigo_prueba.tscn" id="10_bxl67"]
 [ext_resource type="PackedScene" uid="uid://cli0ty5usi7b5" path="res://Mapa Competitivo/Vida/BarraVida.tscn" id="11_des4n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nw5xy"]
