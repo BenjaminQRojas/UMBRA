@@ -8,3 +8,7 @@ Guayacan Studios
   Benjamin Quiroz
   Vicente Sánchez
   Manuel Morales
+
+
+
+Guía de carácteres
