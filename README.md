@@ -11,4 +11,5 @@ Guayacan Studios
 
 
 
-Guía de carácteres
+**Guía de carácteres**
+!(https://ibb.co/jLcFgVq)
