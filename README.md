@@ -24,4 +24,4 @@ Guayacan Studios
 > [!IMPORTANT]
 > Este proyecto está en desarrollo, por lo que puede tener bugs.
 
-@gitub/support
+@github/support
