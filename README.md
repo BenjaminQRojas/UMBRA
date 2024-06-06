@@ -16,8 +16,12 @@ Guayacan Studios
 
 
 
+
+
+
+
+
 > [!IMPORTANT]
 > Este proyecto está en desarrollo, por lo que puede tener bugs.
 
-
-Ante cualquier duda, no dude en comunicarse con @elfaldia , @BenajminQRojas y @Charmandiox9
+@gitub/support
