@@ -1,13 +1,12 @@
-# UMBRA
-Videojuego UMBRA
-Guayacan Studios
-  Monserrat Aravena 
-  Diego Martinez 
-  Franco Bacarrezza
-  Daniel Durán
-  Benjamin Quiroz
-  Vicente Sánchez
-  Manuel Morales
+# Guayacan Studios
+## UMBRA
+- Monserrat Aravena 
+- Diego Martinez 
+- Franco Bacarrezza
+- Daniel Durán
+- Benjamin Quiroz
+- Vicente Sánchez
+- Manuel Morales
 
 
 
@@ -23,5 +22,3 @@ Guayacan Studios
 
 > [!IMPORTANT]
 > Este proyecto está en desarrollo, por lo que puede tener bugs.
-
-@github/support What do you think about these updates?
