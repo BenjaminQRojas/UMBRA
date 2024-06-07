@@ -26,6 +26,10 @@ var player_ent_cast_posy = 0
 var player_start_cue_posx = 129
 var player_start_cue_posy = -52
 
+var player_ent_puzzle_posx = 792
+var player_ent_puzzle_posy = 156
+var acerto = false
+
 var lab_first_loading = true
 var bos_first_loading = true
 var cat_first_loading = true
@@ -43,6 +47,9 @@ func finish_changescenes(lugar):
 			elif lugar == "catacumbas":
 				current_scene = "catacumbas"
 				escena_anterior = "laboratorio"
+			elif lugar == "puzzle":
+				current_scene = "puzzle"
+				escena_anterior == "laboratorio"
 		elif current_scene == "bosque":
 			if lugar == "laboratorio":
 				current_scene = "laboratorio"
@@ -61,4 +68,7 @@ func finish_changescenes(lugar):
 			elif lugar == "entrada_Castillo":
 				current_scene = "entrada_castillo"
 				escena_anterior = "cueva"
-				
+		elif current_scene == "puzzle":
+			if lugar == "laboratorio":
+				current_scene = "laboratorio"
+				escena_anterior = "puzzle"

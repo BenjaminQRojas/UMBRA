@@ -9,3 +9,4 @@ func _ready():
 func changeSound(sound):
 	AudioPrincipal.stream = sound
 	AudioPrincipal.play()
+	

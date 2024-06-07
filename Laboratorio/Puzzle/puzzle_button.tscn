@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c76mrgkjpoc4v"]
+
+[ext_resource type="Script" path="res://PuzzleButton.gd" id="1_bngwl"]
+
+[node name="PuzzleButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_bngwl")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -11,6 +11,8 @@ func _ready():
 	config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_FULLSCREEN)
 	config.set_value("Video", "borderless", false)
 	config.set_value("Video", "vsync", DisplayServer.VSYNC_ENABLED)
+	ProjectSettings.set("display/window/size/viewport_height", DisplayServer.screen_get_size().y)
+	ProjectSettings.set("display/window/size/viewport_width", DisplayServer.screen_get_size().x)
 	
 	for i in range(3):
 		config.set_value("Audio", str(i), 0.0)
@@ -50,6 +52,11 @@ func load_video_settings():
 	var vsync_index = config.get_value("Video", "vsync")
 	DisplayServer.window_set_vsync_mode(vsync_index)
 	
+	var screen_x = ProjectSettings.get("display/window/size/viewport_height")
+	var screen_y = ProjectSettings.get("display/window/size/viewport_width")
+	var screen_size_x = config.get_value("video", "display/window/size/viewport_height")
+	var screen_size_y = config.get_value("video", "display/window/size/viewport_width")
+	get_viewport().size = Vector2(screen_x, screen_y)
 	
 	
 	
