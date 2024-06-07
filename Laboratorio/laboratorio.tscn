@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://d0oholqt08ib2"]
+[gd_scene load_steps=53 format=3 uid="uid://d0oholqt08ib2"]
 
 [ext_resource type="Script" path="res://Laboratorio/laboratorio.gd" id="1_04mok"]
 [ext_resource type="Texture2D" uid="uid://dcn1yijpqumq2" path="res://Laboratorio/mainlevbuild.png" id="1_x1gju"]
@@ -7,10 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c8bbmkdt3ymdo" path="res://Enemigos/enemigo.tscn" id="3_epic8"]
 [ext_resource type="Texture2D" uid="uid://dhoympp3pml6f" path="res://Objetos extras/Linterna/light2.png" id="6_ptdu1"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="6_y8qyl"]
-[ext_resource type="Script" path="res://Laboratorio/Puzzle.gd" id="8_tbm8w"]
 [ext_resource type="PackedScene" uid="uid://ccplowgwlhg1i" path="res://Laboratorio/Puzzle/puzzle.tscn" id="9_6en6s"]
 [ext_resource type="PackedScene" uid="uid://dcsvaiescnhf5" path="res://Pausa/Pausa_Menu.tscn" id="10_jfb4o"]
-[ext_resource type="PackedScene" uid="uid://c5kja5yad58s5" path="res://Laboratorio/Puzzle/Enimga_lab.tscn" id="11_en4ph"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mapli"]
 texture = ExtResource("1_x1gju")
@@ -1969,6 +1967,9 @@ size = Vector2(127, 68)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2mnng"]
 height = 20.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hoc5"]
+size = Vector2(125.5, 41)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5poi"]
 radius = 13.0
 
@@ -2201,9 +2202,14 @@ color = Color(0.286275, 0.8, 1, 1)
 texture = ExtResource("6_ptdu1")
 texture_scale = 0.2
 
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
+position = Vector2(781, 65)
+shape = SubResource("RectangleShape2D_1hoc5")
+
 [node name="Settings" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Settings"]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -2229,7 +2235,6 @@ position = Vector2(1121, 220)
 shape = SubResource("RectangleShape2D_a1pew")
 
 [node name="Puzzle" type="Area2D" parent="."]
-script = ExtResource("8_tbm8w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle"]
 position = Vector2(831.25, 127)
@@ -2239,11 +2244,11 @@ shape = SubResource("RectangleShape2D_pg4ta")
 offset_right = 686.0
 offset_bottom = 603.0
 
-[node name="Button" type="Button" parent="Puzzle"]
-offset_left = 822.0
-offset_top = 119.0
-offset_right = 843.0
-offset_bottom = 138.0
+[node name="Button" type="Button" parent="Puzzle/CollisionShape2D"]
+offset_left = -9.25
+offset_top = -8.0
+offset_right = 11.75
+offset_bottom = 11.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -2251,11 +2256,10 @@ offset_bottom = 138.0
 process_mode = 3
 visible = false
 
-[node name="Control2" parent="CanvasLayer" instance=ExtResource("11_en4ph")]
-visible = false
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
-[connection signal="pressed" from="Puzzle/Button" to="Puzzle" method="_on_button_pressed"]
+[connection signal="body_entered" from="Puzzle" to="." method="_on_puzzle_body_entered"]
+[connection signal="body_exited" from="Puzzle" to="." method="_on_puzzle_body_exited"]
+[connection signal="pressed" from="Puzzle/CollisionShape2D/Button" to="." method="_on_button_pressed"]
