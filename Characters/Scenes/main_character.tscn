@@ -607,7 +607,6 @@ texture = ExtResource("4_twy4t")
 flip_v = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Pivote"]
-visible = false
 z_index = 1
 position = Vector2(42, -3)
 rotation = -0.139626
