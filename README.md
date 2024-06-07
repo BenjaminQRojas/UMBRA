@@ -1,12 +1,12 @@
 # Guayacan Studios
 ## UMBRA
-- Monserrat Aravena 
-- Diego Martinez 
+- Monserrat Aravena
 - Franco Bacarrezza
 - Daniel Durán
+- Diego Martinez
+- Manuel Morales
 - Benjamin Quiroz
 - Vicente Sánchez
-- Manuel Morales
 
 
 
