@@ -8,6 +8,7 @@
 position = Vector2(641, 357)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+z_index = 1
 position = Vector2(318, 186)
 scale = Vector2(1.87109, 1.05664)
 texture = ExtResource("1_vc1mt")
