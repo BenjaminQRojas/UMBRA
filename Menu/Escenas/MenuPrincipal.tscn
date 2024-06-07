@@ -1,19 +1,19 @@
 [gd_scene load_steps=12 format=3 uid="uid://r8owuuwd38wu"]
 
-[ext_resource type="Script" path="res://Menu/Escenas/Opciones.gd" id="1_5ug4n"]
-[ext_resource type="Script" path="res://Menu/Escenas/Video.gd" id="1_l3v7g"]
-[ext_resource type="Script" path="res://Menu/Escenas/Historia.gd" id="1_odn01"]
-[ext_resource type="Script" path="res://Menu/Escenas/MenuPrincipal.gd" id="1_yiyqu"]
-[ext_resource type="FontFile" uid="uid://b5glysunhn2en" path="res://Menu/Retro Gaming.ttf" id="2_2cux8"]
-[ext_resource type="Script" path="res://Menu/Escenas/Competitivo.gd" id="2_b3dnx"]
-[ext_resource type="Script" path="res://Menu/Escenas/Audio.gd" id="2_rwlwx"]
-[ext_resource type="PackedScene" uid="uid://bacbrkhwlkyxt" path="res://Menu/Escenas/action_button.tscn" id="3_jslg1"]
-[ext_resource type="Script" path="res://Menu/Escenas/Salir.gd" id="4_sxxxt"]
-[ext_resource type="Script" path="res://Menu/Escenas/Regresar.gd" id="6_jmykr"]
-[ext_resource type="PackedScene" uid="uid://6l0827vdcfje" path="res://Menu/escena menu.tscn" id="11_k2mmg"]
+[ext_resource type="Script" path="res://Menu/Escenas/MenuPrincipal.gd" id="1_4sog5"]
+[ext_resource type="FontFile" uid="uid://b5glysunhn2en" path="res://Menu/Retro Gaming.ttf" id="2_bvjos"]
+[ext_resource type="Script" path="res://Menu/Escenas/Historia.gd" id="3_xu5ky"]
+[ext_resource type="Script" path="res://Menu/Escenas/Competitivo.gd" id="4_qshtn"]
+[ext_resource type="Script" path="res://Menu/Escenas/Opciones.gd" id="5_gtm3a"]
+[ext_resource type="Script" path="res://Menu/Escenas/Salir.gd" id="6_1kj2j"]
+[ext_resource type="Script" path="res://Menu/Escenas/Video.gd" id="7_bttqa"]
+[ext_resource type="Script" path="res://Menu/Escenas/Regresar.gd" id="8_tkkjn"]
+[ext_resource type="Script" path="res://Menu/Escenas/Audio.gd" id="9_8k5h5"]
+[ext_resource type="PackedScene" uid="uid://bacbrkhwlkyxt" path="res://Menu/Escenas/action_button.tscn" id="10_2hfuv"]
+[ext_resource type="PackedScene" uid="uid://6l0827vdcfje" path="res://Menu/escena menu.tscn" id="11_8itty"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_yiyqu")
+script = ExtResource("1_4sog5")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -33,31 +33,31 @@ grow_vertical = 2
 
 [node name="Historia" type="Button" parent="UI/MainMenu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 50
 text = "Modo Historia"
-script = ExtResource("1_odn01")
+script = ExtResource("3_xu5ky")
 
 [node name="Competitivo" type="Button" parent="UI/MainMenu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 50
 text = "Modo Competitivo"
-script = ExtResource("2_b3dnx")
+script = ExtResource("4_qshtn")
 
 [node name="Opciones" type="Button" parent="UI/MainMenu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 50
 text = "Opciones"
-script = ExtResource("1_5ug4n")
+script = ExtResource("5_gtm3a")
 
 [node name="Salir" type="Button" parent="UI/MainMenu"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 50
 text = "Salir"
-script = ExtResource("4_sxxxt")
+script = ExtResource("6_1kj2j")
 
 [node name="Settings" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
@@ -70,7 +70,7 @@ grow_vertical = 2
 
 [node name="Video" type="TabBar" parent="UI/Settings"]
 layout_mode = 2
-script = ExtResource("1_l3v7g")
+script = ExtResource("7_bttqa")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Video"]
 layout_mode = 1
@@ -91,25 +91,25 @@ layout_mode = 2
 
 [node name="WindowSize" type="Label" parent="UI/Settings/Video/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "Window Size"
 
 [node name="FullScreen" type="Label" parent="UI/Settings/Video/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "FullScreen"
 
 [node name="Borderless" type="Label" parent="UI/Settings/Video/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "Borderless"
 
 [node name="Vsync" type="Label" parent="UI/Settings/Video/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "Vsync"
 
@@ -119,7 +119,7 @@ layout_mode = 2
 [node name="WindowSize" type="OptionButton" parent="UI/Settings/Video/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 item_count = 4
 selected = 3
@@ -146,7 +146,7 @@ layout_mode = 2
 [node name="Vsync" type="OptionButton" parent="UI/Settings/Video/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 item_count = 4
 selected = 1
@@ -170,15 +170,15 @@ offset_left = -77.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "Regresar"
-script = ExtResource("6_jmykr")
+script = ExtResource("8_tkkjn")
 
 [node name="Audio" type="TabBar" parent="UI/Settings"]
 visible = false
 layout_mode = 2
-script = ExtResource("2_rwlwx")
+script = ExtResource("9_8k5h5")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Audio"]
 layout_mode = 1
@@ -199,19 +199,19 @@ layout_mode = 2
 
 [node name="Master" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "Master"
 
 [node name="Music" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "Music"
 
 [node name="SFX" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "SFX"
 
@@ -251,10 +251,10 @@ offset_left = -77.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "Regresar"
-script = ExtResource("6_jmykr")
+script = ExtResource("8_tkkjn")
 
 [node name="Controles" type="TabBar" parent="UI/Settings"]
 visible = false
@@ -280,28 +280,28 @@ layout_mode = 2
 [node name="Up" type="Label" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "UP"
 
 [node name="Down" type="Label" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "DOWN"
 
 [node name="Left" type="Label" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "LEFT"
 
 [node name="Right" type="Label" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "RIGHT"
 
@@ -309,30 +309,30 @@ text = "RIGHT"
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="ActionButton" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer2" instance=ExtResource("3_jslg1")]
+[node name="ActionButton" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer2" instance=ExtResource("10_2hfuv")]
 layout_mode = 2
 size_flags_vertical = 7
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 
-[node name="ActionButton2" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer2" instance=ExtResource("3_jslg1")]
+[node name="ActionButton2" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer2" instance=ExtResource("10_2hfuv")]
 layout_mode = 2
 size_flags_vertical = 7
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 action = "ui_down"
 
-[node name="ActionButton3" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer2" instance=ExtResource("3_jslg1")]
+[node name="ActionButton3" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer2" instance=ExtResource("10_2hfuv")]
 layout_mode = 2
 size_flags_vertical = 7
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 action = "ui_left"
 
-[node name="ActionButton4" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer2" instance=ExtResource("3_jslg1")]
+[node name="ActionButton4" parent="UI/Settings/Controles/HBoxContainer/VBoxContainer2" instance=ExtResource("10_2hfuv")]
 layout_mode = 2
 size_flags_vertical = 7
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 action = "ui_right"
 
@@ -347,12 +347,12 @@ offset_left = -77.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_2cux8")
+theme_override_fonts/font = ExtResource("2_bvjos")
 theme_override_font_sizes/font_size = 40
 text = "Regresar"
-script = ExtResource("6_jmykr")
+script = ExtResource("8_tkkjn")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("11_k2mmg")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("11_8itty")]
 
 [connection signal="pressed" from="UI/MainMenu/Historia" to="UI/MainMenu/Historia" method="_on_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Competitivo" to="UI/MainMenu/Competitivo" method="_on_pressed"]

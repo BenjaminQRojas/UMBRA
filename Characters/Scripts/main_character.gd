@@ -2,10 +2,14 @@ extends CharacterBody2D
 
 @export var speed = 120
 @export var maxHealth = 3
-@export var knockbackPower: int = 500
+@export var knockbackPower: int = 800
+@export var regenerationDelay: float = 3.0
 
 @onready var animations = $AnimationPlayer
-@onready var tomar =  $Tomar
+@onready var tomar = $Tomar
+@onready var efecto = $Effects
+@onready var timerHurt = $hurtTimer
+@onready var regenerationTimer = $regenerationTimer
 
 @onready var currentHealth: int = maxHealth
 
@@ -14,8 +18,11 @@ var currentDirection = ""
 var isTaking = false
 
 func _ready():
+	efecto.play("RESET")
 	animations.play("RESET")
 	tomar.connect("animation_finished", Callable(self, "_on_TakeAnimation_finished"))
+	regenerationTimer.wait_time = regenerationDelay
+	regenerationTimer.connect("timeout", Callable(self, "_on_regeneration_timer_timeout"))
 
 func handleInput():
 	var moveDirection = Vector2.ZERO
@@ -35,7 +42,6 @@ func updateAnimation():
 	var direction = ""
 	if velocity.length() == 0:
 		animations.stop()
-
 	else:
 		if velocity.x < 0:
 			if velocity.y < 0:
@@ -64,8 +70,7 @@ func handleCollision():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-	
-		
+
 func _physics_process(delta):
 	if not isTaking:
 		handleInput()
@@ -95,19 +100,31 @@ func playTakeAnimation():
 func _on_TakeAnimation_finished(anim_name):
 	if anim_name.begins_with("Take_"):
 		isTaking = false
-		updateAnimation()  
+		updateAnimation()
 
 func player():
 	pass
 
-
 func _on_hurt_box_area_entered(area):
 	if area.name == "hitBox":
 		currentHealth -= 1
-		if currentHealth < 0:
-			currentHealth = maxHealth
 		print_debug(currentHealth)
-		knockback(area.get_parent().velocity)
+		if currentHealth == 0:
+			get_tree().change_scene_to_file("res://Muerte menu/Muerte.tscn")
+		else:
+			knockback(area.get_parent().velocity)
+			efecto.play("hurtBlink")
+			timerHurt.start()
+			await timerHurt.timeout
+			efecto.play("RESET")
+			regenerationTimer.start()  # Restart regeneration timer on hit
+
+func _on_regeneration_timer_timeout():
+	if currentHealth < maxHealth:
+		currentHealth += 1
+		print_debug("Health regenerated: ", currentHealth)
+		if currentHealth < maxHealth:
+			regenerationTimer.start()  # Restart the timer until health is full
 
 func knockback(enemyVelocity: Vector2):
 	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
