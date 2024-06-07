@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
 @export var speed = 120
+@export var maxHealth = 3
+@export var knockbackPower: int = 500
 
 @onready var animations = $AnimationPlayer
 @onready var tomar =  $Tomar
+
+@onready var currentHealth: int = maxHealth
 
 var Door = false
 var currentDirection = ""
@@ -56,10 +60,17 @@ func updateAnimation():
 		animations.play("Walk_" + direction)
 		currentDirection = direction
 
+func handleCollision():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+	
+		
 func _physics_process(delta):
 	if not isTaking:
 		handleInput()
 		move_and_slide()
+		handleCollision()
 	updateAnimation()
 	look_at_mouse()
 	open_Door()
@@ -88,3 +99,21 @@ func _on_TakeAnimation_finished(anim_name):
 
 func player():
 	pass
+
+
+func _on_hurt_box_area_entered(area):
+	if area.name == "hitBox":
+		currentHealth -= 1
+		if currentHealth < 0:
+			currentHealth = maxHealth
+		print_debug(currentHealth)
+		knockback(area.get_parent().velocity)
+
+func knockback(enemyVelocity: Vector2):
+	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
+	velocity = knockbackDirection
+	print_debug(velocity)
+	print_debug(position)
+	move_and_slide()
+	print_debug(position)
+	print_debug(" ")
