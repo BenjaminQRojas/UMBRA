@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://crs464lsu2fhx"]
+
+[ext_resource type="Script" path="res://Enemigos/Enemigo3/Scripts/Enemigo3.gd" id="1_larw4"]
+
+[node name="Enemigo3" type="CharacterBody2D"]
+script = ExtResource("1_larw4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ColisionEnemigo3" type="CollisionShape2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="AreaDeteccion" type="Area2D" parent="."]

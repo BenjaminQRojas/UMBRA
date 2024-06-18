@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://3wk5uorvs5ty"]
+
+[ext_resource type="Texture2D" uid="uid://ddb0agf5m0g2h" path="res://Enemigos/Cientifico/Resources/cientifico 52x52.png" id="1_3c8lo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh1om"]
+size = Vector2(26, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehx3r"]
+size = Vector2(26, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyhje"]
+size = Vector2(41, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfb6o"]
+radius = 122.201
+
+[node name="Cientifico" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(70, 73.5)
+scale = Vector2(3.69231, 3.82692)
+texture = ExtResource("1_3c8lo")
+hframes = 4
+vframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ColisionCientifico" type="CollisionShape2D" parent="."]
+position = Vector2(72, 102)
+shape = SubResource("RectangleShape2D_xh1om")
+
+[node name="Hitbox" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(72, 73.5)
+shape = SubResource("RectangleShape2D_ehx3r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(71.5, 79.5)
+shape = SubResource("RectangleShape2D_fyhje")
+
+[node name="AreaDeteccion" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion"]
+position = Vector2(72, 73)
+shape = SubResource("CircleShape2D_hfb6o")
