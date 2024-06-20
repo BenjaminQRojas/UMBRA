@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d0oholqt08ib2"]
+[gd_scene load_steps=56 format=3 uid="uid://d0oholqt08ib2"]
 
 [ext_resource type="Script" path="res://Laboratorio/laboratorio.gd" id="1_04mok"]
 [ext_resource type="Texture2D" uid="uid://dcn1yijpqumq2" path="res://Laboratorio/mainlevbuild.png" id="1_x1gju"]
@@ -8,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dhoympp3pml6f" path="res://Objetos extras/Linterna/light2.png" id="6_ptdu1"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="6_y8qyl"]
 [ext_resource type="PackedScene" uid="uid://ccplowgwlhg1i" path="res://Laboratorio/Puzzle/puzzle.tscn" id="9_6en6s"]
+[ext_resource type="Script" path="res://Laboratorio/UserInterface.gd" id="10_hcw2w"]
 [ext_resource type="PackedScene" uid="uid://dcsvaiescnhf5" path="res://Pausa/Pausa_Menu.tscn" id="10_jfb4o"]
+[ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="11_itjfy"]
+[ext_resource type="PackedScene" uid="uid://cu75vwjhmo2p7" path="res://Inventario/item_drop.tscn" id="12_ugygr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mapli"]
 texture = ExtResource("1_x1gju")
@@ -1862,7 +1865,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_hxqna"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_mapli")
 sources/1 = SubResource("TileSetAtlasSource_e324c")
 sources/2 = SubResource("TileSetAtlasSource_mnv4a")
@@ -2209,6 +2213,7 @@ shape = SubResource("RectangleShape2D_1hoc5")
 [node name="Settings" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Settings"]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -2254,6 +2259,27 @@ offset_bottom = 11.0
 [node name="Control" parent="CanvasLayer" instance=ExtResource("10_jfb4o")]
 process_mode = 3
 visible = false
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+script = ExtResource("10_hcw2w")
+
+[node name="Inventario" parent="UserInterface" instance=ExtResource("11_itjfy")]
+visible = false
+
+[node name="ItemDrop" parent="." instance=ExtResource("12_ugygr")]
+position = Vector2(132, 226)
+collision_layer = 8
+collision_mask = 4
+
+[node name="ItemDrop2" parent="." instance=ExtResource("12_ugygr")]
+position = Vector2(186, 241)
+collision_layer = 8
+collision_mask = 4
+
+[node name="ItemDrop3" parent="." instance=ExtResource("12_ugygr")]
+position = Vector2(147, 283)
+collision_layer = 8
+collision_mask = 4
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

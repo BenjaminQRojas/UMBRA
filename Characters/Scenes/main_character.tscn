@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bgjmtsrhs1p42"]
+[gd_scene load_steps=43 format=3 uid="uid://bgjmtsrhs1p42"]
 
 [ext_resource type="Script" path="res://Characters/Scripts/main_character.gd" id="1_tgsgf"]
 [ext_resource type="Texture2D" uid="uid://cbwa42wksti1" path="res://Characters/Resourses/modificadas/movement + attack.png" id="2_60mjt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/Linterna/linterna.png" id="4_twy4t"]
 [ext_resource type="Texture2D" uid="uid://eqf3tqpn6sww" path="res://Objetos extras/Linterna/Sprite-0001.png" id="5_8qs5q"]
 [ext_resource type="Script" path="res://Characters/Scenes/linterna.gd" id="6_qpgwl"]
+[ext_resource type="Script" path="res://Characters/Scenes/PickupZone.gd" id="7_t6coo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wj2mn"]
 size = Vector2(11, 5)
@@ -519,9 +520,12 @@ _data = {
 radius = 6.0
 height = 26.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0nxp"]
+size = Vector2(20, 28)
+
 [node name="Main character" type="CharacterBody2D"]
 position = Vector2(-8, -5)
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_tgsgf")
 knockbackPower = 1500
 
@@ -628,4 +632,15 @@ shape = SubResource("CapsuleShape2D_h8amr")
 
 [node name="regenerationTimer" type="Timer" parent="."]
 
+[node name="PickupZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("7_t6coo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
+position = Vector2(9, 2)
+shape = SubResource("RectangleShape2D_l0nxp")
+
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="PickupZone" to="PickupZone" method="_on_body_entered"]
+[connection signal="body_exited" from="PickupZone" to="PickupZone" method="_on_body_exited"]
