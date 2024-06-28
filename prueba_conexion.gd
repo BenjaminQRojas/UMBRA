@@ -19,6 +19,7 @@ func juego_iniciado():
 		print("Error al enviar la solicitud HTTP GET: %s" % str(error))
 	else: 
 		print("Solicitud HTTP GET enviada con éxito")
+		
 	
 func juego_terminado(nickname, ptj):
 	var headers = ["Content-type: application/json", "Authorization: Bearer " + api_key]
@@ -51,8 +52,10 @@ func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	if json.has("data"):
 		print(json["data"])
+		actualizar_lista_scores(json["data"])
 	else:
 		print("El JSON devuelto no contiene la clave 'data'")
+		actualizar_lista_scores("No hay puntajes guardados.")
 
 
 
@@ -62,8 +65,25 @@ func _on_solicitar_pressed():
 
 
 func _on_agregar_pressed():
-	juego_terminado("DonTito3", 144)
+	juego_terminado("DonTito35", 324)
 
 
 func _on_eliminar_pressed():
 	eliminar_datos()
+
+func actualizar_lista_scores(data):
+	var list = ""
+	
+	if typeof(data) == TYPE_ARRAY and data.size() >= 1:
+		for i in range(data.size()):
+			var player = data[i]
+			list += "%s, %d\n" % [player["playerName"], player["score"]]
+	elif typeof(data) == TYPE_DICTIONARY:
+		juego_iniciado()
+		pass
+		#list += "%s, %d\n" % [data["playerName"], data["score"]]
+	elif typeof(data) == TYPE_ARRAY and data.size() == 0:
+		list = "No hay puntajes."
+	else:
+		list = "No hay puntajes."
+	$VBoxContainer2/Label2.text = list

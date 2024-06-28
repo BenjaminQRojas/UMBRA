@@ -41,6 +41,22 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "ELIMINAR DATOS"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 1648.0
+offset_top = 205.0
+offset_right = 1920.0
+offset_bottom = 591.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "LISTA DE PUNTAJES"
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
 [connection signal="pressed" from="VBoxContainer/SOLICITAR" to="." method="_on_solicitar_pressed"]
 [connection signal="pressed" from="VBoxContainer/AGREGAR" to="." method="_on_agregar_pressed"]
 [connection signal="pressed" from="VBoxContainer/ELIMINAR" to="." method="_on_eliminar_pressed"]
