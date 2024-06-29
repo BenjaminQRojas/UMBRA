@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc8s5286ml0q8"]
+
+[ext_resource type="Script" path="res://Item.gd" id="1_h06bb"]
+[ext_resource type="Texture2D" uid="uid://m2unnm3w3fjr" path="res://Inventario/Item_icons/Iron Sword.png" id="2_sucah"]
+[ext_resource type="FontFile" uid="uid://ccdg10w71yxip" path="res://Inventario/Fonts/m5x7.ttf" id="3_uyvs3"]
+
+[node name="Item" type="Node2D"]
+z_index = 1
+script = ExtResource("1_h06bb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+texture = ExtResource("2_sucah")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 36.0
+offset_top = 33.0
+offset_right = 54.0
+offset_bottom = 54.0
+scale = Vector2(1.25, 1.25)
+theme_override_fonts/font = ExtResource("3_uyvs3")
+theme_override_font_sizes/font_size = 25
+text = "99"

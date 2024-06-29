@@ -134,3 +134,11 @@ func knockback(enemyVelocity: Vector2):
 	move_and_slide()
 	print_debug(position)
 	print_debug(" ")
+
+func _input(event):
+	if event.is_action_pressed("Take"):
+		if $PickupZone.items_in_range.size() > 0:
+			var pickup_item = $PickupZone.items_in_range.values()[0]
+			pickup_item.pick_up_item(self)
+			$PickupZone.items_in_range.erase(pickup_item)
+		
