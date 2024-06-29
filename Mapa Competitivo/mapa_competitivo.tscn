@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0yq5c6hwoqmj"]
+[gd_scene load_steps=21 format=3 uid="uid://b0yq5c6hwoqmj"]
 
 [ext_resource type="Script" path="res://Mapa Competitivo/mapa_competitivo.gd" id="1_lewqn"]
 [ext_resource type="Texture2D" uid="uid://o5mvkihkvbhf" path="res://Mapa Competitivo/Assets/32x32_DEMO.png" id="1_mme6q"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c8h0m1b1qn1nb" path="res://Mapa Competitivo/Assets/Forest Structures.png" id="7_gyysg"]
 [ext_resource type="PackedScene" uid="uid://cgkxabyxtg8ti" path="res://Characters/Scenes/online_charcter.tscn" id="8_e1wkf"]
 [ext_resource type="PackedScene" uid="uid://cc4d7joxg5hec" path="res://Mapa Competitivo/Enemigo_prueba.tscn" id="10_bxl67"]
+[ext_resource type="PackedScene" uid="uid://2nd6qn4ln42n" path="res://Mapa Competitivo/spawn_enemigos.tscn" id="11_8moib"]
 [ext_resource type="PackedScene" uid="uid://cli0ty5usi7b5" path="res://Mapa Competitivo/Vida/BarraVida.tscn" id="11_des4n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nw5xy"]
@@ -12125,6 +12126,8 @@ knockbackPower = 1000
 
 [node name="EnemigoPrueba" parent="TileMap" instance=ExtResource("10_bxl67")]
 position = Vector2(148, 183)
+
+[node name="SpawnEnemigos" parent="TileMap" instance=ExtResource("11_8moib")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
