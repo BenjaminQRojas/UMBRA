@@ -6,9 +6,6 @@ var api_key: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzVj
 
 func _ready():
 	http_request.request_completed.connect(Callable(self, "_on_request_completed"))
-	#juego_iniciado()
-	#juego_terminado("DonTito2", 13)
-	#eliminar_datos()
 
 func juego_iniciado():
 	var headers = [
@@ -22,6 +19,8 @@ func juego_iniciado():
 		
 	
 func juego_terminado(nickname, ptj):
+	
+	
 	var headers = ["Content-type: application/json", "Authorization: Bearer " + api_key]
 	
 	var json_body = {
@@ -56,8 +55,6 @@ func _on_request_completed(result, response_code, headers, body):
 	else:
 		print("El JSON devuelto no contiene la clave 'data'")
 		actualizar_lista_scores("No hay puntajes guardados.")
-
-
 
 
 func _on_solicitar_pressed():

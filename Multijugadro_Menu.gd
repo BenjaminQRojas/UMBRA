@@ -1,39 +1,38 @@
-extends Node
+extends Control
 
 var url = "https://ucn-game-server.martux.cl/scores"
 var api_key: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzVjMzliZS1iNGJlLTRhNDgtYTIwMy03NzhkNDZkNzc1NjEiLCJrZXkiOiJDY1RzRVpWVXlEU2VMZnU4MmFaWHNMTXQzIiwiaWF0IjoxNzE5NDYxNTMzLCJleHAiOjE3NTA5OTc1MzN9.tLk9cTCOg0ENw00sMCW6qNJ9e0Tfvzt__IxLqWSAJtg"
-var score = 3
 
-@onready var heartsContainer = $CanvasLayer/heartsContainer
-@onready var player = $TileMap/OnlineCharcter
 @onready var http_request = $HTTPRequest
-@onready var playerName_input = $UI/Control/VBoxContainer/LineEdit
+@onready var playerName_node = $VBoxContainer/LineEdit
 @onready var timer = $Timer
+@onready var timer2 = $Timer2
 
-func _ready():
-	heartsContainer.setMaxHearts(player.maxHealth)
-	heartsContainer.updateHearts(player.currentHealth)
-	player.healthChanged.connect(heartsContainer.updateHearts)
-	
-	http_request.request_completed.connect(Callable(self, "_on_request_completed"))
-	
+
+var termino =  Global.termino_MP
+var playerName = ""
+
+func _input(event):
+	if event.is_action_pressed("guardar_datos"):
+		http_request.request_completed.connect(Callable(self, "_on_request_completed"))
+		visible = true
+		juego_iniciado()
+		playerName_node.max_length = 10
+		timer2.wait_time = 3.0
+		timer2.one_shot = true
+		timer2.start()
+
+
+func _on_button_pressed():
+	playerName = playerName_node.get_text()
+	var score = Global.score_MP
+	juego_terminado(playerName, score)
 	timer.wait_time = 5.0
 	timer.one_shot = true
 	timer.start()
-
-		
-
-func menu_terminado():
-	Global.score_MP = score
-	$UI/ColorRect.show()
-	$UI/VBoxContainer.show()
 	
-func _input(event):
-	if event.is_action_pressed("guardar_datos"):
-		$UI/ColorRect.hide()
-		$UI/VBoxContainer.hide()
 	
-
+	
 func juego_iniciado():
 	var headers = [
 		"Authorization: Bearer " + api_key
@@ -63,16 +62,6 @@ func juego_terminado(nickname, ptj):
 	else:
 		print("Solicitud HTTP POST enviada con éxito")
 
-func eliminar_datos():
-	var headers = [
-		"Authorization: Bearer " + api_key
-	]
-	var eliminados = http_request.request(url, headers, HTTPClient.METHOD_DELETE)
-	if eliminados != OK:
-		print("Error al enviar la solicitud HTTP DELETE: %s" % str(eliminados))
-	else:
-		print("Solicitud HTTP DELETE enviada con éxito")	
-
 func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	if json.has("data"):
@@ -97,9 +86,12 @@ func actualizar_lista_scores(data):
 		list = "No hay puntajes."
 	else:
 		list = "No hay puntajes."
-	$VBoxContainer/Label2.text = list
-
+	$VBoxContainer2/Label2.text = list
 
 
 func _on_timer_timeout():
-	menu_terminado()
+	get_tree().change_scene_to_file("res://Menu/Escenas/Test.tscn")
+
+
+func _on_timer_2_timeout():
+	get_tree().paused = true
