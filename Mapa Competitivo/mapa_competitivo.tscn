@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0yq5c6hwoqmj"]
+[gd_scene load_steps=22 format=3 uid="uid://b0yq5c6hwoqmj"]
 
 [ext_resource type="Script" path="res://Mapa Competitivo/mapa_competitivo.gd" id="1_lewqn"]
 [ext_resource type="Texture2D" uid="uid://o5mvkihkvbhf" path="res://Mapa Competitivo/Assets/32x32_DEMO.png" id="1_mme6q"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cc4d7joxg5hec" path="res://Mapa Competitivo/Enemigo_prueba.tscn" id="10_bxl67"]
 [ext_resource type="PackedScene" uid="uid://2nd6qn4ln42n" path="res://Mapa Competitivo/spawn_enemigos.tscn" id="11_8moib"]
 [ext_resource type="PackedScene" uid="uid://cli0ty5usi7b5" path="res://Mapa Competitivo/Vida/BarraVida.tscn" id="11_des4n"]
+[ext_resource type="PackedScene" uid="uid://bnk44q8p727j5" path="res://Mapa Competitivo/multijugador_menu.tscn" id="12_qrpc1"]
+[ext_resource type="FontFile" uid="uid://b5glysunhn2en" path="res://Menu/Retro Gaming.ttf" id="13_dhot1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nw5xy"]
 texture = ExtResource("1_mme6q")
@@ -12097,8 +12099,20 @@ script = ExtResource("1_lewqn")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 1711.0
+offset_top = 233.0
+offset_right = 1921.0
+offset_bottom = 462.0
+
+[node name="timer_label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 45.0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_iws4s")
@@ -12134,3 +12148,62 @@ position = Vector2(148, 183)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("11_des4n")]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="UI" instance=ExtResource("12_qrpc1")]
+process_mode = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 0.505882)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -217.0
+offset_top = 135.0
+offset_right = 152.0
+offset_bottom = 175.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_dhot1")
+theme_override_font_sizes/font_size = 30
+text = "APRETE LA LETRA \"SHIFT + ENTER\" PARA GUARDAR SUS DATOS
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 1570.0
+offset_top = 328.0
+offset_right = 1916.0
+offset_bottom = 667.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "LISTA DE PUNTAJES:"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

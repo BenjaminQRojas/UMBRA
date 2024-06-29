@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg8bdxd5ab07h"]
+
+[ext_resource type="Script" path="res://prueba_conexion.gd" id="1_tvmxh"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_tvmxh")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1922.0
+offset_bottom = 1077.0
+color = Color(0.552941, 0.32549, 0.643137, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 19
+
+[node name="SOLICITAR" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "SOLICITAR DATOS"
+
+[node name="AGREGAR" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "AGREGAR DATOS"
+
+[node name="ELIMINAR" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "ELIMINAR DATOS"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 1648.0
+offset_top = 205.0
+offset_right = 1920.0
+offset_bottom = 591.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "LISTA DE PUNTAJES"
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
+[connection signal="pressed" from="VBoxContainer/SOLICITAR" to="." method="_on_solicitar_pressed"]
+[connection signal="pressed" from="VBoxContainer/AGREGAR" to="." method="_on_agregar_pressed"]
+[connection signal="pressed" from="VBoxContainer/ELIMINAR" to="." method="_on_eliminar_pressed"]

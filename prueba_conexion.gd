@@ -2,37 +2,10 @@ extends Node
 
 var url = "https://ucn-game-server.martux.cl/scores"
 var api_key: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzVjMzliZS1iNGJlLTRhNDgtYTIwMy03NzhkNDZkNzc1NjEiLCJrZXkiOiJDY1RzRVpWVXlEU2VMZnU4MmFaWHNMTXQzIiwiaWF0IjoxNzE5NDYxNTMzLCJleHAiOjE3NTA5OTc1MzN9.tLk9cTCOg0ENw00sMCW6qNJ9e0Tfvzt__IxLqWSAJtg"
-var score = 3
-
-@onready var heartsContainer = $CanvasLayer/heartsContainer
-@onready var player = $TileMap/OnlineCharcter
 @onready var http_request = $HTTPRequest
-@onready var playerName_input = $UI/Control/VBoxContainer/LineEdit
-@onready var timer = $Timer
 
 func _ready():
-	heartsContainer.setMaxHearts(player.maxHealth)
-	heartsContainer.updateHearts(player.currentHealth)
-	player.healthChanged.connect(heartsContainer.updateHearts)
-	
 	http_request.request_completed.connect(Callable(self, "_on_request_completed"))
-	
-	timer.wait_time = 5.0
-	timer.one_shot = true
-	timer.start()
-
-		
-
-func menu_terminado():
-	Global.score_MP = score
-	$UI/ColorRect.show()
-	$UI/VBoxContainer.show()
-	
-func _input(event):
-	if event.is_action_pressed("guardar_datos"):
-		$UI/ColorRect.hide()
-		$UI/VBoxContainer.hide()
-	
 
 func juego_iniciado():
 	var headers = [
@@ -43,7 +16,8 @@ func juego_iniciado():
 		print("Error al enviar la solicitud HTTP GET: %s" % str(error))
 	else: 
 		print("Solicitud HTTP GET enviada con éxito")
-
+		
+	
 func juego_terminado(nickname, ptj):
 	
 	
@@ -71,7 +45,7 @@ func eliminar_datos():
 	if eliminados != OK:
 		print("Error al enviar la solicitud HTTP DELETE: %s" % str(eliminados))
 	else:
-		print("Solicitud HTTP DELETE enviada con éxito")	
+		print("Solicitud HTTP DELETE enviada con éxito")
 
 func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
@@ -81,6 +55,18 @@ func _on_request_completed(result, response_code, headers, body):
 	else:
 		print("El JSON devuelto no contiene la clave 'data'")
 		actualizar_lista_scores("No hay puntajes guardados.")
+
+
+func _on_solicitar_pressed():
+	juego_iniciado()
+
+
+func _on_agregar_pressed():
+	juego_terminado("DonTito35", 324)
+
+
+func _on_eliminar_pressed():
+	eliminar_datos()
 
 func actualizar_lista_scores(data):
 	var list = ""
@@ -97,9 +83,4 @@ func actualizar_lista_scores(data):
 		list = "No hay puntajes."
 	else:
 		list = "No hay puntajes."
-	$VBoxContainer/Label2.text = list
-
-
-
-func _on_timer_timeout():
-	menu_terminado()
+	$VBoxContainer2/Label2.text = list

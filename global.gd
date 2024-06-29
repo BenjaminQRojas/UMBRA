@@ -37,6 +37,10 @@ var cue_first_loading = true
 var cas1_first_loading = true
 var cas2_first_loading = true
 
+
+var score_MP = 1
+var termino_MP = false
+
 func finish_changescenes(lugar):
 	if transtion_scene == true:
 		transtion_scene = false
