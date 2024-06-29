@@ -18,7 +18,7 @@ func _input(event):
 		visible = true
 		juego_iniciado()
 		playerName_node.max_length = 10
-		timer2.wait_time = 3.0
+		timer2.wait_time = 1.0
 		timer2.one_shot = true
 		timer2.start()
 
