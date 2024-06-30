@@ -9,6 +9,7 @@ var player_chase = false
 # referencia a los sprites
 @onready var spriteI = $"sprite-idle"
 @onready var spriteW = $"sprite-walks"
+@onready var spriteD = $"sprite-muerte"
 # referencia al AnimatedSprite2D
 @onready var animated_sprite = $AnimationPlayer
 
@@ -16,6 +17,7 @@ func _physics_process(_delta):
 	if player_chase:
 		print_debug("persiguiendo a player")
 		spriteI.visible = false
+		spriteD.visible = false
 		spriteW.visible = true
 		var direction = (player.position - position).normalized()
 		position += direction * SPEED * _delta
@@ -33,6 +35,7 @@ func _physics_process(_delta):
 				
 	else:
 		print_debug("modo idle")
+		spriteD.visible = false
 		spriteW.visible = false
 		spriteI.visible = true
 		animated_sprite.play("idle")
@@ -47,4 +50,12 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(_body):
 	player = null
 	player_chase = false
+	
+func dead():
+	spriteW.visible = false
+	spriteI.visible = false
+	spriteD.visible = true
+	animated_sprite.play("dead")
+	await(animated_sprite.animation_finished)
+	queue_free()
 

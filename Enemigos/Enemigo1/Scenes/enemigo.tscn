@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8bbmkdt3ymdo"]
+[gd_scene load_steps=18 format=3 uid="uid://c8bbmkdt3ymdo"]
 
 [ext_resource type="Script" path="res://Enemigos/Enemigo1/Scripts/enemigo.gd" id="1_wn2vn"]
 [ext_resource type="Texture2D" uid="uid://c0ws6hocqdbyy" path="res://Enemigos/Enemigo1/Resources/Bosses Sprites 2 - Fantasy Dreamland/Boss Sprites 144x144/Boss_027.png" id="2_npe3g"]
 [ext_resource type="Texture2D" uid="uid://k452h3jjjwpx" path="res://Enemigos/Enemigo1/Resources/Bosses Sprites 2 - Fantasy Dreamland/Boss Sprites 144x144/Boss_027 idle.png" id="3_boj4c"]
+[ext_resource type="Texture2D" uid="uid://bp8vaha2vqboi" path="res://Enemigos/Enemigo1/Resources/explosion chica.png" id="4_t4ryb"]
 
 [sub_resource type="Animation" id="Animation_3oprb"]
 length = 0.001
@@ -85,6 +86,18 @@ tracks/6/path = NodePath("sprite-idle:frame_coords")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("sprite-muerte:frame_coords")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -421,9 +434,28 @@ tracks/4/keys = {
 "values": [Vector2(30, 24), Vector2(41, 19), Vector2(37.3333, 20.6667), Vector2(39, 22)]
 }
 
+[sub_resource type="Animation" id="Animation_tnfrc"]
+resource_name = "dead"
+length = 1.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite-muerte:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vbn33"]
 _data = {
 "RESET": SubResource("Animation_3oprb"),
+"dead": SubResource("Animation_tnfrc"),
 "idle": SubResource("Animation_qpvc7"),
 "walk_down": SubResource("Animation_up0rf"),
 "walk_left": SubResource("Animation_jf6l4"),
@@ -463,22 +495,31 @@ frame = 12
 texture = ExtResource("3_boj4c")
 hframes = 4
 
+[node name="sprite-muerte" type="Sprite2D" parent="."]
+position = Vector2(11, 16)
+texture = ExtResource("4_t4ryb")
+hframes = 3
+vframes = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vbn33")
 }
 
 [node name="ColisionEnemigo" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-4, 48)
 shape = SubResource("RectangleShape2D_h4mpj")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 15)
+position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_boect")
 
 [node name="hitBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
 position = Vector2(-4, 48)

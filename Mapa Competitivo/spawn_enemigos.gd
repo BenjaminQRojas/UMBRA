@@ -1,10 +1,10 @@
 extends Area2D
 
 @onready var Escena_enemigo = load("res://Enemigos/Enemigo1/Scenes/enemigo.tscn")
+@export var spawn_radius: float = 100.0  # Radio alrededor del jugador donde aparecerán los enemigos
 var bool_spawn = true
 
 var random = RandomNumberGenerator.new()
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,16 +13,25 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	spawn()
+	if(bool_spawn):
+		spawn()
 
 func spawn():
-	if bool_spawn:
-		$cooldown.start()
-		bool_spawn = false
-		var enemigo_instance = Escena_enemigo.instantiate()
-		enemigo_instance.position = Vector2(random.randi_range(-1050,1730), random.randi_range(450,-450))
-		add_child(enemigo_instance)
-		
+	$cooldown.start()
+	bool_spawn = false
+	# Obtener la referencia al nodo del jugador
+	var jugador_node = get_node("TileMap/OnlineCharcter")
+	
+	if jugador_node == null:
+		print("Error: No se encontró el nodo del jugador.")
+		return
+	
+	var enemigo_instance = Escena_enemigo.instantiate()
+	var angle = randf() * 2.0 * PI
+	var distance = randf() * spawn_radius
+	var offset = Vector2(cos(angle), sin(angle)) * distance
+	enemigo_instance.position = jugador_node.position + offset
+	add_child(enemigo_instance)
 
 
 func _on_cooldown_timeout():

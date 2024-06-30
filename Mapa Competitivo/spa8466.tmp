@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://2nd6qn4ln42n"]
+
+[ext_resource type="Script" path="res://Mapa Competitivo/spawn_enemigos.gd" id="1_i5oft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqr2a"]
+
+[node name="SpawnEnemigos" type="Area2D"]
+script = ExtResource("1_i5oft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pqr2a")
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

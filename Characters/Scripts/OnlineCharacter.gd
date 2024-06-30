@@ -14,6 +14,7 @@ signal healthChanged
 
 @export var knockbackPower:int = 500
 
+var enemy = "Enemigo"
 func _ready():
 	effects.play("RESET")
 
@@ -93,3 +94,9 @@ func knockback(enemyVelocity: Vector2):
 	move_and_slide()
 	print_debug(position)
 	print_debug(" ")
+
+
+func _on_area_luz_body_entered(body):
+	if(body.name == enemy): #cambiar en caso de cambio de nombre de la escena enemigo
+		print("mato")
+		body.dead()
