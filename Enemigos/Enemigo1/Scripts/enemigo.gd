@@ -15,7 +15,7 @@ var player_chase = false
 
 func _physics_process(_delta):
 	if player_chase:
-		print_debug("persiguiendo a player")
+		#print_debug("persiguiendo a player")
 		spriteI.visible = false
 		spriteD.visible = false
 		spriteW.visible = true
@@ -34,7 +34,7 @@ func _physics_process(_delta):
 				animated_sprite.play("walk_down")
 				
 	else:
-		print_debug("modo idle")
+		#print_debug("modo idle")
 		spriteD.visible = false
 		spriteW.visible = false
 		spriteI.visible = true
@@ -56,6 +56,7 @@ func dead():
 	spriteI.visible = false
 	spriteD.visible = true
 	animated_sprite.play("dead")
+	print_debug("muerto")
 	await(animated_sprite.animation_finished)
 	queue_free()
 
