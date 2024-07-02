@@ -11,7 +11,7 @@
 
 
 ### Guía de carácteres
-![117803197_169144941377374_889870](https://github.com/BenjaminQRojas/UMBRA/assets/107888507/f7cece24-d891-47d9-811f-f8fa5ebf03d7)
+![Diseño_sin_título__1_-removebg-preview](https://github.com/BenjaminQRojas/UMBRA/assets/107888507/69279649-43cc-4517-9657-e4db1616cdc7)
 
 
 
