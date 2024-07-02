@@ -6,17 +6,17 @@ const SPEED = 40.0
 var player = null
 var player_chase = false
 
-# referencia a los sprites
-@onready var spriteI = $"sprite-idle"
-@onready var spriteW = $"sprite-walks"
 # referencia al AnimatedSprite2D
 @onready var animated_sprite = $AnimationPlayer
 
+signal enemigo_eliminado(enemigo)
+
+func _ready():
+	$hitBox.connect("body_entered", Callable(self, "_on_body_entered"))
+
+
 func _physics_process(_delta):
 	if player_chase:
-		print_debug("persiguiendo a player")
-		spriteI.visible = false
-		spriteW.visible = true
 		var direction = (player.position - position).normalized()
 		position += direction * SPEED * _delta
 		# cambia la animación según la dirección
@@ -27,14 +27,11 @@ func _physics_process(_delta):
 				animated_sprite.play("walk_left")
 		else:
 			if direction.y > 0:
-				animated_sprite.play("walk_up")
+				animated_sprite.play("walk_front")
 			else:
-				animated_sprite.play("walk_down")
+				animated_sprite.play("walk_back")
 				
 	else:
-		print_debug("modo idle")
-		spriteW.visible = false
-		spriteI.visible = true
 		animated_sprite.play("idle")
 	move_and_slide()
 
@@ -47,4 +44,16 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(_body):
 	player = null
 	player_chase = false
+	
 
+# Función llamada cuando un cuerpo entra en el hitBox del enemigo
+func _on_body_entered(body):
+	if body.name == "area_luz":  # Asegúrate de que el nombre es correcto
+		dead()
+
+# Función para eliminar al enemigo
+func dead():
+	animated_sprite.play("xplode")
+	print_debug("muerto")
+	emit_signal("enemigo_eliminado", self)
+	queue_free()

@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var Escena_enemigo = load("res://Enemigos/Enemigo1/Scenes/enemigo.tscn")
-@export var spawn_radius: float = 100.0  # Radio alrededor del jugador donde aparecerán los enemigos
+@export var spawn_radius: float = 200.0  # Radio alrededor del jugador donde aparecerán los enemigos
 var bool_spawn = true
 
 var random = RandomNumberGenerator.new()
@@ -20,7 +20,7 @@ func spawn():
 	$cooldown.start()
 	bool_spawn = false
 	# Obtener la referencia al nodo del jugador
-	var jugador_node = get_node("Mapa/TileMap/OnlineCharcter")
+	var jugador_node = $"../OnlineCharcter"
 	
 	if jugador_node == null:
 		print("Error: No se encontró el nodo del jugador.")
@@ -31,6 +31,7 @@ func spawn():
 	var distance = randf() * spawn_radius
 	var offset = Vector2(cos(angle), sin(angle)) * distance
 	enemigo_instance.position = jugador_node.position + offset
+	print_debug(enemigo_instance.name)
 	add_child(enemigo_instance)
 
 

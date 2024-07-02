@@ -3,6 +3,8 @@ extends CharacterBody2D
 class_name OnlineCharacter
 
 signal healthChanged
+signal scoreUp
+@export var score = 0
 
 @export var speed = 80
 @onready var animations = $Movimiento
@@ -14,8 +16,11 @@ signal healthChanged
 
 @export var knockbackPower:int = 500
 
+@onready var flashlight_area = $Pivote/area_luz
+
 func _ready():
 	effects.play("RESET")
+	flashlight_area.connect("body_entered", Callable(self, "_on_area_luz_body_entered"))
 
 func handleInput():
 	var moveDirection = Vector2.ZERO
@@ -93,3 +98,11 @@ func knockback(enemyVelocity: Vector2):
 	move_and_slide()
 	print_debug(position)
 	print_debug(" ")
+
+
+func _on_area_luz_body_entered(body):
+	if body.name == "Enemigo":
+		emit_signal("scoreUp")
+		print_debug(score)
+		print_debug(body.name)
+		body.dead()

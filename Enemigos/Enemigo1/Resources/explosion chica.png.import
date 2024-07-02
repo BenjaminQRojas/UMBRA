@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cibo1clhrsh68"
-path="res://.godot/imported/background.png-2143070375d20660330b3f920970e073.ctex"
+uid="uid://bp8vaha2vqboi"
+path="res://.godot/imported/explosion chica.png-84c771947611929bd5f696d4e92e38b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Multijugador(prueba spawn enemigo)/background.png"
-dest_files=["res://.godot/imported/background.png-2143070375d20660330b3f920970e073.ctex"]
+source_file="res://Enemigos/Enemigo1/Resources/explosion chica.png"
+dest_files=["res://.godot/imported/explosion chica.png-84c771947611929bd5f696d4e92e38b9.ctex"]
 
 [params]
 

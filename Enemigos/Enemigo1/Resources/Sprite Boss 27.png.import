@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnfrfqxg4b8xy"
-path="res://.godot/imported/Mask Dude.png-39aa87261e6256058e4031eeb90784d3.ctex"
+uid="uid://bk5q6812l8uq0"
+path="res://.godot/imported/Sprite Boss 27.png-092c5b2057aa2f568477b07e6c060540.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Multijugador(prueba spawn enemigo)/Player (prueba)/Mask Dude.png"
-dest_files=["res://.godot/imported/Mask Dude.png-39aa87261e6256058e4031eeb90784d3.ctex"]
+source_file="res://Enemigos/Enemigo1/Resources/Sprite Boss 27.png"
+dest_files=["res://.godot/imported/Sprite Boss 27.png-092c5b2057aa2f568477b07e6c060540.ctex"]
 
 [params]
 

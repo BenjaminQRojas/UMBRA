@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b0yq5c6hwoqmj"]
+[gd_scene load_steps=25 format=3 uid="uid://b0yq5c6hwoqmj"]
 
 [ext_resource type="Script" path="res://Mapa Competitivo/mapa_competitivo.gd" id="1_lewqn"]
 [ext_resource type="Texture2D" uid="uid://o5mvkihkvbhf" path="res://Mapa Competitivo/Assets/32x32_DEMO.png" id="1_mme6q"]
@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cc4d7joxg5hec" path="res://Mapa Competitivo/Enemigo_prueba.tscn" id="10_bxl67"]
 [ext_resource type="PackedScene" uid="uid://h6q0bjanm32c" path="res://Mapa Competitivo/spawn_enemigos.tscn" id="11_8moib"]
 [ext_resource type="PackedScene" uid="uid://cli0ty5usi7b5" path="res://Mapa Competitivo/Vida/BarraVida.tscn" id="11_des4n"]
+[ext_resource type="Script" path="res://Mapa Competitivo/Spawner.gd" id="11_o0rc6"]
 [ext_resource type="PackedScene" uid="uid://bnk44q8p727j5" path="res://Mapa Competitivo/multijugador_menu.tscn" id="12_qrpc1"]
 [ext_resource type="FontFile" uid="uid://b5glysunhn2en" path="res://Menu/Retro Gaming.ttf" id="13_dhot1"]
+[ext_resource type="FontFile" uid="uid://c07dmdwlgy5vn" path="res://Mapa Competitivo/text/game_over.ttf" id="15_8q6lp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nw5xy"]
 texture = ExtResource("1_mme6q")
@@ -12093,14 +12095,19 @@ sources/4 = SubResource("TileSetAtlasSource_3rb3t")
 sources/5 = SubResource("TileSetAtlasSource_esl4a")
 sources/6 = SubResource("TileSetAtlasSource_wwnlr")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v084"]
+radius = 38.4708
+
 [node name="Mapa competitivo" type="Node"]
 script = ExtResource("1_lewqn")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = -1.0
+offset_top = 15.0
+offset_right = 1919.0
+offset_bottom = 1095.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 0
@@ -12141,7 +12148,14 @@ knockbackPower = 1000
 [node name="EnemigoPrueba" parent="TileMap" instance=ExtResource("10_bxl67")]
 position = Vector2(148, 183)
 
-[node name="SpawnEnemigos" parent="TileMap" instance=ExtResource("11_8moib")]
+[node name="Spawner" type="Area2D" parent="TileMap"]
+script = ExtResource("11_o0rc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Spawner"]
+shape = SubResource("CircleShape2D_2v084")
+
+[node name="cooldown" type="Timer" parent="TileMap/Spawner"]
+wait_time = 5.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
@@ -12206,4 +12220,20 @@ layout_mode = 2
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Score" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Score"]
+offset_left = 7.0
+offset_top = 43.0
+offset_right = 51.0
+offset_bottom = 179.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.854902, 0.709804, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_8q6lp")
+theme_override_font_sizes/font_size = 200
+text = "0"
+
+[connection signal="timeout" from="TileMap/Spawner/cooldown" to="TileMap/Spawner" method="_on_cooldown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

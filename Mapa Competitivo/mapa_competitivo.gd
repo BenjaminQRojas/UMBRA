@@ -9,8 +9,10 @@ var score = 3
 @onready var http_request = $HTTPRequest
 @onready var playerName_input = $UI/Control/VBoxContainer/LineEdit
 @onready var timer = $Timer
+var scorePlayer := 0
 
 func _ready():
+	player.connect("scoreUp",subirScore)
 	heartsContainer.setMaxHearts(player.maxHealth)
 	heartsContainer.updateHearts(player.currentHealth)
 	player.healthChanged.connect(heartsContainer.updateHearts)
@@ -21,7 +23,10 @@ func _ready():
 	timer.one_shot = true
 	timer.start()
 
-		
+func subirScore():
+	scorePlayer+=1
+	$Score/Label.text = str(scorePlayer)
+	pass
 
 func menu_terminado():
 	Global.score_MP = score
