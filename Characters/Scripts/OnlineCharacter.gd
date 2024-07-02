@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name OnlineCharacter
 
 signal healthChanged
-
+signal scoreUp
 @export var score = 0
 
 @export var speed = 80
@@ -102,7 +102,7 @@ func knockback(enemyVelocity: Vector2):
 
 func _on_area_luz_body_entered(body):
 	if body.name == "Enemigo":
-		score = score + 1
+		emit_signal("scoreUp")
 		print_debug(score)
 		print_debug(body.name)
 		body.dead()
