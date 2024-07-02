@@ -1,6 +1,10 @@
 extends Node
 
+var sonido = preload("res://Laboratorio/Y2meta.app-z3r0-8bit-Nightmare-_-8bit-Horror-NO-COPYRIGHT-MUSIC-_128-kbps_.ogg")
+
+
 func _ready():
+	changeSound(sonido)
 	if Global.lab_first_loading == true:
 		$Main_character.position.x = Global.player_start_posx
 		$Main_character.position.y = Global.player_start_posy
@@ -79,3 +83,7 @@ func _on_puzzle_body_entered(body):
 func _on_puzzle_body_exited(body):
 	if body.has_method("player"):
 		Global.transtion_scene = false
+
+func changeSound(sound):
+	AudioPrincipal.stream = sound
+	AudioPrincipal.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://2nd6qn4ln42n"]
+[gd_scene load_steps=3 format=3 uid="uid://h6q0bjanm32c"]
 
 [ext_resource type="Script" path="res://Mapa Competitivo/spawn_enemigos.gd" id="1_i5oft"]
 
