@@ -277,7 +277,18 @@ texture_scale = 10.0
 autostart = true
 
 [node name="Pivote" type="Node2D" parent="."]
+z_index = 2
 position = Vector2(8, 5)
+
+[node name="area_luz" type="Area2D" parent="Pivote"]
+z_index = 2
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivote/area_luz"]
+z_index = 2
+position = Vector2(0, -5)
+polygon = PackedVector2Array(13, -11, 93, -36, 98, -6, 16, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivote"]
 visible = false
@@ -310,14 +321,6 @@ shadow_item_cull_mask = 15
 texture = ExtResource("5_tivm1")
 texture_scale = 10.0
 script = ExtResource("6_sgmhl")
-
-[node name="area_luz" type="Area2D" parent="Pivote"]
-z_index = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivote/area_luz"]
-z_index = 2
-position = Vector2(0, -5)
-polygon = PackedVector2Array(-7, -5, 93, -36, 98, -6, -3, 5)
 
 [node name="hurtBox" type="Area2D" parent="."]
 collision_mask = 3

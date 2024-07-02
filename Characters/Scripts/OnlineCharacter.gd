@@ -14,8 +14,11 @@ signal healthChanged
 
 @export var knockbackPower:int = 500
 
+@onready var flashlight_area = $Pivote/area_luz
+
 func _ready():
 	effects.play("RESET")
+	flashlight_area.connect("body_entered", Callable(self, "_on_area_luz_body_entered"))
 
 func handleInput():
 	var moveDirection = Vector2.ZERO
@@ -96,7 +99,6 @@ func knockback(enemyVelocity: Vector2):
 
 
 func _on_area_luz_body_entered(body):
-	print_debug(body.name)
-	if(body.name == "Enemigo"): #cambiar en caso de cambio de nombre de la escena enemigo
-		print("mato")
+	if body.name == "Enemigo":
+		print_debug(body.name)
 		body.dead()

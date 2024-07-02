@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwcy23wp4vqn6"]
+[gd_scene load_steps=10 format=3 uid="uid://bwcy23wp4vqn6"]
 
 [ext_resource type="Script" path="res://Cueva/Cueva.gd" id="1_kjbq6"]
 [ext_resource type="Texture2D" uid="uid://cjehmgoocxie" path="res://Cueva/Assets/MainLev2.0.png" id="1_xutrw"]
+[ext_resource type="PackedScene" uid="uid://skshs1vtik4r" path="res://Enemigos/Enemigo2/Scenes/Enemigo2.tscn" id="2_0xfxm"]
 [ext_resource type="Texture2D" uid="uid://dav0j5djwttwu" path="res://Cueva/Assets/decorative.png" id="2_whnm0"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="3_gsajp"]
 
@@ -6587,6 +6588,18 @@ radius = 27.2947
 
 [node name="Node" type="Node"]
 script = ExtResource("1_kjbq6")
+
+[node name="Enemigo2" parent="." instance=ExtResource("2_0xfxm")]
+z_index = 3
+position = Vector2(514, 1184)
+
+[node name="Enemigo3" parent="." instance=ExtResource("2_0xfxm")]
+z_index = 3
+position = Vector2(1288, 56)
+
+[node name="Enemigo4" parent="." instance=ExtResource("2_0xfxm")]
+z_index = 3
+position = Vector2(3304, 960)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
