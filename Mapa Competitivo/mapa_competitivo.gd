@@ -17,7 +17,7 @@ func _ready():
 	
 	http_request.request_completed.connect(Callable(self, "_on_request_completed"))
 	
-	timer.wait_time = 5.0
+	timer.wait_time = 120.0
 	timer.one_shot = true
 	timer.start()
 
