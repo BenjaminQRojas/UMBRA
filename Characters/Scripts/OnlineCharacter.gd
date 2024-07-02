@@ -4,6 +4,8 @@ class_name OnlineCharacter
 
 signal healthChanged
 
+@export var score = 0
+
 @export var speed = 80
 @onready var animations = $Movimiento
 @onready var effects = $Efectos
@@ -100,5 +102,7 @@ func knockback(enemyVelocity: Vector2):
 
 func _on_area_luz_body_entered(body):
 	if body.name == "Enemigo":
+		score = score + 1
+		print_debug(score)
 		print_debug(body.name)
 		body.dead()
