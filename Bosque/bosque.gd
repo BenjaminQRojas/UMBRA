@@ -11,7 +11,7 @@ func _ready():
 		elif Global.escena_anterior == "cueva":
 			$"Main character".position.x = Global.player_ent_cue_posx
 			$"Main character".position.y = Global.player_ent_cue_posy
-		elif Global.escena_anterior == "entrada_castillo":
+		elif Global.escena_anterior == "castillo1":
 			$"Main character".position.x = Global.player_ent_cas_posx
 			$"Main character".position.y = Global.player_ent_cas_posy
 
@@ -38,6 +38,10 @@ func change_scene(lugar):
 				Global.finish_changescenes(lugar)
 				Global.bos_first_loading = false
 				get_tree().change_scene_to_file("res://Cueva/Cueva.tscn")
+			elif lugar == "castillo1":
+				Global.finish_changescenes(lugar)
+				Global.bos_first_loading = false
+				get_tree().change_scene_to_file("res://1°Castillo/Castillo_1.tscn")
 			
 
 
@@ -48,5 +52,16 @@ func _on_area_2d_body_entered(body):
 		change_scene("cueva")
 
 func _on_area_2d_body_exited(body):
+	if body.has_method("player"):
+		Global.transtion_scene = false
+
+
+func _on_area_2d_2_body_entered(body):
+	if body.has_method("player"):
+		Global.transtion_scene = true
+		change_scene("castillo1")
+
+
+func _on_area_2d_2_body_exited(body):
 	if body.has_method("player"):
 		Global.transtion_scene = false
