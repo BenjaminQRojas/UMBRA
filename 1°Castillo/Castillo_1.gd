@@ -1,7 +1,10 @@
 extends Node
 
+var sonido = preload("res://1°Castillo/Y2meta.app-An-Ancient-King-_-_128-kbps_.ogg")
+
 
 func _ready():
+	changeSound(sonido)
 	if Global.cas1_first_loading == true:
 		$"Main character".position.x = Global.player_start_cas_posx
 		$"Main character".position.y = Global.player_start_cas_posy
@@ -51,3 +54,7 @@ func _on_area_2d_2_body_entered(body):
 func _on_area_2d_2_body_exited(body):
 	if body.has_method("player"):
 		Global.transtion_scene = false
+
+func changeSound(sound):
+	AudioPrincipal.stream = sound
+	AudioPrincipal.play()
