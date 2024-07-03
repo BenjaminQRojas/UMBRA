@@ -29,7 +29,7 @@ func subirScore():
 	$Labels/Score.text = str(scorePlayer)
 
 func menu_terminado():
-	Global.score_MP = score
+	Global.score_MP = scorePlayer
 	$UI/ColorRect.show()
 	$UI/VBoxContainer.show()
 	

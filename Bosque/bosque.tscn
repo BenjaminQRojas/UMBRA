@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dend78tkmh2r5"]
+[gd_scene load_steps=35 format=3 uid="uid://dend78tkmh2r5"]
 
 [ext_resource type="Script" path="res://Bosque/bosque.gd" id="1_hoye0"]
 [ext_resource type="Texture2D" uid="uid://cgerdaep8x8lf" path="res://Bosque/Assets/Suelo/Cliff.png" id="1_j2dtg"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c0i8ryf7ofkyh" path="res://Bosque/Assets/Estructuras/Settlement.png" id="10_yws6j"]
 [ext_resource type="Texture2D" uid="uid://clssm2bp37rbo" path="res://Bosque/Assets/Estructuras/Stairs Bridge.png" id="11_qedr2"]
 [ext_resource type="Texture2D" uid="uid://5v7w3mmks1b1" path="res://Bosque/Assets/Estructuras/Stone Path Tileset.png" id="12_yqs3m"]
-[ext_resource type="Script" path="res://Bosque/entrada_castillo.gd" id="17_5ehp4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jkqg"]
 texture = ExtResource("1_j2dtg")
@@ -16615,8 +16614,7 @@ layer_4/tile_data = PackedInt32Array(-786404, 655373, 7, -720868, 655373, 8, -65
 [node name="Node" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Node"]
-visible = false
-color = Color(0.223529, 0.223529, 0.223529, 1)
+color = Color(0.360784, 0.360784, 0.360784, 0.584314)
 
 [node name="Main character" parent="." instance=ExtResource("7_kr7cl")]
 position = Vector2(128, 331)
@@ -16629,7 +16627,6 @@ position = Vector2(73, -11)
 shape = SubResource("CircleShape2D_kl42w")
 
 [node name="Area2D2" type="Area2D" parent="."]
-script = ExtResource("17_5ehp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 z_index = 3
@@ -16644,7 +16641,7 @@ shape = SubResource("RectangleShape2D_xs8k3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_area_2d_3_body_entered"]
 [connection signal="body_exited" from="Area2D3" to="." method="_on_area_2d_3_body_exited"]

@@ -142,3 +142,9 @@ func _input(event):
 			pickup_item.pick_up_item(self)
 			$PickupZone.items_in_range.erase(pickup_item)
 		
+
+
+func _on_area_deteccion_enemigo_body_entered(body):
+	if $Pivote/PointLight2D.enabled == true:
+		if body.name == "Enemigo":
+			body.dead()
