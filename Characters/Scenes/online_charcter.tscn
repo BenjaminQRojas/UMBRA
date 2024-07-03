@@ -266,7 +266,6 @@ texture = SubResource("CompressedTexture2D_yfvnv")
 texture_scale = 1.93
 
 [node name="sombras" type="PointLight2D" parent="."]
-visible = false
 blend_mode = 1
 range_item_cull_mask = 2
 shadow_enabled = true
@@ -282,8 +281,8 @@ position = Vector2(8, 5)
 
 [node name="area_luz" type="Area2D" parent="Pivote"]
 z_index = 2
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivote/area_luz"]
 z_index = 2
@@ -304,18 +303,6 @@ position = Vector2(34, -14)
 rotation = -0.195245
 scale = Vector2(0.0456573, 0.0357008)
 energy = 1.5
-shadow_enabled = true
-shadow_item_cull_mask = 15
-texture = ExtResource("5_tivm1")
-texture_scale = 10.0
-script = ExtResource("6_sgmhl")
-
-[node name="PointLight2D2" type="PointLight2D" parent="Pivote"]
-z_index = 2
-position = Vector2(34, -8)
-rotation = -0.139626
-scale = Vector2(0.041, 0.044)
-energy = 0.72
 shadow_enabled = true
 shadow_item_cull_mask = 15
 texture = ExtResource("5_tivm1")

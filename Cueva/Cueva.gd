@@ -1,6 +1,9 @@
 extends Node
 
+var sonido = preload("res://Cueva/Y2meta.app-Other-World-_128-kbps_.ogg")
+
 func _ready():
+	changeSound(sonido)
 	if Global.cue_first_loading == true:
 		$"Main character".position.x = Global.player_start_cue_posx
 		$"Main character".position.y = Global.player_start_cue_posy
@@ -36,3 +39,7 @@ func change_scene(lugar):
 				Global.finish_changescenes(lugar)
 				Global.cue_first_loading = false
 				#get_tree().change_scene_to_file()
+
+func changeSound(sound):
+	AudioPrincipal.stream = sound
+	AudioPrincipal.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b0yq5c6hwoqmj"]
+[gd_scene load_steps=24 format=3 uid="uid://b0yq5c6hwoqmj"]
 
 [ext_resource type="Script" path="res://Mapa Competitivo/mapa_competitivo.gd" id="1_lewqn"]
 [ext_resource type="Texture2D" uid="uid://o5mvkihkvbhf" path="res://Mapa Competitivo/Assets/32x32_DEMO.png" id="1_mme6q"]
@@ -9,12 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://c43xsvkkaadhr" path="res://Mapa Competitivo/Assets/Trees.png" id="6_elpdf"]
 [ext_resource type="Texture2D" uid="uid://c8h0m1b1qn1nb" path="res://Mapa Competitivo/Assets/Forest Structures.png" id="7_gyysg"]
 [ext_resource type="PackedScene" uid="uid://cgkxabyxtg8ti" path="res://Characters/Scenes/online_charcter.tscn" id="8_e1wkf"]
-[ext_resource type="PackedScene" uid="uid://cc4d7joxg5hec" path="res://Mapa Competitivo/Enemigo_prueba.tscn" id="10_bxl67"]
 [ext_resource type="PackedScene" uid="uid://cli0ty5usi7b5" path="res://Mapa Competitivo/Vida/BarraVida.tscn" id="11_des4n"]
 [ext_resource type="Script" path="res://Mapa Competitivo/Spawner.gd" id="11_o0rc6"]
 [ext_resource type="PackedScene" uid="uid://bnk44q8p727j5" path="res://Mapa Competitivo/multijugador_menu.tscn" id="12_qrpc1"]
 [ext_resource type="FontFile" uid="uid://b5glysunhn2en" path="res://Menu/Retro Gaming.ttf" id="13_dhot1"]
 [ext_resource type="FontFile" uid="uid://c07dmdwlgy5vn" path="res://Mapa Competitivo/text/game_over.ttf" id="15_8q6lp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v084"]
+radius = 38.4708
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nw5xy"]
 texture = ExtResource("1_mme6q")
@@ -12094,13 +12096,19 @@ sources/4 = SubResource("TileSetAtlasSource_3rb3t")
 sources/5 = SubResource("TileSetAtlasSource_esl4a")
 sources/6 = SubResource("TileSetAtlasSource_wwnlr")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2v084"]
-radius = 38.4708
-
 [node name="Mapa competitivo" type="Node"]
 script = ExtResource("1_lewqn")
 
-[node name="Control" type="Control" parent="."]
+[node name="Spawner" type="Area2D" parent="." groups=["mapa"]]
+script = ExtResource("11_o0rc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner"]
+shape = SubResource("CircleShape2D_2v084")
+
+[node name="cooldown" type="Timer" parent="Spawner"]
+wait_time = 5.0
+
+[node name="Control" type="Control" parent="." groups=["mapa"]]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -1.0
@@ -12108,19 +12116,19 @@ offset_top = 15.0
 offset_right = 1919.0
 offset_bottom = 1095.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" groups=["mapa"]]
 layout_mode = 0
 offset_left = 1711.0
 offset_top = 233.0
 offset_right = 1921.0
 offset_bottom = 462.0
 
-[node name="timer_label" type="Label" parent="Control"]
+[node name="timer_label" type="Label" parent="Control" groups=["mapa"]]
 layout_mode = 0
 offset_right = 80.0
 offset_bottom = 45.0
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." groups=["mapa"]]
 tile_set = SubResource("TileSet_iws4s")
 format = 2
 layer_0/name = "terreno base"
@@ -12138,39 +12146,27 @@ layer_4/name = "estructuras"
 layer_4/z_index = 2
 layer_4/tile_data = PackedInt32Array(65534, 655366, 15, 131070, 655366, 13, 196606, 655366, 14, 262142, 655366, 15, 327678, 655366, 16, 65535, 720902, 15, 131071, 720902, 13, 196607, 720902, 14, 262143, 720902, 15, 327679, 720902, 16, 0, 786438, 15, 65536, 786438, 13, 131072, 786438, 14, 196608, 786438, 15, 262144, 786438, 16, -131074, 655366, 12, -65538, 655366, 13, -2, 655366, 14, -131073, 720902, 12, -65537, 720902, 13, -1, 720902, 14, -196608, 786438, 12, -131072, 786438, 13, -65536, 786438, 14, -65454, 983046, 12, 82, 983046, 13, 65618, 983046, 14, 131154, 983046, 14, 196690, 983046, 15, -65455, 917510, 12, 81, 917510, 13, 65617, 917510, 14, 131153, 917510, 14, 196689, 917510, 15, -65456, 851974, 12, 80, 851974, 13, 65616, 851974, 14, 131152, 851974, 14, 196688, 851974, 15, 262224, 851974, 16, 262225, 917510, 16, 262226, 983046, 16, -393268, 262150, 8, -327732, 262150, 9, -262196, 262150, 8, -196660, 262150, 9, -131124, 262150, 10, -393267, 327686, 8, -327731, 327686, 9, -262195, 327686, 8, -196659, 327686, 9, -131123, 327686, 10, -393266, 393222, 8, -327730, 393222, 9, -262194, 393222, 8, -196658, 393222, 9, -131122, 393222, 10, -589876, 262150, 8, -524340, 262150, 9, -458804, 262150, 7, -589875, 327686, 8, -524339, 327686, 9, -458803, 327686, 7, -589874, 393222, 8, -524338, 393222, 9, -458802, 393222, 7, -720948, 262150, 6, -655412, 262150, 7, -720947, 327686, 6, -655411, 327686, 7, -720946, 393222, 6, -655410, 393222, 7)
 
-[node name="OnlineCharcter" parent="TileMap" instance=ExtResource("8_e1wkf")]
+[node name="OnlineCharcter" parent="TileMap" groups=["jugador"] instance=ExtResource("8_e1wkf")]
 z_index = 2
 position = Vector2(102, 147)
 speed = 75
 knockbackPower = 1000
 
-[node name="EnemigoPrueba" parent="TileMap" instance=ExtResource("10_bxl67")]
-position = Vector2(148, 183)
+[node name="CanvasModulate" type="CanvasModulate" parent="." groups=["mapa"]]
 
-[node name="Spawner" type="Area2D" parent="TileMap"]
-script = ExtResource("11_o0rc6")
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["mapa"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Spawner"]
-shape = SubResource("CircleShape2D_2v084")
+[node name="heartsContainer" parent="CanvasLayer" groups=["mapa"] instance=ExtResource("11_des4n")]
 
-[node name="cooldown" type="Timer" parent="TileMap/Spawner"]
-wait_time = 5.0
+[node name="HTTPRequest" type="HTTPRequest" parent="." groups=["mapa"]]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="UI" type="CanvasLayer" parent="." groups=["mapa"]]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("11_des4n")]
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Control" parent="UI" instance=ExtResource("12_qrpc1")]
+[node name="Control" parent="UI" groups=["mapa"] instance=ExtResource("12_qrpc1")]
 process_mode = 3
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
+[node name="ColorRect" type="ColorRect" parent="UI" groups=["mapa"]]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -12185,7 +12181,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.141176, 0.141176, 0.141176, 0.505882)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" groups=["mapa"]]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -12196,28 +12192,28 @@ offset_right = 152.0
 offset_bottom = 175.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="UI/VBoxContainer"]
+[node name="Label" type="Label" parent="UI/VBoxContainer" groups=["mapa"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_dhot1")
 theme_override_font_sizes/font_size = 30
 text = "APRETE LA LETRA \"SHIFT + ENTER\" PARA GUARDAR SUS DATOS
 "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." groups=["mapa"]]
 visible = false
 offset_left = 1570.0
 offset_top = 328.0
 offset_right = 1916.0
 offset_bottom = 667.0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer" groups=["mapa"]]
 layout_mode = 2
 text = "LISTA DE PUNTAJES:"
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer" groups=["mapa"]]
 layout_mode = 2
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." groups=["mapa"]]
 
 [node name="Labels" type="CanvasLayer" parent="."]
 
@@ -12225,18 +12221,11 @@ layout_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 50.0
-offset_right = -1820.0
-offset_bottom = -917.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0.854902, 0.709804, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("15_8q6lp")
-theme_override_font_sizes/font_size = 200
-text = "0"
+=======
+[node name="Score" type="CanvasLayer" parent="." groups=["mapa"]]
+
+[node name="Label" type="Label" parent="Score" groups=["mapa"]]
+
 
 [node name="Titulo_ lista" type="Label" parent="Labels"]
 anchors_preset = 1
@@ -12268,4 +12257,6 @@ theme_override_font_sizes/font_size = 180
 text = "00:00"
 
 [connection signal="timeout" from="TileMap/Spawner/cooldown" to="TileMap/Spawner" method="_on_cooldown_timeout"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+=======
+[connection signal="timeout" from="Spawner/cooldown" to="Spawner" method="_on_cooldown_timeout"]
+
