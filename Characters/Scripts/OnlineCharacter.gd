@@ -99,10 +99,11 @@ func knockback(enemyVelocity: Vector2):
 	print_debug(position)
 	print_debug(" ")
 
-
-func _on_area_luz_body_entered(body):
-	if body.name == "Enemigo":
+func _on_area_luz_body_entered(body: Node):
+	print_debug(body.name)
+	if $Pivote/PointLight2D.enabled == true and is_enemy(body):
 		emit_signal("scoreUp")
-		print_debug(score)
-		print_debug(body.name)
 		body.dead()
+
+func is_enemy(node: Node) -> bool:
+	return node.is_class("CharacterBody2D")

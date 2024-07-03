@@ -9,10 +9,7 @@ var player_chase = false
 # referencia al AnimatedSprite2D
 @onready var animated_sprite = $AnimationPlayer
 
-signal enemigo_eliminado(enemigo)
 
-func _ready():
-	$hitBox.connect("body_entered", Callable(self, "_on_body_entered"))
 
 
 func _physics_process(_delta):
@@ -44,12 +41,6 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(_body):
 	player = null
 	player_chase = false
-	
-
-# Función llamada cuando un cuerpo entra en el hitBox del enemigo
-func _on_body_entered(body):
-	if body.name == "area_luz":  # Asegúrate de que el nombre es correcto
-		dead()
 
 # Función para eliminar al enemigo
 func dead():

@@ -20,7 +20,7 @@ func spawn():
 	$cooldown.start()
 	bool_spawn = false
 	# Obtener la referencia al nodo del jugador
-	var jugador_node = $"../OnlineCharcter"
+	var jugador_node = $"../TileMap/OnlineCharcter"
 	
 	if jugador_node == null:
 		print("Error: No se encontró el nodo del jugador.")

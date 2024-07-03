@@ -1,8 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://bgjmtsrhs1p42"]
+[gd_scene load_steps=42 format=3 uid="uid://bgjmtsrhs1p42"]
 
 [ext_resource type="Script" path="res://Characters/Scripts/main_character.gd" id="1_tgsgf"]
 [ext_resource type="Texture2D" uid="uid://cbwa42wksti1" path="res://Characters/Resourses/modificadas/movement + attack.png" id="2_60mjt"]
-[ext_resource type="Texture2D" path="res://.godot/imported/light2.png-f9bdf1bf6cd3a529e8a2f1baef43a11a.ctex" id="3_qm5q2"]
 [ext_resource type="Texture2D" uid="uid://bpb3yq3c42y4e" path="res://Objetos extras/Linterna/linterna.png" id="4_twy4t"]
 [ext_resource type="Texture2D" uid="uid://eqf3tqpn6sww" path="res://Objetos extras/Linterna/Sprite-0001.png" id="5_8qs5q"]
 [ext_resource type="Script" path="res://Characters/Scenes/linterna.gd" id="6_qpgwl"]
@@ -585,7 +584,6 @@ energy = 0.83
 range_z_min = -1028
 range_item_cull_mask = 15
 shadow_enabled = true
-texture = ExtResource("3_qm5q2")
 texture_scale = 1.93
 
 [node name="sombras" type="PointLight2D" parent="."]
@@ -593,7 +591,6 @@ visible = false
 blend_mode = 1
 range_item_cull_mask = 2
 shadow_enabled = true
-texture = ExtResource("3_qm5q2")
 texture_scale = 10.0
 
 [node name="Timer" type="Timer" parent="."]
