@@ -12219,20 +12219,53 @@ layout_mode = 2
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Score" type="CanvasLayer" parent="."]
+[node name="Labels" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="Score"]
+[node name="Score" type="Label" parent="Labels"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 7.0
-offset_top = 43.0
-offset_right = 51.0
-offset_bottom = 179.0
+offset_top = 50.0
+offset_right = -1820.0
+offset_bottom = -917.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.854902, 0.709804, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("15_8q6lp")
 theme_override_font_sizes/font_size = 200
 text = "0"
+
+[node name="Titulo_ lista" type="Label" parent="Labels"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -416.0
+offset_bottom = 287.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.823529, 0.658824, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_8q6lp")
+theme_override_font_sizes/font_size = 180
+text = "Lista de puntajes"
+horizontal_alignment = 2
+
+[node name="Timer" type="Label" parent="Labels"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_right = 118.0
+offset_bottom = 142.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.847059, 0.698039, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_8q6lp")
+theme_override_font_sizes/font_size = 180
+text = "00:00"
 
 [connection signal="timeout" from="TileMap/Spawner/cooldown" to="TileMap/Spawner" method="_on_cooldown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
