@@ -9,10 +9,11 @@ var score = 3
 @onready var http_request = $HTTPRequest
 @onready var playerName_input = $UI/Control/VBoxContainer/LineEdit
 @onready var timer = $Timer
+@onready var timerLabel = $Labels/Timer
 var scorePlayer := 0
 
 func _ready():
-	player.connect("scoreUp",subirScore)
+	player.connect("scoreUp", subirScore)
 	heartsContainer.setMaxHearts(player.maxHealth)
 	heartsContainer.updateHearts(player.currentHealth)
 	player.healthChanged.connect(heartsContainer.updateHearts)
@@ -24,9 +25,8 @@ func _ready():
 	timer.start()
 
 func subirScore():
-	scorePlayer+=1
-	$Score/Label.text = str(scorePlayer)
-	pass
+	scorePlayer += 1
+	$Labels/Score.text = str(scorePlayer)
 
 func menu_terminado():
 	Global.score_MP = scorePlayer
@@ -37,7 +37,23 @@ func _input(event):
 	if event.is_action_pressed("guardar_datos"):
 		$UI/ColorRect.hide()
 		$UI/VBoxContainer.hide()
-	
+
+func tiempo_total() -> Array:
+	var tiempo_restante = timer.time_left
+	var minutos = floor(tiempo_restante / 60)
+	var segundos = int(tiempo_restante) % 60
+	return [minutos, segundos]
+
+func _process(delta: float) -> void:
+	var tiempo = tiempo_total()
+	var minutos = tiempo[0]
+	var segundos = tiempo[1]
+
+	# Verifica si el nodo 'timerLabel' no es nulo
+	if timerLabel != null:
+		timerLabel.text = "%02d:%02d" % [minutos, segundos]
+	else:
+		print("El nodo 'Timer' no existe o no está inicializado.")
 
 func juego_iniciado():
 	var headers = [
@@ -50,8 +66,6 @@ func juego_iniciado():
 		print("Solicitud HTTP GET enviada con éxito")
 
 func juego_terminado(nickname, ptj):
-	
-	
 	var headers = ["Content-type: application/json", "Authorization: Bearer " + api_key]
 	
 	var json_body = {
@@ -76,7 +90,7 @@ func eliminar_datos():
 	if eliminados != OK:
 		print("Error al enviar la solicitud HTTP DELETE: %s" % str(eliminados))
 	else:
-		print("Solicitud HTTP DELETE enviada con éxito")	
+		print("Solicitud HTTP DELETE enviada con éxito")    
 
 func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
@@ -97,14 +111,17 @@ func actualizar_lista_scores(data):
 	elif typeof(data) == TYPE_DICTIONARY:
 		juego_iniciado()
 		pass
-		#list += "%s, %d\n" % [data["playerName"], data["score"]]
 	elif typeof(data) == TYPE_ARRAY and data.size() == 0:
 		list = "No hay puntajes."
 	else:
 		list = "No hay puntajes."
-	$VBoxContainer/Label2.text = list
 
-
+	# Verifica si el nodo 'Label2' no es nulo
+	var label = $VBoxContainer.get_node("Label2")
+	if label != null:
+		label.text = list
+	else:
+		print("El nodo 'Label2' no existe o no está inicializado.")
 
 func _on_timer_timeout():
 	menu_terminado()
