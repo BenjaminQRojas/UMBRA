@@ -12261,6 +12261,5 @@ theme_override_colors/font_color = Color(0.823529, 0.658824, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("15_8q6lp")
 theme_override_font_sizes/font_size = 80
-text = "a"
 
 [connection signal="timeout" from="Spawner/cooldown" to="Spawner" method="_on_cooldown_timeout"]
