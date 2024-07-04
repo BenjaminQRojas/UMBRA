@@ -13,17 +13,7 @@ func _physics_process(_delta):
 	if player_chase:
 		var direction = (player.position - position).normalized()
 		position += direction * SPEED * _delta
-		# cambia la animación según la dirección
-		if abs(direction.x) > abs(direction.y):
-			if direction.x > 0:
-				animated_sprite.play("walk_right")
-			else:
-				animated_sprite.play("walk_left")
-		else:
-			if direction.y > 0:
-				animated_sprite.play("walk_front")
-			else:
-				animated_sprite.play("walk_back")
+		animated_sprite.play("walk")
 	move_and_slide()
 
 # funcion de deteccion de "cuerpo" (player) en el area

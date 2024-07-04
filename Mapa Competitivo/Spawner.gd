@@ -3,7 +3,7 @@ extends Area2D
 @onready var enemigo1 = load("res://Enemigos/Enemigo1/Scenes/enemigo.tscn")
 @onready var enemigo2 = load("res://Enemigos/Enemigo2/Scenes/Enemigo2.tscn")
 @onready var enemigo3 = load("res://Enemigos/Enemigo3/Scenes/Enemigo3.tscn")
-@export var spawn_radius: float = 200.0  # Radio alrededor del jugador donde aparecerán los enemigos
+@onready var main_script = get_tree().get_root().get_node("Mapa competitivo")
 var bool_spawn = true
 
 var random = RandomNumberGenerator.new()
@@ -19,21 +19,35 @@ func _process(delta: float) -> void:
 		spawn()
 
 func spawn():
+	var score = main_script.scorePlayer
+	print_debug(score)
 	$cooldown.start()
 	bool_spawn = false
 	# Obtener la referencia al nodo del jugador
 	var jugador_node = $"../TileMap/OnlineCharcter"
-	
 	if jugador_node == null:
 		print("Error: No se encontró el nodo del jugador.")
 		return
-	var enemigo_instance = enemigo1.instantiate()
-	var angle = randf() * 2.0 * PI
-	var distance = randf() * spawn_radius
-	var offset = Vector2(cos(angle), sin(angle)) * distance
-	enemigo_instance.position = jugador_node.position + offset
-	print_debug(enemigo_instance.name)
-	add_child(enemigo_instance)
+	if score < 10:
+		var enemigo_instance = enemigo1.instantiate()
+		enemigo_instance.position = jugador_node.position + Vector2(200,0).rotated(randf_range(0,2*PI))
+		print_debug(enemigo_instance.name)
+		add_child(enemigo_instance)
+	else:
+		if score >= 10 and score < 20:
+			for x in 3:
+				var enemigo_instance =enemigo2.instantiate()
+				enemigo_instance.position = jugador_node.position + Vector2(200,0).rotated(randf_range(0,2*PI))
+				print_debug(enemigo_instance.name)
+				add_child(enemigo_instance)
+		else:
+			if score >= 20:
+				for x in 6:
+					var enemigo_instance =enemigo3.instantiate()
+					enemigo_instance.position = jugador_node.position + Vector2(200,0).rotated(randf_range(0,2*PI))
+					print_debug(enemigo_instance.name)
+					add_child(enemigo_instance)
+	
 
 
 func _on_cooldown_timeout():

@@ -160,6 +160,7 @@ func _on_area_deteccion_enemigo_body_entered(body):
 	if $Pivote/PointLight2D.enabled == true and is_enemy(body):
 		body.dead()
 
+
 func _on_detection_area_body_entered(body):
 	if body.has_method("enemy"):
 		cientifico_in_range = true
@@ -167,6 +168,7 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	if body.has_method("enemy"):
 		cientifico_in_range = false
+
 
 func is_enemy(node: Node) -> bool:
 	return node.is_class("CharacterBody2D")

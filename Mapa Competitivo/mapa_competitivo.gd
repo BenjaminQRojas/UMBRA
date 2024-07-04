@@ -2,7 +2,6 @@ extends Node
 
 var url = "https://ucn-game-server.martux.cl/scores"
 var api_key: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzVjMzliZS1iNGJlLTRhNDgtYTIwMy03NzhkNDZkNzc1NjEiLCJrZXkiOiJDY1RzRVpWVXlEU2VMZnU4MmFaWHNMTXQzIiwiaWF0IjoxNzE5NDYxNTMzLCJleHAiOjE3NTA5OTc1MzN9.tLk9cTCOg0ENw00sMCW6qNJ9e0Tfvzt__IxLqWSAJtg"
-var score = 3
 
 @onready var heartsContainer = $CanvasLayer/heartsContainer
 @onready var player = $TileMap/OnlineCharcter
@@ -11,7 +10,7 @@ var score = 3
 @onready var timer = $Timer
 @onready var timerLabel = $Labels/Timer
 @onready var timer2 = $Timer2
-var scorePlayer := 0
+var scorePlayer :int = 0
 
 func _ready():
 	player.connect("scoreUp", subirScore)
@@ -131,6 +130,7 @@ func actualizar_lista_scores(data):
 		print("El nodo 'Label2' no existe o no está inicializado.")
 
 func _on_timer_timeout():
+	print("tiempo terminado")
 	menu_terminado()
 
 
