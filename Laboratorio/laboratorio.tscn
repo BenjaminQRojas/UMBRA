@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://d0oholqt08ib2"]
+[gd_scene load_steps=62 format=3 uid="uid://d0oholqt08ib2"]
 
 [ext_resource type="Script" path="res://Laboratorio/laboratorio.gd" id="1_04mok"]
 [ext_resource type="Texture2D" uid="uid://dcn1yijpqumq2" path="res://Laboratorio/mainlevbuild.png" id="1_x1gju"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bxe8olqln5k3u" path="res://Lore/Imagenes/Nota_3.png" id="15_xnhoo"]
 [ext_resource type="Texture2D" uid="uid://cviac1hw8kase" path="res://Lore/Imagenes/Nota_4.png" id="16_k08k4"]
 [ext_resource type="Texture2D" uid="uid://bpk32pc27cm4f" path="res://Lore/Imagenes/Guia_caracteres.png" id="17_3fggp"]
+[ext_resource type="FontFile" uid="uid://b5glysunhn2en" path="res://Menu/Retro Gaming.ttf" id="18_7pc6r"]
 [ext_resource type="Texture2D" uid="uid://bn7s81cg5l3e5" path="res://Lore/Imagenes/NOT_FOUND.png" id="18_d081t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mapli"]
@@ -2222,9 +2223,6 @@ z_index = 4
 offset_right = 146.0
 offset_bottom = 69.0
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [node name="Area2D" type="Area2D" parent="."]
 z_index = 2
 
@@ -2339,6 +2337,79 @@ position = Vector2(960, 540)
 scale = Vector2(0.807, 0.837)
 texture = ExtResource("18_d081t")
 
+[node name="Inicio" type="Timer" parent="."]
+
+[node name="Controles_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Objetivo_timer" type="Timer" parent="."]
+
+[node name="Cuidados_timer" type="Timer" parent="."]
+
+[node name="Introduccion" type="CanvasLayer" parent="."]
+
+[node name="Controles" type="Label" parent="Introduccion"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.5
+offset_top = -207.5
+offset_right = 445.5
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("18_7pc6r")
+theme_override_font_sizes/font_size = 30
+text = "Con las letras A,W,S,D podrás moverte.
+Con la letra F podrás encender o apagar tu linterna.
+Con la letra I podrás ver tu inventario.
+Con click izquiero podrás interactuar o recoger cosas.
+"
+
+[node name="Objetivo" type="Label" parent="Introduccion"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -739.0
+offset_top = -207.5
+offset_right = 739.0
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("18_7pc6r")
+theme_override_font_sizes/font_size = 30
+text = "Tendrás que resolver puzzles, econtrar objetos para poder entrar a salas
+ y descubrir por que estás acá.
+Estarán tiradas por todos los mapas notas que el cientifico ha hecho, una 
+vez las encuentres, podrás leer su contenido con las letras 1,2,3 Y 4.
+Además, para resolver los acertijos deberás encontrar una guía de 
+carácterer, esta te ayudara a resolverlos, una vez la encuentres, podrás 
+acceder a su contenido con la letra 0."
+
+[node name="Cuidados" type="Label" parent="Introduccion"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -739.0
+offset_top = -207.5
+offset_right = 739.0
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("18_7pc6r")
+theme_override_font_sizes/font_size = 30
+text = "Pero cuidado... enemigos acechan en la oscuridad, deberás llegar hasta el
+final, y descubrir por qué estas ahí."
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
@@ -2346,3 +2417,7 @@ texture = ExtResource("18_d081t")
 [connection signal="body_entered" from="Puzzle" to="." method="_on_puzzle_body_entered"]
 [connection signal="body_exited" from="Puzzle" to="." method="_on_puzzle_body_exited"]
 [connection signal="pressed" from="Puzzle/CollisionShape2D/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Inicio" to="." method="_on_inicio_timeout"]
+[connection signal="timeout" from="Controles_timer" to="." method="_on_controles_timer_timeout"]
+[connection signal="timeout" from="Objetivo_timer" to="." method="_on_objetivo_timer_timeout"]
+[connection signal="timeout" from="Cuidados_timer" to="." method="_on_cuidados_timer_timeout"]

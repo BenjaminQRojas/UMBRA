@@ -5,13 +5,39 @@ var sonido = preload("res://Laboratorio/Y2meta.app-z3r0-8bit-Nightmare-_-8bit-Ho
 @onready var MenuNotas = $CanvasLayer2/Control/ColorRect
 @onready var nota1 = $CanvasLayer2/Control/ColorRect/Nota_1
 @onready var nota2 = $CanvasLayer2/Control/ColorRect/Nota_2
+@onready var timer_inicio = $Inicio
+@onready var timer_controles = $Controles_timer
+@onready var timer_objetivo = $Objetivo_timer
+@onready var timer_cuidados = $Cuidados_timer
+@onready var label_controles = $Introduccion/Controles
+@onready var label_objetivo = $Introduccion/Objetivo
+@onready var label_cuidados = $Introduccion/Cuidados
 
 
 func _ready():
+	label_controles.hide()
+	label_objetivo.hide()
+	label_cuidados.hide()
 	changeSound(sonido)
 	if Global.lab_first_loading == true:
 		$Main_character.position.x = Global.player_start_posx
 		$Main_character.position.y = Global.player_start_posy
+		timer_inicio.wait_time = 7.0
+		timer_inicio.one_shot = true
+		timer_inicio.start()
+		
+		timer_controles.wait_time = 22.0
+		timer_controles.one_shot = true
+		timer_controles.start()
+		
+		timer_objetivo.wait_time = 42.0
+		timer_objetivo.one_shot = true
+		timer_objetivo.start()
+		
+		timer_cuidados.wait_time = 52.0
+		timer_cuidados.one_shot = true
+		timer_cuidados.start()
+		
 	else:
 		if Global.escena_anterior == "bosque":
 			$Main_character.position.x = Global.player_exit_lab_posx
@@ -42,6 +68,7 @@ func _process(delta):
 
 func change_scene(lugar):
 	if Global.transtion_scene == true:
+		label_objetivo.text = ""
 		if Global.current_scene == "laboratorio":
 			if lugar == "catacumbas":
 				Global.finish_changescenes(lugar)
@@ -132,3 +159,21 @@ func toggle_visibility(nota_name):
 	else:
 		MenuNotas.show()
 		nota.show()
+
+
+func _on_inicio_timeout():
+	label_controles.show()
+
+
+func _on_controles_timer_timeout():
+	label_controles.hide()
+	label_objetivo.show()
+
+
+func _on_objetivo_timer_timeout():
+	label_objetivo.hide()
+	label_cuidados.show()
+
+
+func _on_cuidados_timer_timeout():
+	label_cuidados.hide()
