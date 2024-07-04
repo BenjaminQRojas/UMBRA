@@ -36,6 +36,31 @@
   "Note_1": {
     "ItemCategory": "Note",
     "StackSize": 1,
-    "Description": "Prueba de nota 1."
+    "Description": "Cientifico"
+  },
+  "Note_2": {
+    "ItemCategory": "Note",
+    "StackSize": 1,
+    "Description": "Experimentos"
+  },
+  "Note_3": {
+    "ItemCategory": "Note",
+    "StackSize": 1,
+    "Description": "Sujeto Perfecto"
+  },
+  "Note_4": {
+    "ItemCategory": "Note",
+    "StackSize": 1,
+    "Description": "Despertar"
+  },
+  "Guia_caracteres": {
+    "ItemCategory": "Guia",
+    "StackSize": 1,
+    "Description": "Con esta guia puedes decifrar los puzzles."
+  },
+  "Lantern": {
+    "ItemCategory": "Consumable",
+    "StackSize": 1,
+    "Description": "Una simple linterna."
   }
 }

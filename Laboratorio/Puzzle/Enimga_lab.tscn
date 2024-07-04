@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5kja5yad58s5"]
+[gd_scene load_steps=4 format=3 uid="uid://c5kja5yad58s5"]
 
 [ext_resource type="Script" path="res://Puzzle_lab1.gd" id="1_c3kon"]
-[ext_resource type="Texture2D" uid="uid://b2qh6ixbgxlvg" path="res://Imagenes/pixil-frame-0.png" id="2_2hn04"]
+[ext_resource type="Texture2D" uid="uid://bdaaddy2qaps8" path="res://Laboratorio/Puzzle/PUZZLE_1.png" id="2_x124h"]
+[ext_resource type="FontFile" uid="uid://b5glysunhn2en" path="res://Menu/Retro Gaming.ttf" id="3_1y04q"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -72,8 +73,8 @@ text = "
 
 [node name="Sprite2D" type="Sprite2D" parent="ColorRect/UI/VBoxContainer/HBoxContainer/Label"]
 position = Vector2(488.5, 241.5)
-scale = Vector2(1.71656, 1.27374)
-texture = ExtResource("2_2hn04")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_x124h")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/UI/VBoxContainer"]
 layout_mode = 2
@@ -82,23 +83,27 @@ size_flags_vertical = 8
 [node name="Button" type="Button" parent="ColorRect/UI/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_1y04q")
 theme_override_font_sizes/font_size = 30
-text = "Hombre es culpado por asesinar a su ****"
+text = "HASBRO"
 
 [node name="Button2" type="Button" parent="ColorRect/UI/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1y04q")
 theme_override_font_sizes/font_size = 30
-text = "Huellas eternas, criaturas perdidas, acechan, aguardando ****"
+text = "UMBRA"
 
 [node name="Button3" type="Button" parent="ColorRect/UI/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1y04q")
 theme_override_font_sizes/font_size = 30
-text = "Hoy, espectros caminan, perpetuando antiguas agonías ****"
+text = "DRIKEN"
 
 [node name="Button4" type="Button" parent="ColorRect/UI/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1y04q")
 theme_override_font_sizes/font_size = 30
-text = "Hay ecos, criaturas perdidas, acechando, anhelando ****"
+text = "HAISEN"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
