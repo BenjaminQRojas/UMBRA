@@ -46,6 +46,15 @@ var cue_first_loading = true
 var cas1_first_loading = true
 var cas2_first_loading = true
 
+var player_ent_puzzle_bos_posx = 474
+var player_ent_puzzle_bos_posy = 60
+var acerto_bos = false
+
+var nota1_encontrada = false
+var nota2_encontrada = false
+var nota3_encontrada = false
+var nota4_encontrada = false
+var guia_encontrada = false
 
 var score_MP = 1
 var termino_MP = false
@@ -73,6 +82,9 @@ func finish_changescenes(lugar):
 			elif lugar == "castillo1":
 				current_scene = "castillo1"
 				escena_anterior = "bosque"
+			elif lugar == "puzzle_bos":
+				current_scene = "puzzle_bos"
+				escena_anterior = "bosque"
 		elif current_scene == "catacumbas":
 			if lugar == "laboratorio":
 				current_scene = "laboratorio"
@@ -99,3 +111,7 @@ func finish_changescenes(lugar):
 			if lugar == "laboratorio":
 				current_scene = "laboratorio"
 				escena_anterior = "puzzle"
+		elif current_scene == "puzzle_bos":
+			if lugar == "bosque":
+				current_scene = "bosque"
+				escena_anterior = "puzzle_bos"
