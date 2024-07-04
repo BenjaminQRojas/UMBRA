@@ -2220,7 +2220,6 @@ shape = SubResource("RectangleShape2D_1hoc5")
 [node name="Settings" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Settings"]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
