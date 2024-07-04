@@ -2349,6 +2349,7 @@ autostart = true
 [node name="Introduccion" type="CanvasLayer" parent="."]
 
 [node name="Controles" type="Label" parent="Introduccion"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
