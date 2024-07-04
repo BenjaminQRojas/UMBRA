@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://xrgr4444852j"]
+[gd_scene load_steps=27 format=3 uid="uid://xrgr4444852j"]
 
 [ext_resource type="Texture2D" uid="uid://dyu7qqfj4t10l" path="res://2°Castillo/Assets/mainlevbuild.png" id="1_a2amr"]
 [ext_resource type="Script" path="res://2°Castillo/Castillo_2.gd" id="1_q83ma"]
