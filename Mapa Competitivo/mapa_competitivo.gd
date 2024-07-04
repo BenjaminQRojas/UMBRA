@@ -131,6 +131,7 @@ func actualizar_lista_scores(data):
 		print("El nodo 'Label2' no existe o no está inicializado.")
 
 func _on_timer_timeout():
+	print("tiempo terminado")
 	menu_terminado()
 
 
