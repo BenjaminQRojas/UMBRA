@@ -6,11 +6,7 @@ const num_inventory_slots = 20
 
 
 var inventory = {
-	0: ["Iron Sword", 1],
-	1: ["Iron Sword", 1],
-	2: ["Note_1", 2],
-	3: ["Slime Potion", 98],
-	4: ["Slime Potion", 44]
+	0: ["Lantern", 1]
 }
 
 #var hotbar = {

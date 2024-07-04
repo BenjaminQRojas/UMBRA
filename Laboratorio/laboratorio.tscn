@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://d0oholqt08ib2"]
+[gd_scene load_steps=63 format=3 uid="uid://d0oholqt08ib2"]
 
 [ext_resource type="Script" path="res://Laboratorio/laboratorio.gd" id="1_04mok"]
 [ext_resource type="Texture2D" uid="uid://dcn1yijpqumq2" path="res://Laboratorio/mainlevbuild.png" id="1_x1gju"]
@@ -11,7 +11,14 @@
 [ext_resource type="Script" path="res://Laboratorio/UserInterface.gd" id="10_hcw2w"]
 [ext_resource type="PackedScene" uid="uid://dcsvaiescnhf5" path="res://Pausa/Pausa_Menu.tscn" id="10_jfb4o"]
 [ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="11_itjfy"]
+[ext_resource type="PackedScene" uid="uid://dfqw2h2me8muf" path="res://Inventario/guia_caracteres.tscn" id="12_gsuer"]
 [ext_resource type="PackedScene" uid="uid://cu75vwjhmo2p7" path="res://Inventario/item_drop.tscn" id="12_ugygr"]
+[ext_resource type="Texture2D" uid="uid://cyx5i0ua7yjbi" path="res://Lore/Imagenes/Nota_1.png" id="13_it201"]
+[ext_resource type="Texture2D" uid="uid://c28ewhlycrmn6" path="res://Lore/Imagenes/Nota_2.png" id="14_ne05n"]
+[ext_resource type="Texture2D" uid="uid://bxe8olqln5k3u" path="res://Lore/Imagenes/Nota_3.png" id="15_xnhoo"]
+[ext_resource type="Texture2D" uid="uid://cviac1hw8kase" path="res://Lore/Imagenes/Nota_4.png" id="16_k08k4"]
+[ext_resource type="Texture2D" uid="uid://bpk32pc27cm4f" path="res://Lore/Imagenes/Guia_caracteres.png" id="17_3fggp"]
+[ext_resource type="Texture2D" uid="uid://bn7s81cg5l3e5" path="res://Lore/Imagenes/NOT_FOUND.png" id="18_d081t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mapli"]
 texture = ExtResource("1_x1gju")
@@ -2213,6 +2220,7 @@ shape = SubResource("RectangleShape2D_1hoc5")
 [node name="Settings" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Settings"]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -2265,18 +2273,81 @@ script = ExtResource("10_hcw2w")
 [node name="Inventario" parent="UserInterface" instance=ExtResource("11_itjfy")]
 visible = false
 
+[node name="CharacterBody2D" parent="." instance=ExtResource("12_gsuer")]
+position = Vector2(331, 371)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0666667, 0.00784314, 0.701961)
+
+[node name="Nota_1" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807385, 0.836941)
+texture = ExtResource("13_it201")
+
+[node name="Nota_2" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("14_ne05n")
+
+[node name="Nota_3" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("15_xnhoo")
+
+[node name="Nota_4" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("16_k08k4")
+
+[node name="Guia_caracteres" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("17_3fggp")
+
+[node name="No_encontrada" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("18_d081t")
+
 [node name="ItemDrop" parent="." instance=ExtResource("12_ugygr")]
-position = Vector2(132, 226)
-collision_layer = 8
-collision_mask = 4
-
-[node name="ItemDrop2" parent="." instance=ExtResource("12_ugygr")]
-position = Vector2(186, 241)
-collision_layer = 8
-collision_mask = 4
-
-[node name="ItemDrop3" parent="." instance=ExtResource("12_ugygr")]
-position = Vector2(147, 283)
+position = Vector2(145, 279)
 collision_layer = 8
 collision_mask = 4
 
