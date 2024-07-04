@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwcy23wp4vqn6"]
+[gd_scene load_steps=20 format=3 uid="uid://bwcy23wp4vqn6"]
 
 [ext_resource type="Script" path="res://Cueva/Cueva.gd" id="1_kjbq6"]
 [ext_resource type="Texture2D" uid="uid://cjehmgoocxie" path="res://Cueva/Assets/MainLev2.0.png" id="1_xutrw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bn7s81cg5l3e5" path="res://Lore/Imagenes/NOT_FOUND.png" id="12_iklny"]
 [ext_resource type="Script" path="res://Laboratorio/UserInterface.gd" id="13_waas8"]
 [ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="14_3gbi0"]
+[ext_resource type="PackedScene" uid="uid://bl8p4xvhoa25d" path="res://Inventario/Llave.tscn" id="15_y71jb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xgax"]
 texture = ExtResource("1_xutrw")
@@ -6756,6 +6757,9 @@ script = ExtResource("13_waas8")
 
 [node name="Inventario" parent="UserInterface" instance=ExtResource("14_3gbi0")]
 visible = false
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("15_y71jb")]
+position = Vector2(3278, -26)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

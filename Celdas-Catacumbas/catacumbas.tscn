@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://xde6wq6iecpj"]
+[gd_scene load_steps=48 format=3 uid="uid://xde6wq6iecpj"]
 
 [ext_resource type="Texture2D" uid="uid://8isq5evrjw51" path="res://Celdas-Catacumbas/assets/mainlevbuild.png" id="1_vithb"]
 [ext_resource type="Script" path="res://Celdas-Catacumbas/catacumbas.gd" id="1_ysgyx"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bn7s81cg5l3e5" path="res://Lore/Imagenes/NOT_FOUND.png" id="19_72wkq"]
 [ext_resource type="Script" path="res://Laboratorio/UserInterface.gd" id="20_nl35c"]
 [ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="21_drqr3"]
+[ext_resource type="PackedScene" uid="uid://c1wu3ydl7hcr4" path="res://Inventario/navaja.tscn" id="22_3lgaq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbmf1"]
 texture = ExtResource("1_vithb")
@@ -4177,6 +4178,9 @@ script = ExtResource("20_nl35c")
 
 [node name="Inventario" parent="UserInterface" instance=ExtResource("21_drqr3")]
 visible = false
+
+[node name="Node2D2" parent="." instance=ExtResource("22_3lgaq")]
+position = Vector2(378, 454)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

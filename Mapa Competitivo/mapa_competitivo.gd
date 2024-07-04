@@ -25,6 +25,7 @@ func _ready():
 	timer.start()
 
 func subirScore():
+	juego_iniciado()
 	scorePlayer += 1
 	$Labels/Score.text = str(scorePlayer)
 
@@ -115,6 +116,7 @@ func actualizar_lista_scores(data):
 		list = "No hay puntajes."
 	else:
 		list = "No hay puntajes."
+	$Labels/Puntajes.text = list
 
 	# Verifica si el nodo 'Label2' no es nulo
 	var label = $VBoxContainer.get_node("Label2")

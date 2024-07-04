@@ -57,6 +57,7 @@ shape = SubResource("RectangleShape2D_k8kri")
 libraries = {
 "": SubResource("AnimationLibrary_s8w47")
 }
+autoplay = "Float"
 
 [node name="Area2D" type="Area2D" parent="."]
 

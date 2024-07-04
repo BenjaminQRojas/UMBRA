@@ -55,6 +55,8 @@ var nota2_encontrada = false
 var nota3_encontrada = false
 var nota4_encontrada = false
 var guia_encontrada = false
+var navaja = false
+var llave = false
 
 var score_MP = 1
 var termino_MP = false

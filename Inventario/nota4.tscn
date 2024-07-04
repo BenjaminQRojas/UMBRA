@@ -55,3 +55,4 @@ shape = SubResource("RectangleShape2D_leaqx")
 libraries = {
 "": SubResource("AnimationLibrary_2lke7")
 }
+autoplay = "Float"

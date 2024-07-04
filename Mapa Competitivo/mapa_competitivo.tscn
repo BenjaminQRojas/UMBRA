@@ -12212,6 +12212,7 @@ text = "LISTA DE PUNTAJES:"
 
 [node name="Label2" type="Label" parent="VBoxContainer" groups=["mapa"]]
 layout_mode = 2
+text = "jjjjj"
 
 [node name="Timer" type="Timer" parent="." groups=["mapa"]]
 
@@ -12226,8 +12227,8 @@ anchor_bottom = 1.0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -416.0
-offset_bottom = 287.0
+offset_left = -576.0
+offset_bottom = 117.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 theme_override_colors/font_color = Color(0.823529, 0.658824, 0, 1)
@@ -12250,5 +12251,16 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("15_8q6lp")
 theme_override_font_sizes/font_size = 180
 text = "00:00"
+
+[node name="Puntajes" type="Label" parent="Labels"]
+offset_left = 1395.0
+offset_top = 120.0
+offset_right = 1920.0
+offset_bottom = 470.0
+theme_override_colors/font_color = Color(0.823529, 0.658824, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_8q6lp")
+theme_override_font_sizes/font_size = 80
+text = "a"
 
 [connection signal="timeout" from="Spawner/cooldown" to="Spawner" method="_on_cooldown_timeout"]

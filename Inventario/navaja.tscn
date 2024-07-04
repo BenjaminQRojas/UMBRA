@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy5l8t0cl4jm4"]
+[gd_scene load_steps=7 format=3 uid="uid://c1wu3ydl7hcr4"]
 
-[ext_resource type="Script" path="res://Inventario/nota3.gd" id="1_6h7jk"]
-[ext_resource type="Texture2D" uid="uid://c5oh0jatmm8o7" path="res://Inventario/Item_icons/Note_3.png" id="1_swlxn"]
+[ext_resource type="Texture2D" uid="uid://brov2w6cc3xfl" path="res://Inventario/Item_icons/Navaja.png" id="1_4g60y"]
+[ext_resource type="Script" path="res://Inventario/navaja.gd" id="1_6lxhl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oireq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyglp"]
 
-[sub_resource type="Animation" id="Animation_mcvjy"]
+[sub_resource type="Animation" id="Animation_cnxcu"]
 resource_name = "Float"
 loop_mode = 1
 tracks/0/type = "value"
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -1)]
 }
 
-[sub_resource type="Animation" id="Animation_l35cs"]
+[sub_resource type="Animation" id="Animation_belx6"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -36,23 +36,23 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wn428"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pf03k"]
 _data = {
-"Float": SubResource("Animation_mcvjy"),
-"RESET": SubResource("Animation_l35cs")
+"Float": SubResource("Animation_cnxcu"),
+"RESET": SubResource("Animation_belx6")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_6h7jk")
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_6lxhl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_swlxn")
+texture = ExtResource("1_4g60y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_oireq")
+shape = SubResource("RectangleShape2D_cyglp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_wn428")
+"": SubResource("AnimationLibrary_pf03k")
 }
 autoplay = "Float"

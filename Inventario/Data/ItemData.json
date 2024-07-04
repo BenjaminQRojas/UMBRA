@@ -62,5 +62,15 @@
     "ItemCategory": "Consumable",
     "StackSize": 1,
     "Description": "Una simple linterna."
+  },
+  "Navaja": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "Un arma, una decision."
+  },
+  "Llave": {
+    "ItemCategory": "Consumable",
+    "StackSize": 1,
+    "Description": "Que puedes abrir?"
   }
 }
