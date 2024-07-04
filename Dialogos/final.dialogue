@@ -3,10 +3,21 @@ Cientifico: Con que eres tu desgraciado
 Umbra: Que sucede, me conoces?
 Cientifico: No se me olvidaria la cara de aquella persona que le robo la vida a mi hija
 Umbra: Que estas hablando?
+Cientifico: Tu sabes perfectamente de lo que estoy hablando, por eso estas aqui
+Umbra: Pero...
+Flashback: Umbra secuestrando a una chica
+... : Nadie puede saber la verdad...
+... : Matalo...
+Umbra: No... 
+Cientifico: Con quien estas hablando!?
+... : MATALO
 - Asesinar
-	Cientifico: una victima mas
+	Cientifico: Espera...
+	Cientifico: Que estas haciendo?
+	Umbra: Veras a tu hija pronto
 	=> END
-- Perdonar
+- Dejar vivir
 	Cientifico: Te vi sufrir
 	Cientifico: Ahora te matare
 	=> END
+=> END

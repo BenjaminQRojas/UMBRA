@@ -10,7 +10,7 @@ extends CharacterBody2D
 @onready var efecto = $Effects
 @onready var timerHurt = $hurtTimer
 @onready var regenerationTimer = $regenerationTimer
-
+@onready var cooldown = $cooldown
 @onready var currentHealth: int = maxHealth
 
 var Door = false
@@ -83,6 +83,9 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("Take"):
 			DialogueManager.show_dialogue_balloon(load("res://Dialogos/final.dialogue"),"start")
 			dialogue_shown = true
+			cooldown.wait_time = 30.0
+			cooldown.one_shot = true
+			cooldown.start()
 			return 
 	
 	if not isTaking:
@@ -160,6 +163,8 @@ func _on_area_deteccion_enemigo_body_entered(body):
 	if $Pivote/PointLight2D.enabled == true and is_enemy(body):
 		body.dead()
 
+func dead():
+	pass
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("enemy"):
@@ -172,3 +177,6 @@ func _on_detection_area_body_exited(body):
 
 func is_enemy(node: Node) -> bool:
 	return node.is_class("CharacterBody2D")
+
+func _on_cooldown_timeout():
+	get_tree().change_scene_to_file("res://Creditos/credits.tscn")

@@ -1,4 +1,4 @@
 extends Node
 
 @onready var dialogoInicio = true
-@onready var dialogofinal = true
+@onready var dialogofinal = false
