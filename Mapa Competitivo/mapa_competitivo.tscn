@@ -12153,7 +12153,7 @@ speed = 75
 knockbackPower = 1000
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." groups=["mapa"]]
-color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["mapa"]]
 
