@@ -30,13 +30,10 @@ func _ready():
 		timer_controles.one_shot = true
 		timer_controles.start()
 		
-		timer_objetivo.wait_time = 42.0
+		timer_objetivo.wait_time = 37.0
 		timer_objetivo.one_shot = true
 		timer_objetivo.start()
 		
-		timer_cuidados.wait_time = 52.0
-		timer_cuidados.one_shot = true
-		timer_cuidados.start()
 		
 	else:
 		if Global.escena_anterior == "bosque":
@@ -167,13 +164,13 @@ func _on_inicio_timeout():
 
 func _on_controles_timer_timeout():
 	label_controles.hide()
-	label_objetivo.show()
+	
 
 
 func _on_objetivo_timer_timeout():
-	label_objetivo.hide()
-	label_cuidados.show()
+	pass
+
 
 
 func _on_cuidados_timer_timeout():
-	label_cuidados.hide()
+	pass

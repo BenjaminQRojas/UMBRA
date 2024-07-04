@@ -2349,25 +2349,24 @@ autostart = true
 [node name="Introduccion" type="CanvasLayer" parent="."]
 
 [node name="Controles" type="Label" parent="Introduccion"]
-visible = false
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -445.5
-offset_top = -207.5
-offset_right = 445.5
-offset_bottom = 207.5
+offset_left = -525.5
+offset_top = 50.0
+offset_right = 525.5
+offset_bottom = 465.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_fonts/font = ExtResource("18_7pc6r")
 theme_override_font_sizes/font_size = 30
 text = "Con las letras A,W,S,D podrás moverte.
 Con la letra F podrás encender o apagar tu linterna.
 Con la letra I podrás ver tu inventario.
 Con click izquiero podrás interactuar o recoger cosas.
-"
+
+Con las teclas 1,2,3 y 4 podrás acceder a las notas 
+recolectadas.
+Con la tecla 0 podrás acceder a la guía de carácteres."
 
 [node name="Objetivo" type="Label" parent="Introduccion"]
 visible = false
