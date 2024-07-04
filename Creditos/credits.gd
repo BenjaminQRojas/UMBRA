@@ -1,4 +1,4 @@
 extends Control
 
 func _on_back_pressed():
-	get_tree().change_scene_to_file("res://Menu/Escenas/MenuPrincipal.tscn")
+	get_tree().change_scene_to_file("res://Menu/Escenas/Test.tscn")
