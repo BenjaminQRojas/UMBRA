@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xrgr4444852j"]
+[gd_scene load_steps=22 format=3 uid="uid://xrgr4444852j"]
 
 [ext_resource type="Texture2D" uid="uid://dyu7qqfj4t10l" path="res://2°Castillo/Assets/mainlevbuild.png" id="1_a2amr"]
 [ext_resource type="Script" path="res://2°Castillo/Castillo_2.gd" id="1_q83ma"]
@@ -7,6 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://bs6iv2rply4fw" path="res://Celdas-Catacumbas/assets/decoraciones/decorative.png" id="4_iebh5"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="5_8ygg5"]
 [ext_resource type="Texture2D" uid="uid://m67walflmqax" path="res://1°Castillo/Assets/Decoraciones/light.png" id="6_w5s4n"]
+[ext_resource type="Texture2D" uid="uid://cyx5i0ua7yjbi" path="res://Lore/Imagenes/Nota_1.png" id="8_doa0c"]
+[ext_resource type="Texture2D" uid="uid://c28ewhlycrmn6" path="res://Lore/Imagenes/Nota_2.png" id="9_7sman"]
+[ext_resource type="Texture2D" uid="uid://bxe8olqln5k3u" path="res://Lore/Imagenes/Nota_3.png" id="10_82yq3"]
+[ext_resource type="Texture2D" uid="uid://cviac1hw8kase" path="res://Lore/Imagenes/Nota_4.png" id="11_c2m38"]
+[ext_resource type="Texture2D" uid="uid://bpk32pc27cm4f" path="res://Lore/Imagenes/Guia_caracteres.png" id="12_vcoj0"]
+[ext_resource type="Texture2D" uid="uid://bn7s81cg5l3e5" path="res://Lore/Imagenes/NOT_FOUND.png" id="13_b3sce"]
+[ext_resource type="Script" path="res://Laboratorio/UserInterface.gd" id="14_dr8ci"]
+[ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="15_k7jda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wjwrt"]
 texture = ExtResource("1_a2amr")
@@ -2844,6 +2852,80 @@ position = Vector2(302, 114)
 z_index = 1
 position = Vector2(312, 58)
 shape = SubResource("CapsuleShape2D_nx77q")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0666667, 0.00784314, 0.701961)
+
+[node name="Nota_1" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807385, 0.836941)
+texture = ExtResource("8_doa0c")
+
+[node name="Nota_2" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("9_7sman")
+
+[node name="Nota_3" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("10_82yq3")
+
+[node name="Nota_4" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("11_c2m38")
+
+[node name="Guia_caracteres" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("12_vcoj0")
+
+[node name="No_encontrada" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("13_b3sce")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+script = ExtResource("14_dr8ci")
+
+[node name="Inventario" parent="UserInterface" instance=ExtResource("15_k7jda")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

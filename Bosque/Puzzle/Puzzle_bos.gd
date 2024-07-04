@@ -6,31 +6,32 @@ var acerto = false
 func _on_button_pressed():
 	acerto = false
 	Global.transtion_scene = true
-	change_scene("laboratorio")
+	change_scene("bosque")
 	
 
 func _on_button_2_pressed():
-	acerto = true
+	acerto = false
 	Global.transtion_scene = true
-	change_scene("laboratorio")
+	change_scene("bosque")
 
 
 func _on_button_3_pressed():
-	acerto = false
+	acerto = true
 	Global.transtion_scene = true
-	change_scene("laboratorio")
+	change_scene("bosque")
 
 
 func _on_button_4_pressed():
 	acerto = false
 	Global.transtion_scene = true
-	change_scene("laboratorio")
+	change_scene("bosque")
 
 func change_scene(lugar):
+	print(Global.current_scene)
 	if Global.transtion_scene == true:
-		if Global.current_scene == "puzzle":
-			if lugar == "laboratorio":
+		if Global.current_scene == "puzzle_bos":
+			if lugar == "bosque":
 				Global.finish_changescenes(lugar)
-				Global.acerto = acerto
-				get_tree().change_scene_to_file("res://Laboratorio/laboratorio.tscn")
+				Global.acerto_bos = acerto
+				get_tree().change_scene_to_file("res://Bosque/bosque.tscn")
 			

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxh7vo7ge7hyn"]
+[gd_scene load_steps=24 format=3 uid="uid://dxh7vo7ge7hyn"]
 
 [ext_resource type="Script" path="res://1°Castillo/Castillo_1.gd" id="1_63rx3"]
 [ext_resource type="Texture2D" uid="uid://d0ep7wsf7b0ft" path="res://1°Castillo/Assets/mainlevbuild.png" id="1_poi8a"]
@@ -7,6 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://bkbrngatn26hs" path="res://1°Castillo/Assets/Decoraciones/lightB01.png" id="4_0np2k"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="5_y8y7h"]
 [ext_resource type="Texture2D" uid="uid://m67walflmqax" path="res://1°Castillo/Assets/Decoraciones/light.png" id="6_canjm"]
+[ext_resource type="PackedScene" uid="uid://od8tsuysf1k6" path="res://Inventario/nota4.tscn" id="8_bohyw"]
+[ext_resource type="Texture2D" uid="uid://cyx5i0ua7yjbi" path="res://Lore/Imagenes/Nota_1.png" id="9_d8wl4"]
+[ext_resource type="Texture2D" uid="uid://c28ewhlycrmn6" path="res://Lore/Imagenes/Nota_2.png" id="10_sipsn"]
+[ext_resource type="Texture2D" uid="uid://bxe8olqln5k3u" path="res://Lore/Imagenes/Nota_3.png" id="11_x1ffc"]
+[ext_resource type="Texture2D" uid="uid://cviac1hw8kase" path="res://Lore/Imagenes/Nota_4.png" id="12_tkft2"]
+[ext_resource type="Texture2D" uid="uid://bpk32pc27cm4f" path="res://Lore/Imagenes/Guia_caracteres.png" id="13_0oxnm"]
+[ext_resource type="Texture2D" uid="uid://bn7s81cg5l3e5" path="res://Lore/Imagenes/NOT_FOUND.png" id="14_ctgdv"]
+[ext_resource type="Script" path="res://Laboratorio/UserInterface.gd" id="15_l7oj1"]
+[ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="16_u1354"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pg688"]
 resource_name = "castillo"
@@ -4208,6 +4217,7 @@ texture = ExtResource("6_canjm")
 [node name="Node" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Node"]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Main character" parent="." instance=ExtResource("5_y8y7h")]
@@ -4225,6 +4235,85 @@ shape = SubResource("CapsuleShape2D_m54lw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(-337, 27)
 shape = SubResource("RectangleShape2D_tgmem")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("8_bohyw")]
+position = Vector2(197, -133)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0666667, 0.00784314, 0.701961)
+
+[node name="Nota_1" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807385, 0.836941)
+texture = ExtResource("9_d8wl4")
+
+[node name="Nota_2" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("10_sipsn")
+
+[node name="Nota_3" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("11_x1ffc")
+
+[node name="Nota_4" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("12_tkft2")
+
+[node name="Guia_caracteres" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("13_0oxnm")
+
+[node name="No_encontrada" type="Sprite2D" parent="CanvasLayer2/Control/ColorRect"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.807, 0.837)
+texture = ExtResource("14_ctgdv")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+script = ExtResource("15_l7oj1")
+
+[node name="Inventario" parent="UserInterface" instance=ExtResource("16_u1354")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
