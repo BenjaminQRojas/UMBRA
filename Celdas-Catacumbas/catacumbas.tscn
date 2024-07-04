@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://xde6wq6iecpj"]
+[gd_scene load_steps=39 format=3 uid="uid://xde6wq6iecpj"]
 
 [ext_resource type="Texture2D" uid="uid://8isq5evrjw51" path="res://Celdas-Catacumbas/assets/mainlevbuild.png" id="1_vithb"]
 [ext_resource type="Script" path="res://Celdas-Catacumbas/catacumbas.gd" id="1_ysgyx"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Celdas-Catacumbas/antorcha.gd" id="8_jwml2"]
 [ext_resource type="Texture2D" uid="uid://gao2uevyh3or" path="res://Celdas-Catacumbas/assets/vela 1 sprite sheet.png" id="8_rt8yp"]
 [ext_resource type="Script" path="res://Celdas-Catacumbas/vela1.gd" id="9_k7mnh"]
+[ext_resource type="PackedScene" uid="uid://c8bbmkdt3ymdo" path="res://Enemigos/Enemigo1/Scenes/enemigo.tscn" id="13_pmnwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbmf1"]
 texture = ExtResource("1_vithb")
@@ -4077,6 +4078,9 @@ occluder = SubResource("OccluderPolygon2D_11h2m")
 
 [node name="Main character" parent="." instance=ExtResource("3_p1ylc")]
 position = Vector2(6, 94)
+
+[node name="Enemigo" parent="." instance=ExtResource("13_pmnwn")]
+position = Vector2(570, 349)
 
 [node name="Settings" type="Node" parent="."]
 

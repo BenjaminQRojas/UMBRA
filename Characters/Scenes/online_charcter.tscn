@@ -319,5 +319,9 @@ shape = SubResource("RectangleShape2D_60rud")
 [node name="hurtTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="ScoreHolder" type="Node2D" parent="."]
+metadata/score = 0
+
+[connection signal="scoreUp" from="." to="." method="_on_score_up"]
 [connection signal="body_entered" from="Pivote/area_luz" to="." method="_on_area_luz_body_entered"]
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

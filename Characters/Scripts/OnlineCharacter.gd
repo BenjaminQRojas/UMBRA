@@ -6,6 +6,7 @@ signal healthChanged
 signal scoreUp
 @export var score = 0
 
+
 @export var speed = 80
 @onready var animations = $Movimiento
 @onready var effects = $Efectos
@@ -21,6 +22,7 @@ signal scoreUp
 func _ready():
 	effects.play("RESET")
 	flashlight_area.connect("body_entered", Callable(self, "_on_area_luz_body_entered"))
+	get_node("ScoreHolder").score = score  # Connect player score to ScoreHolder
 
 func handleInput():
 	var moveDirection = Vector2.ZERO
