@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6l0827vdcfje"]
 
-[ext_resource type="Texture2D" uid="uid://dd6df8vjsu3yx" path="res://Menu/Imagenes/_abda9aee-b05d-4feb-93cd-e4e424583fc3.jpg" id="1_vc1mt"]
+[ext_resource type="Texture2D" uid="uid://c8l86ybjnxjgh" path="res://Menu/Diseño sin título.png" id="1_4g68s"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -9,6 +9,6 @@ position = Vector2(641, 357)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 z_index = 1
-position = Vector2(318, 186)
-scale = Vector2(1.87109, 1.05664)
-texture = ExtResource("1_vc1mt")
+position = Vector2(320, 178)
+scale = Vector2(1.82969, 1.50833)
+texture = ExtResource("1_4g68s")
