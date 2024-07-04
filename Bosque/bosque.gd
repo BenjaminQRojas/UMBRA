@@ -5,6 +5,7 @@ var sonido = preload("res://Bosque/Y2meta.app-Run-As-Fast-As-You-Can-_128-kbps_.
 @onready var MenuNotas = $CanvasLayer2/Control/ColorRect
 @onready var nota1 = $CanvasLayer2/Control/ColorRect/Nota_1
 @onready var nota2 = $CanvasLayer2/Control/ColorRect/Nota_2
+@onready var faltante = $CanvasLayer/Label
 
 func _ready():
 	changeSound(sonido)
@@ -76,11 +77,14 @@ func _on_area_2d_2_body_entered(body):
 		if body.has_method("player"):
 			Global.transtion_scene = true
 			change_scene("castillo1")
+	elif Global.acerto_bos == true and Global.llave == false:
+		faltante.show()
 
 
 func _on_area_2d_2_body_exited(body):
 	if body.has_method("player"):
 		Global.transtion_scene = false
+		faltante.hide()
 		
 func changeSound(sound):
 	AudioPrincipal.stream = sound

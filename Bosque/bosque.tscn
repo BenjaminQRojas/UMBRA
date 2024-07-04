@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dend78tkmh2r5"]
+[gd_scene load_steps=46 format=3 uid="uid://dend78tkmh2r5"]
 
 [ext_resource type="Script" path="res://Bosque/bosque.gd" id="1_hoye0"]
 [ext_resource type="Texture2D" uid="uid://cgerdaep8x8lf" path="res://Bosque/Assets/Suelo/Cliff.png" id="1_j2dtg"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bn7s81cg5l3e5" path="res://Lore/Imagenes/NOT_FOUND.png" id="23_dgc1j"]
 [ext_resource type="Script" path="res://Laboratorio/UserInterface.gd" id="24_xqlln"]
 [ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="25_1nsx6"]
+[ext_resource type="FontFile" uid="uid://b5glysunhn2en" path="res://Menu/Retro Gaming.ttf" id="26_2q7af"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jkqg"]
 texture = ExtResource("1_j2dtg")
@@ -16736,6 +16737,18 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle"]
 position = Vector2(481, 34)
 shape = SubResource("RectangleShape2D_8tqap")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 578.0
+offset_top = 54.0
+offset_right = 1412.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("26_2q7af")
+theme_override_font_sizes/font_size = 100
+text = "Falta la llave"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
