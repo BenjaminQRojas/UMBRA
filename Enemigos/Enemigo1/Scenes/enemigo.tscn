@@ -576,7 +576,7 @@ height = 56.0
 size = Vector2(33, 27)
 
 [node name="Enemigo" type="CharacterBody2D"]
-z_index = 2
+z_index = 1
 position = Vector2(5, -15)
 scale = Vector2(0.8, 0.8)
 collision_layer = 2
@@ -601,10 +601,10 @@ libraries = {
 "": SubResource("AnimationLibrary_vbn33")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AreaDetenccionjugador" type="Area2D" parent="."]
 scale = Vector2(0.8, 0.8)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetenccionjugador"]
 position = Vector2(0, 16)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_boect")
@@ -632,5 +632,5 @@ position = Vector2(-4.5, 58.5)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_0dinv")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="AreaDetenccionjugador" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AreaDetenccionjugador" to="." method="_on_area_2d_body_exited"]
