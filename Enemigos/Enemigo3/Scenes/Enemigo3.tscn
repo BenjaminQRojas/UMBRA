@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://crs464lsu2fhx"]
+[gd_scene load_steps=12 format=3 uid="uid://crs464lsu2fhx"]
 
 [ext_resource type="Script" path="res://Enemigos/Enemigo3/Scripts/Enemigo3.gd" id="1_larw4"]
 [ext_resource type="Texture2D" uid="uid://c2v6dh7xtnlsu" path="res://Enemigos/Enemigo3/Resources/Boss_033.png" id="2_fwmdj"]
@@ -41,9 +41,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, -5)]
 }
-
-[sub_resource type="Animation" id="Animation_hs0fw"]
-resource_name = "new_animation"
 
 [sub_resource type="Animation" id="Animation_urkek"]
 resource_name = "walk_back"
@@ -216,7 +213,6 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mvowa"]
 _data = {
 "RESET": SubResource("Animation_bjaj0"),
-"new_animation": SubResource("Animation_hs0fw"),
 "walk_back": SubResource("Animation_urkek"),
 "walk_front": SubResource("Animation_r6qfh"),
 "walk_left": SubResource("Animation_swuty"),
