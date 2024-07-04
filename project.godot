@@ -27,6 +27,7 @@ JsonData="*res://Inventario/JSONData.gd"
 PlayerInventory="*res://Inventario/PlayerInventory.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 general="*res://general.gd"
+Curtain="*res://Creditos/Curtain.gd"
 
 [display]
 

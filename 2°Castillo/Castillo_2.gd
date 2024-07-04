@@ -81,3 +81,4 @@ func toggle_visibility(nota_name):
 	else:
 		MenuNotas.show()
 		nota.show()
+
