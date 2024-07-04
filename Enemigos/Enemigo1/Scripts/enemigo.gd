@@ -53,7 +53,9 @@ func _on_body_entered(body):
 
 # Función para eliminar al enemigo
 func dead():
-	animated_sprite.play("xplode")
+	player = null
+	player_chase = false
+	animated_sprite.play("muerte")
 	print_debug("muerto")
-	emit_signal("enemigo_eliminado", self)
+	#emit_signal("enemigo_eliminado", self)
 	queue_free()

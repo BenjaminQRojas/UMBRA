@@ -1,10 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8bbmkdt3ymdo"]
+[gd_scene load_steps=18 format=3 uid="uid://c8bbmkdt3ymdo"]
 
 [ext_resource type="Script" path="res://Enemigos/Enemigo1/Scripts/enemigo.gd" id="1_wn2vn"]
 [ext_resource type="Texture2D" uid="uid://bk5q6812l8uq0" path="res://Enemigos/Enemigo1/Resources/Sprite Boss 27.png" id="2_tpt5p"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xy066"]
+load_path = "res://.godot/imported/light.png-890e90d78b2a8a17e4d16648b23b4df2.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4mpj"]
-size = Vector2(31, 86)
+size = Vector2(30.8125, 51.5625)
 
 [sub_resource type="Animation" id="Animation_3dlou"]
 length = 0.001
@@ -472,7 +475,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_3r0co"]
-resource_name = "xplode"
+resource_name = "muerte"
 length = 0.8
 step = 0.2
 tracks/0/type = "value"
@@ -496,7 +499,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-4, 0), Vector2(-4, 0), Vector2(-4, 0), Vector2(-4, 0)]
 }
 tracks/2/type = "value"
@@ -508,7 +511,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-4, 0), Vector2(-4, 0), Vector2(-4, 0), Vector2(-4, 0)]
 }
 tracks/3/type = "value"
@@ -520,7 +523,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-4, 0), Vector2(-4, 0), Vector2(-4, 0), Vector2(-4, 0)]
 }
 tracks/4/type = "value"
@@ -532,7 +535,7 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-4, 0), Vector2(-4, 0), Vector2(-4, 0), Vector2(-4, 0)]
 }
 tracks/5/type = "value"
@@ -544,7 +547,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-4, -6), Vector2(-4, -6), Vector2(-4, -6), Vector2(-4, -6)]
 }
 
@@ -552,11 +555,11 @@ tracks/5/keys = {
 _data = {
 "RESET": SubResource("Animation_3dlou"),
 "idle": SubResource("Animation_tmvvg"),
+"muerte": SubResource("Animation_3r0co"),
 "walk_back": SubResource("Animation_ou6v0"),
 "walk_front": SubResource("Animation_pdqxh"),
 "walk_left": SubResource("Animation_n0l5u"),
-"walk_right": SubResource("Animation_ryiqw"),
-"xplode": SubResource("Animation_3r0co")
+"walk_right": SubResource("Animation_ryiqw")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_boect"]
@@ -582,7 +585,20 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_wn2vn")
 
+[node name="luces" type="PointLight2D" parent="."]
+show_behind_parent = true
+position = Vector2(-1.875, 14.1028)
+scale = Vector2(0.192681, 0.229008)
+color = Color(0.482353, 0.482353, 0.482353, 1)
+energy = 0.83
+range_z_min = -1028
+range_item_cull_mask = 15
+shadow_enabled = true
+texture = SubResource("CompressedTexture2D_xy066")
+texture_scale = 1.93
+
 [node name="ColisionEnemigo" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(-4, 30)
 shape = SubResource("RectangleShape2D_h4mpj")
@@ -598,13 +614,24 @@ libraries = {
 "": SubResource("AnimationLibrary_vbn33")
 }
 
+<<<<<<< Updated upstream
 [node name="Area2D" type="Area2D" parent="."]
+=======
+[node name="AreaDetenccionjugador" type="Area2D" parent="."]
+visible = false
+scale = Vector2(0.8, 0.8)
+>>>>>>> Stashed changes
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_boect")
 
 [node name="hitBox" type="Area2D" parent="."]
+<<<<<<< Updated upstream
+=======
+visible = false
+scale = Vector2(0.8, 0.8)
+>>>>>>> Stashed changes
 
 [node name="CollisionTorso" type="CollisionShape2D" parent="hitBox"]
 position = Vector2(-4, 16)
