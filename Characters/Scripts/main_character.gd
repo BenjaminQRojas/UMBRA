@@ -156,9 +156,9 @@ func _input(event):
 			$PickupZone.items_in_range.erase(pickup_item)
 		
 func _on_area_deteccion_enemigo_body_entered(body):
-	if $Pivote/PointLight2D.enabled == true:
-		if body.name == "Enemigo":
-			body.dead()
+	print_debug(body.name)
+	if $Pivote/PointLight2D.enabled == true and is_enemy(body):
+		body.dead()
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("enemy"):
@@ -167,3 +167,6 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	if body.has_method("enemy"):
 		cientifico_in_range = false
+
+func is_enemy(node: Node) -> bool:
+	return node.is_class("CharacterBody2D")
