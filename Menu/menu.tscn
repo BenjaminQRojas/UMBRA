@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv55cj0neg8a"]
+[gd_scene load_steps=6 format=3 uid="uid://dv55cj0neg8a"]
 
 [ext_resource type="Script" path="res://Menu/menu.gd" id="1_86e8b"]
 [ext_resource type="FontFile" uid="uid://b5glysunhn2en" path="res://Menu/Retro Gaming.ttf" id="1_kxjsv"]
 [ext_resource type="PackedScene" uid="uid://6l0827vdcfje" path="res://Menu/escena menu.tscn" id="1_nrl1f"]
 [ext_resource type="Texture2D" uid="uid://ok00nf7jbdni" path="res://icon.svg" id="4_jf4fa"]
+[ext_resource type="Texture2D" uid="uid://45b1c4vng78p" path="res://Menu/Imagenes/th.png" id="5_cativ"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -74,12 +75,44 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.87451, 0.380392, 0, 1)
 theme_override_fonts/font = ExtResource("1_kxjsv")
 theme_override_font_sizes/font_size = 30
-text = "Guayacan Studios"
+text = "
+
+
+
+
+
+
+
+
+Guayacan Studios"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("4_jf4fa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-778, -407)
+scale = Vector2(0.24585, 0.233887)
+texture = ExtResource("5_cativ")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -387.5
+offset_top = -450.0
+offset_right = 387.5
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_kxjsv")
+theme_override_font_sizes/font_size = 200
+text = "UMBRA"
 
 [connection signal="pressed" from="VBox botones/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBox botones/Salir" to="." method="_on_salir_pressed"]
