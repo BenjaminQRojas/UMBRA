@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://xrgr4444852j"]
+[gd_scene load_steps=28 format=3 uid="uid://xrgr4444852j"]
 
 [ext_resource type="Texture2D" uid="uid://dyu7qqfj4t10l" path="res://2°Castillo/Assets/mainlevbuild.png" id="1_a2amr"]
 [ext_resource type="Script" path="res://2°Castillo/Castillo_2.gd" id="1_q83ma"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bn7s81cg5l3e5" path="res://Lore/Imagenes/NOT_FOUND.png" id="13_b3sce"]
 [ext_resource type="Script" path="res://Laboratorio/UserInterface.gd" id="14_dr8ci"]
 [ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="15_k7jda"]
+[ext_resource type="PackedScene" uid="uid://cilddmx88c4eu" path="res://Enemigos/Cientifico/Scenes/Cientifico2.tscn" id="18_xvtvm"]
 
 [sub_resource type="Animation" id="Animation_invci"]
 length = 0.001
@@ -3032,6 +3033,9 @@ script = ExtResource("14_dr8ci")
 
 [node name="Inventario" parent="UserInterface" instance=ExtResource("15_k7jda")]
 visible = false
+
+[node name="Cientifico2" parent="." instance=ExtResource("18_xvtvm")]
+position = Vector2(0, -143)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

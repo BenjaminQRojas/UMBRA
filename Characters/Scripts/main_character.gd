@@ -16,6 +16,8 @@ extends CharacterBody2D
 var Door = false
 var currentDirection = ""
 var isTaking = false
+var cientifico_in_range = false
+var dialogue_shown = false
 
 func _ready():
 	efecto.play("RESET")
@@ -72,6 +74,17 @@ func handleCollision():
 		var collider = collision.get_collider()
 
 func _physics_process(delta):
+	if general.dialogoInicio:
+		DialogueManager.show_dialogue_balloon(load("res://Dialogos/inicio.dialogue"),"start")
+		general.dialogoInicio = false
+		return
+	
+	if cientifico_in_range and not dialogue_shown:
+		if Input.is_action_just_pressed("Take"):
+			DialogueManager.show_dialogue_balloon(load("res://Dialogos/final.dialogue"),"start")
+			dialogue_shown = true
+			return 
+	
 	if not isTaking:
 		handleInput()
 		move_and_slide()
@@ -142,9 +155,15 @@ func _input(event):
 			pickup_item.pick_up_item(self)
 			$PickupZone.items_in_range.erase(pickup_item)
 		
-
-
 func _on_area_deteccion_enemigo_body_entered(body):
 	if $Pivote/PointLight2D.enabled == true:
 		if body.name == "Enemigo":
 			body.dead()
+
+func _on_detection_area_body_entered(body):
+	if body.has_method("enemy"):
+		cientifico_in_range = true
+
+func _on_detection_area_body_exited(body):
+	if body.has_method("enemy"):
+		cientifico_in_range = false
