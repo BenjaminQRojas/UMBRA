@@ -1,4 +1,5 @@
 extends Node
+var a = 0
 
 var sonido = preload("res://Bosque/Y2meta.app-Run-As-Fast-As-You-Can-_128-kbps_.ogg")
 
