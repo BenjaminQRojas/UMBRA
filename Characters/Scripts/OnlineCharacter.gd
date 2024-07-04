@@ -82,6 +82,7 @@ func _on_hurt_box_area_entered(area):
 	if area.name == "hitBox":
 		currentHealth -= 1
 		if currentHealth < 0:
+			Global.vida_MP = false
 			currentHealth = maxHealth
 		healthChanged.emit(currentHealth)
 		knockback(area.get_parent().velocity)

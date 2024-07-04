@@ -61,6 +61,7 @@ text = "Regresar"
 [node name="Timer" type="Timer" parent="."]
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 1610.0
 offset_top = 1.0

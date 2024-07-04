@@ -60,6 +60,7 @@ var llave = false
 
 var score_MP = 1
 var termino_MP = false
+var vida_MP = true
 
 func finish_changescenes(lugar):
 	if transtion_scene == true:

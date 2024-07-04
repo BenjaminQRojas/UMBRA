@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://d0oholqt08ib2"]
+[gd_scene load_steps=62 format=3 uid="uid://d0oholqt08ib2"]
 
 [ext_resource type="Script" path="res://Laboratorio/laboratorio.gd" id="1_04mok"]
 [ext_resource type="Texture2D" uid="uid://dcn1yijpqumq2" path="res://Laboratorio/mainlevbuild.png" id="1_x1gju"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dcsvaiescnhf5" path="res://Pausa/Pausa_Menu.tscn" id="10_jfb4o"]
 [ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="11_itjfy"]
 [ext_resource type="PackedScene" uid="uid://dfqw2h2me8muf" path="res://Inventario/guia_caracteres.tscn" id="12_gsuer"]
-[ext_resource type="PackedScene" uid="uid://cu75vwjhmo2p7" path="res://Inventario/item_drop.tscn" id="12_ugygr"]
 [ext_resource type="Texture2D" uid="uid://cyx5i0ua7yjbi" path="res://Lore/Imagenes/Nota_1.png" id="13_it201"]
 [ext_resource type="Texture2D" uid="uid://c28ewhlycrmn6" path="res://Lore/Imagenes/Nota_2.png" id="14_ne05n"]
 [ext_resource type="Texture2D" uid="uid://bxe8olqln5k3u" path="res://Lore/Imagenes/Nota_3.png" id="15_xnhoo"]
@@ -2345,11 +2344,6 @@ visible = false
 position = Vector2(960, 540)
 scale = Vector2(0.807, 0.837)
 texture = ExtResource("18_d081t")
-
-[node name="ItemDrop" parent="." instance=ExtResource("12_ugygr")]
-position = Vector2(145, 279)
-collision_layer = 8
-collision_mask = 4
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

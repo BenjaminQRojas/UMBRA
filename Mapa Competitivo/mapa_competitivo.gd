@@ -10,6 +10,7 @@ var score = 3
 @onready var playerName_input = $UI/Control/VBoxContainer/LineEdit
 @onready var timer = $Timer
 @onready var timerLabel = $Labels/Timer
+@onready var timer2 = $Timer2
 var scorePlayer := 0
 
 func _ready():
@@ -23,6 +24,10 @@ func _ready():
 	timer.wait_time = 120.0
 	timer.one_shot = true
 	timer.start()
+	
+	timer2.wait_time = 1.0
+	timer2.one_shot = false
+	timer2.start()
 
 func subirScore():
 	juego_iniciado()
@@ -127,3 +132,9 @@ func actualizar_lista_scores(data):
 
 func _on_timer_timeout():
 	menu_terminado()
+
+
+func _on_timer_2_timeout():
+	if Global.vida_MP == false:
+		menu_terminado()
+		Global.vida_MP = true

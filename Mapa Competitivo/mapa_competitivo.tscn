@@ -12273,4 +12273,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("15_8q6lp")
 theme_override_font_sizes/font_size = 80
 
+[node name="Timer2" type="Timer" parent="."]
+
 [connection signal="timeout" from="Spawner/cooldown" to="Spawner" method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
