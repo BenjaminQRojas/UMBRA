@@ -13,7 +13,7 @@ config_version=5
 config/name="UMBRA"
 run/main_scene="res://Menu/Escenas/MenuPrincipal.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://ee221503-89c8-4500-ae16-5e488da7df83.svg"
 
 [autoload]
 
