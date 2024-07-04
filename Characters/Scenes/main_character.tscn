@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bgjmtsrhs1p42"]
+[gd_scene load_steps=43 format=3 uid="uid://bgjmtsrhs1p42"]
 
 [ext_resource type="Script" path="res://Characters/Scripts/main_character.gd" id="1_tgsgf"]
 [ext_resource type="Texture2D" uid="uid://cbwa42wksti1" path="res://Characters/Resourses/modificadas/movement + attack.png" id="2_60mjt"]
@@ -522,6 +522,9 @@ height = 26.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0nxp"]
 size = Vector2(20, 28)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p85pv"]
+radius = 30.0
+
 [node name="Main character" type="CharacterBody2D"]
 position = Vector2(-8, -5)
 collision_mask = 7
@@ -646,7 +649,15 @@ script = ExtResource("7_t6coo")
 position = Vector2(9, 2)
 shape = SubResource("RectangleShape2D_l0nxp")
 
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(9, 1)
+shape = SubResource("CircleShape2D_p85pv")
+
 [connection signal="body_entered" from="Pivote/AreaDeteccionEnemigo" to="." method="_on_area_deteccion_enemigo_body_entered"]
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="PickupZone" to="PickupZone" method="_on_body_entered"]
 [connection signal="body_exited" from="PickupZone" to="PickupZone" method="_on_body_exited"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

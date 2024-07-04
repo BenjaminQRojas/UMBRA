@@ -1,0 +1,12 @@
+~ start
+Cientifico: Con que eres tu desgraciado
+Umbra: Que sucede, me conoces?
+Cientifico: No se me olvidaria la cara de aquella persona que le robo la vida a mi hija
+Umbra: Que estas hablando?
+- Asesinar
+	Cientifico: una victima mas
+	=> END
+- Perdonar
+	Cientifico: Te vi sufrir
+	Cientifico: Ahora te matare
+	=> END
