@@ -1,28 +1,49 @@
 extends CharacterBody2D
-#aun no modifico el script, esta por defecto del characterbody2d
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+# velocidad enemigo
+const SPEED = 50.0
+# referencia al personaje
+var player = null
+var player_chase = false
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+# referencia al AnimatedSprite2D
+@onready var animated_sprite = $AnimationPlayer
 
-
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+func _physics_process(_delta):
+	if player_chase:
+		var direction = (player.position - position).normalized()
+		position += direction * SPEED * _delta
+		# cambia la animación según la dirección
+		if abs(direction.x) > abs(direction.y):
+			if direction.x > 0:
+				animated_sprite.play("walk_right")
+			else:
+				animated_sprite.play("walk_left")
+		else:
+			if direction.y > 0:
+				animated_sprite.play("walk_front")
+			else:
+				animated_sprite.play("walk_back")
+				
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		animated_sprite.play("idle")
 	move_and_slide()
+
+# funcion de deteccion de "cuerpo" (player) en el area
+func _on_area_deteccion_body_entered(body):
+	player = body
+	player_chase = true
+
+# funcion si sale el "cuerpo" del area de deteccion
+func _on_area_deteccion_body_exited(_body):
+	player = null
+	player_chase = false
+
+# Función para eliminar al enemigo
+func dead():
+	player = null
+	player_chase = false
+	#animated_sprite.play("muerte")
+	print_debug("muerto")
+	#emit_signal("enemigo_eliminado", self)
+	queue_free()

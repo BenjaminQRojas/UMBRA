@@ -1,6 +1,8 @@
 extends Area2D
 
-@onready var Escena_enemigo = load("res://Enemigos/Enemigo1/Scenes/enemigo.tscn")
+@onready var enemigo1 = load("res://Enemigos/Enemigo1/Scenes/enemigo.tscn")
+@onready var enemigo2 = load("res://Enemigos/Enemigo2/Scenes/Enemigo2.tscn")
+@onready var enemigo3 = load("res://Enemigos/Enemigo3/Scenes/Enemigo3.tscn")
 @export var spawn_radius: float = 200.0  # Radio alrededor del jugador donde aparecerán los enemigos
 var bool_spawn = true
 
@@ -25,8 +27,7 @@ func spawn():
 	if jugador_node == null:
 		print("Error: No se encontró el nodo del jugador.")
 		return
-	
-	var enemigo_instance = Escena_enemigo.instantiate()
+	var enemigo_instance = enemigo1.instantiate()
 	var angle = randf() * 2.0 * PI
 	var distance = randf() * spawn_radius
 	var offset = Vector2(cos(angle), sin(angle)) * distance
