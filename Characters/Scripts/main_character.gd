@@ -16,6 +16,7 @@ extends CharacterBody2D
 var Door = false
 var currentDirection = ""
 var isTaking = false
+var dialogo = true
 
 func _ready():
 	efecto.play("RESET")
@@ -72,6 +73,10 @@ func handleCollision():
 		var collider = collision.get_collider()
 
 func _physics_process(delta):
+	if general.empezarCinematica == true:
+		DialogueManager.show_dialogue_balloon(load("res://Dialogos/inicio.dialogue"),'start')
+		general.empezarCinematica = false
+		return
 	if not isTaking:
 		handleInput()
 		move_and_slide()

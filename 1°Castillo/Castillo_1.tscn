@@ -1,5 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dxh7vo7ge7hyn"]
-
+[gd_scene load_steps=35 format=3 uid="uid://dxh7vo7ge7hyn"]
 
 [ext_resource type="Script" path="res://1°Castillo/Castillo_1.gd" id="1_63rx3"]
 [ext_resource type="Texture2D" uid="uid://d0ep7wsf7b0ft" path="res://1°Castillo/Assets/mainlevbuild.png" id="1_poi8a"]
@@ -8,20 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://bkbrngatn26hs" path="res://1°Castillo/Assets/Decoraciones/lightB01.png" id="4_0np2k"]
 [ext_resource type="PackedScene" uid="uid://bgjmtsrhs1p42" path="res://Characters/Scenes/main_character.tscn" id="5_y8y7h"]
 [ext_resource type="Texture2D" uid="uid://m67walflmqax" path="res://1°Castillo/Assets/Decoraciones/light.png" id="6_canjm"]
+[ext_resource type="Texture2D" uid="uid://cmycpqf2k8dph" path="res://2°Castillo/candelabros.png" id="7_gnasr"]
 [ext_resource type="PackedScene" uid="uid://od8tsuysf1k6" path="res://Inventario/nota4.tscn" id="8_bohyw"]
+[ext_resource type="Script" path="res://2°Castillo/Candelabro.gd" id="8_m8spc"]
 [ext_resource type="Texture2D" uid="uid://cyx5i0ua7yjbi" path="res://Lore/Imagenes/Nota_1.png" id="9_d8wl4"]
+[ext_resource type="Texture2D" uid="uid://gao2uevyh3or" path="res://Celdas-Catacumbas/assets/vela 1 sprite sheet.png" id="10_n5q05"]
 [ext_resource type="Texture2D" uid="uid://c28ewhlycrmn6" path="res://Lore/Imagenes/Nota_2.png" id="10_sipsn"]
 [ext_resource type="Texture2D" uid="uid://bxe8olqln5k3u" path="res://Lore/Imagenes/Nota_3.png" id="11_x1ffc"]
+[ext_resource type="Script" path="res://Celdas-Catacumbas/vela1.gd" id="11_yrxon"]
+[ext_resource type="Texture2D" uid="uid://dhoympp3pml6f" path="res://Objetos extras/Linterna/light2.png" id="12_lwk5p"]
 [ext_resource type="Texture2D" uid="uid://cviac1hw8kase" path="res://Lore/Imagenes/Nota_4.png" id="12_tkft2"]
 [ext_resource type="Texture2D" uid="uid://bpk32pc27cm4f" path="res://Lore/Imagenes/Guia_caracteres.png" id="13_0oxnm"]
 [ext_resource type="Texture2D" uid="uid://bn7s81cg5l3e5" path="res://Lore/Imagenes/NOT_FOUND.png" id="14_ctgdv"]
 [ext_resource type="Script" path="res://Laboratorio/UserInterface.gd" id="15_l7oj1"]
 [ext_resource type="PackedScene" uid="uid://bc6apltmffpqe" path="res://Inventario/inventario.tscn" id="16_u1354"]
-[ext_resource type="Texture2D" uid="uid://cmycpqf2k8dph" path="res://2°Castillo/candelabros.png" id="7_gnasr"]
-[ext_resource type="Script" path="res://2°Castillo/Candelabro.gd" id="8_m8spc"]
-[ext_resource type="Texture2D" uid="uid://gao2uevyh3or" path="res://Celdas-Catacumbas/assets/vela 1 sprite sheet.png" id="10_n5q05"]
-[ext_resource type="Script" path="res://Celdas-Catacumbas/vela1.gd" id="11_yrxon"]
-[ext_resource type="Texture2D" uid="uid://dhoympp3pml6f" path="res://Objetos extras/Linterna/light2.png" id="12_lwk5p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pg688"]
 resource_name = "castillo"
