@@ -28,11 +28,26 @@ func spawn():
 	if jugador_node == null:
 		print("Error: No se encontró el nodo del jugador.")
 		return
+	if score < 10:
+		var enemigo_instance = enemigo1.instantiate()
+		enemigo_instance.position = jugador_node.position + Vector2(200,0).rotated(randf_range(0,2*PI))
+		print_debug(enemigo_instance.name)
+		add_child(enemigo_instance)
+	else:
+		if score >= 10 and score < 20:
+			for x in 3:
+				var enemigo_instance =enemigo2.instantiate()
+				enemigo_instance.position = jugador_node.position + Vector2(200,0).rotated(randf_range(0,2*PI))
+				print_debug(enemigo_instance.name)
+				add_child(enemigo_instance)
+		else:
+			if score >= 20:
+				for x in 6:
+					var enemigo_instance =enemigo3.instantiate()
+					enemigo_instance.position = jugador_node.position + Vector2(200,0).rotated(randf_range(0,2*PI))
+					print_debug(enemigo_instance.name)
+					add_child(enemigo_instance)
 	
-	var enemigo_instance = enemigo1.instantiate()
-	enemigo_instance.position = jugador_node.position + Vector2(200,0).rotated(randf_range(0,2*PI))
-	print_debug(enemigo_instance.name)
-	add_child(enemigo_instance)
 
 
 func _on_cooldown_timeout():

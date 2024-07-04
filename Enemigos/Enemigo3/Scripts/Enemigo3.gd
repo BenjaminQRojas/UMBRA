@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # velocidad enemigo
-const SPEED = 70.0
+const SPEED = 100.0
 # referencia al personaje
 var player = null
 var player_chase = false
